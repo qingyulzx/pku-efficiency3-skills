@@ -45,13 +45,20 @@ set to null + reason, status "partial". This guarantees a valid deliverable
 even if later steps fail. Use:
 
 ```
-python scripts/build_result.py --case /input/case.json --out /app/output/result.json --status partial --note "run started"
+python /skills/weekly-skill/scripts/build_result.py --case /input/case.json --out /app/output/result.json --status partial --note "run started"
 ```
+
+If that command fails for any reason (wrong CWD, missing interpreter module,
+anything), do NOT proceed without the floor: write `/app/output/result.json`
+by hand right now — `case_id` plus every `output_contract` field as `null`
+with a reason, status "partial". The skeleton must exist before Step 1.
+The skill is installed at `/skills/weekly-skill`; run scripts from there with
+absolute paths, or `cd /skills/weekly-skill` first.
 
 ### Step 1 — Extract the paper inventory
 
 ```
-python scripts/extract_paper.py --pdf <paper.pdf> \
+python /skills/weekly-skill/scripts/extract_paper.py --pdf <paper.pdf> \
     --out /app/work/paper_pages.json \
     --figdir /app/work/figs --extract-images
 ```
@@ -64,7 +71,7 @@ write the same JSON shape yourself — the downstream steps only read that JSON.
 ### Step 2 — Analyze the template
 
 ```
-python scripts/analyze_template.py --pptx <template.pptx> --out /app/work/template_map.json
+python /skills/weekly-skill/scripts/analyze_template.py --pptx <template.pptx> --out /app/work/template_map.json
 ```
 
 Produces the layout inventory and a role_map (title / section / content /
@@ -110,7 +117,7 @@ Author `/app/work/deck_plan.json` following
 ### Step 5 — Assemble the deck
 
 ```
-python scripts/assemble_deck.py --plan /app/work/deck_plan.json \
+python /skills/weekly-skill/scripts/assemble_deck.py --plan /app/work/deck_plan.json \
     --map /app/work/template_map.json --out /app/output/<case_id>.pptx \
     --max-slides <from case.json>
 ```
@@ -124,7 +131,7 @@ If it errors with the slide-count message, trim the plan — do not use
 ### Step 6 — Check and render
 
 ```
-python scripts/check_deck.py --deck /app/output/<case_id>.pptx \
+python /skills/weekly-skill/scripts/check_deck.py --deck /app/output/<case_id>.pptx \
     --plan /app/work/deck_plan.json --max-slides <N> --out /app/work/check_report.json
 ```
 
@@ -137,7 +144,7 @@ present, images on the right pages.
 ### Step 7 — Finalize result.json
 
 ```
-python scripts/build_result.py --case /input/case.json \
+python /skills/weekly-skill/scripts/build_result.py --case /input/case.json \
     --plan /app/work/deck_plan.json --check /app/work/check_report.json \
     --pptx /app/output/<case_id>.pptx --pdf /app/output/<case_id>_preview.pdf \
     --render-info /app/work/render_info.json --changes /app/work/changes.json \

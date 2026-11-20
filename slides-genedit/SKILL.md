@@ -38,8 +38,15 @@ deliverable. Improve it incrementally; never leave it as the skeleton.
 ## Step 1 — parse inputs, write the result.json floor (both routes)
 
 ```
-python scripts/parse_case.py --input /input/case.json --workdir /app/work --output-dir /app/output
+python /skills/weekly-skill/scripts/parse_case.py --input /input/case.json --workdir /app/work --output-dir /app/output
 ```
+
+If that command fails for any reason (wrong CWD, import error, anything),
+write the floor by hand right now: `/app/output/result.json` with `case_id`
+and every `output_contract` field as explicit `null` + reason, status
+"partial". The skeleton must exist before any extraction work. The skill is
+installed at `/skills/weekly-skill`; always invoke its scripts by absolute
+path (or `cd /skills/weekly-skill` first), never a bare `scripts/...`.
 
 Read the printed route hint AND the actual task text before committing to a
 route (the hint is evidence, not a verdict). Verify the constraint scan
@@ -87,7 +94,7 @@ intellectual step — do it yourself, not by template:
 ## Step 4 — assemble the deck (generate)
 
 ```
-python scripts/assemble_deck.py --outline /app/work/outline.json \
+python /skills/weekly-skill/scripts/assemble_deck.py --outline /app/work/outline.json \
   --template <template.pptx if provided> --out /app/output/deck_v1.pptx \
   --workdir /app/work/scratch
 ```
@@ -102,7 +109,7 @@ distorted, notes are attached.
 ## Step 2' — inventory the starting deck (edit)
 
 ```
-python scripts/inventory_deck.py --deck <starting.pptx> --out /app/work/inventory.json
+python /skills/weekly-skill/scripts/inventory_deck.py --deck <starting.pptx> --out /app/work/inventory.json
 ```
 
 Read the inventory. Locate the exact targets the instruction names (slide
@@ -121,7 +128,7 @@ ops is misuse — switch routes instead.
 ## Step 4' — apply edits and verify preservation (edit)
 
 ```
-python scripts/edit_deck.py --deck <starting.pptx> --ops /app/work/ops.json \
+python /skills/weekly-skill/scripts/edit_deck.py --deck <starting.pptx> --ops /app/work/ops.json \
   --out /app/output/deck_v2.pptx --workdir /app/work/scratch
 ```
 
@@ -133,7 +140,7 @@ playbook #9. Re-render, then deliver.
 ## Step 5 — render and check (both routes)
 
 ```
-python scripts/render_check.py --pptx /app/output/deck_v1.pptx --outdir /app/output/render/
+python /skills/weekly-skill/scripts/render_check.py --pptx /app/output/deck_v1.pptx --outdir /app/output/render/
 ```
 
 The PDF preview must exist with page count == slide count. Inspect the
