@@ -1,0 +1,507 @@
+{
+ "svg": "G:\\science challenge\\第三期\\w03-datachart\\tests\\example_run\\transformer_wmt_bleu.svg",
+ "glyphs": "G:\\science challenge\\第三期\\w03-datachart\\tests\\example_run\\transformer_wmt_bleu.glyphs.json",
+ "calibration": {
+  "y": {
+   "source": "svg_ticks",
+   "n_ticks": 9,
+   "max_residual": 1.3949023269788086e-07
+  },
+  "x": {
+   "source": "glyphs_axis_ends",
+   "reason": "tick labels not machine-readable or non-linear (log) axis"
+  }
+ },
+ "tolerances": {
+  "geometry_pt": 0.6,
+  "value_relative_of_span": 0.005
+ },
+ "value_span_used_for_tolerance": 45.0,
+ "glyphs_total": 15,
+ "checks_passed": 17,
+ "checks_failed": 0,
+ "checks_not_applicable": 0,
+ "svg_data_rectangles": 15,
+ "checks": [
+  {
+   "glyph": "bar/EN-DE/ByteNet",
+   "pass": true,
+   "expected_value": 23.75,
+   "readback_value": 23.75,
+   "abs_error": 1.8e-07,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 56.764,
+     "expected": 56.764,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 74.761,
+     "expected": 74.761,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 68.105,
+     "expected": 68.105,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-DE/GNMT + RL",
+   "pass": true,
+   "expected_value": 24.6,
+   "readback_value": 24.6,
+   "abs_error": 2e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 79.405,
+     "expected": 79.405,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 72.324,
+     "expected": 72.324,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 70.543,
+     "expected": 70.543,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-DE/ConvS2S",
+   "pass": true,
+   "expected_value": 25.16,
+   "readback_value": 25.16,
+   "abs_error": 6e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 102.045,
+     "expected": 102.045,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 70.718,
+     "expected": 70.718,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 72.148,
+     "expected": 72.148,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-DE/MoE",
+   "pass": true,
+   "expected_value": 26.03,
+   "readback_value": 26.03,
+   "abs_error": 1.3e-07,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 124.686,
+     "expected": 124.686,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 68.223,
+     "expected": 68.223,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 74.643,
+     "expected": 74.643,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-DE/GNMT + RL Ensemble",
+   "pass": true,
+   "expected_value": 26.3,
+   "readback_value": 26.3,
+   "abs_error": 3e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 147.327,
+     "expected": 147.327,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 67.449,
+     "expected": 67.449,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 75.417,
+     "expected": 75.417,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-DE/ConvS2S Ensemble",
+   "pass": true,
+   "expected_value": 26.36,
+   "readback_value": 26.36,
+   "abs_error": 5e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 169.968,
+     "expected": 169.968,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 67.277,
+     "expected": 67.277,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 75.59,
+     "expected": 75.59,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-DE/Transformer (base)",
+   "pass": true,
+   "expected_value": 27.3,
+   "readback_value": 27.3,
+   "abs_error": 8e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 192.609,
+     "expected": 192.609,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 64.581,
+     "expected": 64.581,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 78.285,
+     "expected": 78.285,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-DE/Transformer (big)",
+   "pass": true,
+   "expected_value": 28.4,
+   "readback_value": 28.4,
+   "abs_error": 8e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 215.25,
+     "expected": 215.25,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 61.427,
+     "expected": 61.427,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 81.439,
+     "expected": 81.439,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)"
+  },
+  {
+   "glyph": "bar/EN-FR/GNMT + RL",
+   "pass": true,
+   "expected_value": 39.92,
+   "readback_value": 39.92,
+   "abs_error": 2e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 88.461,
+     "expected": 88.461,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 28.392,
+     "expected": 28.392,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 114.474,
+     "expected": 114.474,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null"
+  },
+  {
+   "glyph": "bar/EN-FR/ConvS2S",
+   "pass": true,
+   "expected_value": 40.46,
+   "readback_value": 40.46,
+   "abs_error": 1.8e-07,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 111.102,
+     "expected": 111.102,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 26.844,
+     "expected": 26.844,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 116.022,
+     "expected": 116.022,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null"
+  },
+  {
+   "glyph": "bar/EN-FR/MoE",
+   "pass": true,
+   "expected_value": 40.56,
+   "readback_value": 40.56,
+   "abs_error": 3e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 133.743,
+     "expected": 133.743,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 26.557,
+     "expected": 26.557,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 116.309,
+     "expected": 116.309,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null"
+  },
+  {
+   "glyph": "bar/EN-FR/GNMT + RL Ensemble",
+   "pass": true,
+   "expected_value": 41.16,
+   "readback_value": 41.16,
+   "abs_error": 1.4e-07,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 156.383,
+     "expected": 156.383,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 24.836,
+     "expected": 24.836,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 118.03,
+     "expected": 118.03,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null"
+  },
+  {
+   "glyph": "bar/EN-FR/ConvS2S Ensemble",
+   "pass": true,
+   "expected_value": 41.29,
+   "readback_value": 41.29,
+   "abs_error": 1.2e-07,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 179.024,
+     "expected": 179.024,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 24.464,
+     "expected": 24.464,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 118.403,
+     "expected": 118.403,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null"
+  },
+  {
+   "glyph": "bar/EN-FR/Transformer (base)",
+   "pass": true,
+   "expected_value": 38.1,
+   "readback_value": 38.1,
+   "abs_error": 2e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 201.665,
+     "expected": 201.665,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 33.611,
+     "expected": 33.611,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 109.255,
+     "expected": 109.255,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null"
+  },
+  {
+   "glyph": "bar/EN-FR/Transformer (big)",
+   "pass": true,
+   "expected_value": 41.8,
+   "readback_value": 41.8,
+   "abs_error": 9e-08,
+   "tolerance": 0.225,
+   "geometry": {
+    "x": {
+     "svg": 224.306,
+     "expected": 224.306,
+     "delta": 0.0
+    },
+    "y": {
+     "svg": 23.001,
+     "expected": 23.001,
+     "delta": 0.0
+    },
+    "w": {
+     "svg": 9.056,
+     "expected": 9.056,
+     "delta": 0.0
+    },
+    "h": {
+     "svg": 119.865,
+     "expected": 119.865,
+     "delta": 0.0
+    }
+   },
+   "source_locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null"
+  },
+  {
+   "glyph": "svg/text_editable",
+   "pass": true,
+   "n_text_elements": 6,
+   "reason": null
+  },
+  {
+   "glyph": "svg/font_size_range",
+   "pass": true,
+   "min_pt_found": 5.5,
+   "max_pt_found": 7.0,
+   "journal_min_pt": 5,
+   "journal_max_pt": 7
+  }
+ ],
+ "pass": true
+}

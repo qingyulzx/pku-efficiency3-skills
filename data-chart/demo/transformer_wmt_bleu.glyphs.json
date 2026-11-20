@@ -1,0 +1,461 @@
+{
+ "chart_id": "transformer_wmt_bleu",
+ "chart_type": "grouped_bar",
+ "svg_height_pt": 170.07874015748033,
+ "axes_calibration": {
+  "y": [
+   [
+    0.0,
+    142.86614173228347
+   ],
+   [
+    43.89,
+    17.00787401574803
+   ]
+  ],
+  "x": [
+   [
+    -0.79,
+    47.933858267716545
+   ],
+   [
+    7.79,
+    242.19212598425196
+   ]
+  ],
+  "y_ticks": [
+   [
+    0.0,
+    142.86614173228347
+   ],
+   [
+    5.0,
+    128.52822105370802
+   ],
+   [
+    10.0,
+    114.19030037513254
+   ],
+   [
+    15.0,
+    99.85237969655708
+   ],
+   [
+    20.0,
+    85.51445901798161
+   ],
+   [
+    25.0,
+    71.17653833940614
+   ],
+   [
+    30.0,
+    56.838617660830664
+   ],
+   [
+    35.0,
+    42.50069698225522
+   ],
+   [
+    40.0,
+    28.16277630367975
+   ],
+   [
+    45.0,
+    13.824855625104277
+   ]
+  ],
+  "x_ticks": [
+   [
+    0.0,
+    65.82010902483344
+   ],
+   [
+    1.0,
+    88.46093276801939
+   ],
+   [
+    2.0,
+    111.10175651120534
+   ],
+   [
+    3.0,
+    133.74258025439127
+   ],
+   [
+    4.0,
+    156.3834039975772
+   ],
+   [
+    5.0,
+    179.02422774076317
+   ],
+   [
+    6.0,
+    201.6650514839491
+   ],
+   [
+    7.0,
+    224.30587522713506
+   ]
+  ]
+ },
+ "series": [
+  {
+   "name": "EN-DE",
+   "color": "#0072b2",
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   }
+  },
+  {
+   "name": "EN-FR",
+   "color": "#d55e00",
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   }
+  }
+ ],
+ "glyphs": [
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "ByteNet",
+   "value": 23.75,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    56.763779527559066,
+    74.76101850905002,
+    9.056329497274376,
+    68.10512322323345
+   ],
+   "bar_top_svg_pt": 74.76101850905002,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "GNMT + RL",
+   "value": 24.6,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    79.40460327074501,
+    72.32357199369218,
+    9.056329497274376,
+    70.54256973859128
+   ],
+   "bar_top_svg_pt": 72.32357199369218,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "ConvS2S",
+   "value": 25.16,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    102.04542701393095,
+    70.71772487769172,
+    9.05632949727439,
+    72.14841685459174
+   ],
+   "bar_top_svg_pt": 70.71772487769172,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "MoE",
+   "value": 26.03,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    124.68625075711688,
+    68.2229266796196,
+    9.05632949727439,
+    74.64321505266386
+   ],
+   "bar_top_svg_pt": 68.2229266796196,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "GNMT + RL Ensemble",
+   "value": 26.3,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    147.32707450030284,
+    67.44867896297652,
+    9.056329497274362,
+    75.41746276930695
+   ],
+   "bar_top_svg_pt": 67.44867896297652,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "ConvS2S Ensemble",
+   "value": 26.36,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    169.96789824348878,
+    67.2766239148336,
+    9.05632949727439,
+    75.58951781744986
+   ],
+   "bar_top_svg_pt": 67.2766239148336,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "Transformer (base)",
+   "value": 27.3,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    192.6087219866747,
+    64.58109482726144,
+    9.05632949727439,
+    78.28504690502203
+   ],
+   "bar_top_svg_pt": 64.58109482726144,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-DE",
+   "series_color": "#0072b2",
+   "category": "Transformer (big)",
+   "value": 28.4,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    215.24954572986067,
+    61.42675227797483,
+    9.05632949727439,
+    81.43938945430864
+   ],
+   "bar_top_svg_pt": 61.42675227797483,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-FR",
+   "series_color": "#d55e00",
+   "category": "GNMT + RL",
+   "value": 39.92,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    88.46093276801938,
+    28.39218303453694,
+    9.05632949727439,
+    114.47395869774653
+   ],
+   "bar_top_svg_pt": 28.39218303453694,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-FR",
+   "series_color": "#d55e00",
+   "category": "ConvS2S",
+   "value": 40.46,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    111.10175651120534,
+    26.843687601250792,
+    9.056329497274376,
+    116.02245413103267
+   ],
+   "bar_top_svg_pt": 26.843687601250792,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-FR",
+   "series_color": "#d55e00",
+   "category": "MoE",
+   "value": 40.56,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    133.74258025439127,
+    26.556929187679287,
+    9.05632949727439,
+    116.30921254460418
+   ],
+   "bar_top_svg_pt": 26.556929187679287,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-FR",
+   "series_color": "#d55e00",
+   "category": "GNMT + RL Ensemble",
+   "value": 41.16,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    156.3834039975772,
+    24.83637870625023,
+    9.056329497274419,
+    118.02976302603324
+   ],
+   "bar_top_svg_pt": 24.83637870625023,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-FR",
+   "series_color": "#d55e00",
+   "category": "ConvS2S Ensemble",
+   "value": 41.29,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    179.02422774076317,
+    24.46359276860727,
+    9.05632949727439,
+    118.4025489636762
+   ],
+   "bar_top_svg_pt": 24.46359276860727,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-FR",
+   "series_color": "#d55e00",
+   "category": "Transformer (base)",
+   "value": 38.1,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    201.6650514839491,
+    33.61118616153843,
+    9.05632949727439,
+    109.25495557074504
+   ],
+   "bar_top_svg_pt": 33.61118616153843,
+   "baseline_svg_pt": 142.86614173228347
+  },
+  {
+   "kind": "bar",
+   "series": "EN-FR",
+   "series_color": "#d55e00",
+   "category": "Transformer (big)",
+   "value": 41.8,
+   "error": null,
+   "error_meaning": null,
+   "source": {
+    "file": "arXiv:1706.03762v7 Table 2",
+    "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+    "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+   },
+   "rect_svg_pt": [
+    224.30587522713506,
+    23.001124859392576,
+    9.056329497274362,
+    119.86501687289089
+   ],
+   "bar_top_svg_pt": 23.001124859392576,
+   "baseline_svg_pt": 142.86614173228347
+  }
+ ],
+ "null_value_notes": [
+  "series 'EN-FR' category 'ByteNet': no source value (null); bar omitted"
+ ],
+ "spec_sha256": "c0810cd77a8b1d2f8ff6f9a24ad98aab936c519e52b8fca7c9cde299412f8a2f"
+}

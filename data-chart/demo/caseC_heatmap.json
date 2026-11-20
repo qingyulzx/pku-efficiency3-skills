@@ -1,0 +1,23 @@
+{
+  "case_id": "caseC_heatmap",
+  "chart_id": "gene_expression",
+  "chart_type": "heatmap",
+  "title": "Expression z-scores",
+  "x": { "label": "Condition" },
+  "y": { "label": "Gene" },
+  "color_scale": { "label": "z-score" },
+  "categories": ["TP53", "BRCA1", "MYC", "EGFR"],
+  "columns": ["control", "treat-6h", "treat-24h"],
+  "series": [
+    {
+      "name": "z",
+      "values": [
+        [1.2, 2.4, 3.1],
+        [-0.5, 0.3, 1.8],
+        [2.2, 1.1, null],
+        [0.0, -1.4, -2.0]
+      ],
+      "source": { "file": "tests/caseC.json", "locator": "matrix rows=genes cols=conditions" }
+    }
+  ]
+}

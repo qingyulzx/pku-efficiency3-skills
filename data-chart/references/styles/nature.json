@@ -1,0 +1,36 @@
+{
+  "profile": "nature",
+  "description": "Nature research figure guide: 89mm single column, Arial/Helvetica 5-7pt, colour-blind-safe palette, vector formats with editable text.",
+  "source_urls": [
+    "https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/"
+  ],
+  "retrieved": "2026-11-20",
+  "requirements_notes": [
+    "Printed figure widths: 89 mm (single column) or 183 mm (double column); maximum height 170 mm.",
+    "Use standard fonts (e.g. Arial or Helvetica). Maximum text size: 7pt. Minimum text size: 5pt.",
+    "For figures to be accepted all text needs to be legible and editable. Do not outline text. Embed fonts (True Type 2 or 42).",
+    "Main figures: vector files with editable layers; .ai/.eps/.pdf preferred, .svg acceptable (plain svg).",
+    "Colour palette values published in the guide are the Okabe-Ito colour-blind-safe set (see colors.palette)."
+  ],
+  "figure": { "width_mm": 89, "height_mm": 60, "max_height_mm": 170, "double_column_mm": 183 },
+  "margins": { "left": 0.19, "bottom": 0.16, "right": 0.04, "top": 0.10 },
+  "font": {
+    "family": "Arial",
+    "fallbacks": ["Helvetica", "DejaVu Sans", "SimHei", "Microsoft YaHei", "Noto Sans CJK SC"],
+    "min_pt": 5, "max_pt": 7, "tick_pt": 5.5, "label_pt": 6, "title_pt": 7,
+    "marker_pt": 3.5, "error_cap_pt": 1.5
+  },
+  "lines": {
+    "axis_linewidth_pt": 0.5, "data_linewidth_pt": 0.75,
+    "bar_edge_linewidth_pt": 0.4, "error_linewidth_pt": 0.5, "pie_edge_pt": 0.4
+  },
+  "colors": {
+    "palette": ["#0072b2", "#d55e00", "#009e73", "#cc79a7", "#e69f00", "#56b4e9", "#f0e442", "#000000"],
+    "note": "Okabe-Ito palette as listed by the Nature research figure guide (colour-blind safe)"
+  },
+  "bar": { "edge_color": "black", "error_color": "black" },
+  "heatmap": { "colormap": "viridis" },
+  "spines": { "show_top_right": false },
+  "legend": { "loc": "best" },
+  "export": { "formats": ["svg", "pdf", "png"], "png_dpi": 300, "color_mode": "RGB" }
+}

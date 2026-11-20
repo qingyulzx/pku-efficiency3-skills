@@ -1,0 +1,42 @@
+{
+ "chart_id": "transformer_wmt_bleu",
+ "chart_type": "grouped_bar",
+ "figure_mm": [
+  89.0,
+  60.0
+ ],
+ "font_family_used": [
+  "Arial",
+  "DejaVu Sans",
+  "SimHei",
+  "Microsoft YaHei",
+  "DejaVu Sans"
+ ],
+ "fonts_requested_but_missing": [
+  "Helvetica",
+  "Noto Sans CJK SC"
+ ],
+ "style_profile": "nature",
+ "exports": {
+  "svg": {
+   "path": "G:\\science challenge\\第三期\\w03-datachart\\tests\\out_caseA\\transformer_wmt_bleu.svg",
+   "status": "ok",
+   "bytes": 15563
+  },
+  "pdf": {
+   "path": "G:\\science challenge\\第三期\\w03-datachart\\tests\\out_caseA\\transformer_wmt_bleu.pdf",
+   "status": "ok",
+   "bytes": 33060
+  },
+  "png": {
+   "path": "G:\\science challenge\\第三期\\w03-datachart\\tests\\out_caseA\\transformer_wmt_bleu.png",
+   "status": "ok",
+   "bytes": 53431
+  }
+ },
+ "null_value_notes": [
+  "series 'EN-FR' category 'ByteNet': no source value (null); bar omitted"
+ ],
+ "glyphs_path": "G:\\science challenge\\第三期\\w03-datachart\\tests\\out_caseA\\transformer_wmt_bleu.glyphs.json",
+ "glyph_count": 15
+}

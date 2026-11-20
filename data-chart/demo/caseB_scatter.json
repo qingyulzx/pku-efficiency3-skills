@@ -1,0 +1,23 @@
+{
+  "case_id": "caseB_scatter",
+  "chart_id": "latency_vs_throughput",
+  "chart_type": "scatter",
+  "title": "Latency vs throughput",
+  "x": { "label": "Throughput", "unit": "k req/s" },
+  "y": { "label": "p99 latency", "unit": "ms" },
+  "categories": ["sys1", "sys2", "sys3", "sys4", "sys5", "sys6"],
+  "series": [
+    {
+      "name": "baseline",
+      "x_values": [1.2, 2.4, 3.1, 4.5, 5.0, 6.2],
+      "values": [82, 61, 55, 48, 45, null],
+      "source": { "file": "tests/caseB.json", "locator": "table rows baseline" }
+    },
+    {
+      "name": "optimized",
+      "x_values": [1.5, 2.6, 3.3, 4.8, 5.4, 6.0],
+      "values": [70, 51, 44, 38, 35, 33],
+      "source": { "file": "tests/caseB.json", "locator": "table rows optimized" }
+    }
+  ]
+}

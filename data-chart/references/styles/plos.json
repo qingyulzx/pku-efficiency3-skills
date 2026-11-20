@@ -1,0 +1,37 @@
+{
+  "profile": "plos",
+  "description": "PLOS ONE figure specs: Arial/Times/Symbol 8-12pt, width up to 7.5in, 300-600 dpi, RGB; TIFF/EPS submission formats (SVG/PDF kept as editable source, PNG as 300dpi check).",
+  "source_urls": [
+    "https://journals.plos.org/plosone/s/figures"
+  ],
+  "retrieved": "2026-11-20",
+  "requirements_notes": [
+    "Width: 789 - 2250 pixels (at 300 dpi). Height maximum: 2625 pixels (at 300 dpi).",
+    "Resolution: 300 - 600 dpi.",
+    "Text within figures: Use only Arial, Times, or Symbol font in 8-12 point.",
+    "File format: TIFF or EPS only. (This skill additionally keeps SVG/PDF as editable sources and exports PNG at 300 dpi as a check image; convert to TIFF with LZW compression before submission.)",
+    "Colour Mode: RGB (8 bit/channel) or grayscale only.",
+    "File size: <10 MB."
+  ],
+  "figure": { "width_mm": 132, "height_mm": 88, "text_column_width_mm": 132, "max_width_mm": 190.5 },
+  "margins": { "left": 0.16, "bottom": 0.15, "right": 0.04, "top": 0.09 },
+  "font": {
+    "family": "Arial",
+    "fallbacks": ["Times New Roman", "DejaVu Sans", "SimHei", "Microsoft YaHei", "Noto Sans CJK SC"],
+    "min_pt": 8, "max_pt": 12, "tick_pt": 8, "label_pt": 9, "title_pt": 10,
+    "marker_pt": 4, "error_cap_pt": 2.0
+  },
+  "lines": {
+    "axis_linewidth_pt": 0.8, "data_linewidth_pt": 1.0,
+    "bar_edge_linewidth_pt": 0.5, "error_linewidth_pt": 0.7, "pie_edge_pt": 0.5
+  },
+  "colors": {
+    "palette": ["#0072b2", "#d55e00", "#009e73", "#cc79a7", "#e69f00", "#56b4e9", "#f0e442", "#000000"],
+    "note": "PLOS does not mandate a palette; Okabe-Ito colour-blind-safe set used as default"
+  },
+  "bar": { "edge_color": "black", "error_color": "black" },
+  "heatmap": { "colormap": "viridis" },
+  "spines": { "show_top_right": false },
+  "legend": { "loc": "best" },
+  "export": { "formats": ["svg", "pdf", "png"], "png_dpi": 300, "color_mode": "RGB" }
+}

@@ -1,0 +1,43 @@
+{
+  "chart_id": "transformer_wmt_bleu",
+  "chart_type": "grouped_bar",
+  "title": "WMT 2014 BLEU: Transformer vs prior models",
+  "x": { "label": "Model", "unit": null, "log": false },
+  "y": { "label": "BLEU", "unit": null, "log": false },
+  "categories": [
+    "ByteNet",
+    "GNMT + RL",
+    "ConvS2S",
+    "MoE",
+    "GNMT + RL Ensemble",
+    "ConvS2S Ensemble",
+    "Transformer (base)",
+    "Transformer (big)"
+  ],
+  "series": [
+    {
+      "name": "EN-DE",
+      "values": [23.75, 24.6, 25.16, 26.03, 26.3, 26.36, 27.3, 28.4],
+      "errors": null,
+      "color": null,
+      "source": {
+        "file": "arXiv:1706.03762v7 Table 2",
+        "locator": "Table 2, column 'BLEU EN-DE', rows ByteNet..Transformer (big)",
+        "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+      }
+    },
+    {
+      "name": "EN-FR",
+      "values": [null, 39.92, 40.46, 40.56, 41.16, 41.29, 38.1, 41.8],
+      "errors": null,
+      "color": null,
+      "source": {
+        "file": "arXiv:1706.03762v7 Table 2",
+        "locator": "Table 2, column 'BLEU EN-FR', rows ByteNet..Transformer (big); ByteNet EN-FR cell empty in paper -> null",
+        "version": "arXiv:1706.03762v7; sha256 bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+      }
+    }
+  ],
+  "notes": "Data: Vaswani et al., Attention Is All You Need, Table 2. Empty table cells plotted as missing (bar omitted), not zero.",
+  "color_scale": { "vmin": null, "vmax": null, "label": "value" }
+}
