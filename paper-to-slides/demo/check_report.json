@@ -1,0 +1,107 @@
+{
+ "deck": "G:\\science challenge\\第三期\\w06-paper2ppt\\tests\\out\\deck.pptx",
+ "slide_count": 9,
+ "summary": {
+  "slide_count": "pass",
+  "placeholders": "pass",
+  "overflow": "pass",
+  "images": "pass",
+  "notes": "pass",
+  "evidence": "pass"
+ },
+ "checks": [
+  {
+   "level": "pass",
+   "code": "slide_count",
+   "message": "9 slides vs limit 10"
+  },
+  {
+   "level": "pass",
+   "code": "placeholders",
+   "message": "2358/2431 chars in placeholders (97%)"
+  },
+  {
+   "level": "pass",
+   "code": "overflow",
+   "message": "no overflow estimated"
+  },
+  {
+   "level": "pass",
+   "code": "images",
+   "message": "1 picture(s) checked, 0 distorted"
+  },
+  {
+   "level": "pass",
+   "code": "notes",
+   "message": "all slides have distinct speaker notes"
+  },
+  {
+   "level": "pass",
+   "code": "evidence",
+   "message": "every slide maps to paper evidence"
+  }
+ ],
+ "details": {
+  "placeholder_usage_per_slide": [
+   {
+    "slide": 1,
+    "chars": 137,
+    "chars_in_placeholders": 137,
+    "textbox_chars": 0
+   },
+   {
+    "slide": 2,
+    "chars": 346,
+    "chars_in_placeholders": 346,
+    "textbox_chars": 0
+   },
+   {
+    "slide": 3,
+    "chars": 309,
+    "chars_in_placeholders": 309,
+    "textbox_chars": 0
+   },
+   {
+    "slide": 4,
+    "chars": 236,
+    "chars_in_placeholders": 163,
+    "textbox_chars": 73
+   },
+   {
+    "slide": 5,
+    "chars": 273,
+    "chars_in_placeholders": 273,
+    "textbox_chars": 0
+   },
+   {
+    "slide": 6,
+    "chars": 231,
+    "chars_in_placeholders": 231,
+    "textbox_chars": 0
+   },
+   {
+    "slide": 7,
+    "chars": 311,
+    "chars_in_placeholders": 311,
+    "textbox_chars": 0
+   },
+   {
+    "slide": 8,
+    "chars": 277,
+    "chars_in_placeholders": 277,
+    "textbox_chars": 0
+   },
+   {
+    "slide": 9,
+    "chars": 311,
+    "chars_in_placeholders": 311,
+    "textbox_chars": 0
+   }
+  ],
+  "placeholder_char_ratio": 0.97,
+  "overflow": [],
+  "images": [],
+  "notes": [],
+  "evidence": []
+ }
+}

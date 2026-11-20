@@ -1,0 +1,822 @@
+{
+ "case_id": "local-selftest-attention",
+ "generated_at": "2026-11-20T12:31:51+00:00",
+ "status": "complete",
+ "status_note": "",
+ "source": {
+  "paper": {
+   "citation": "Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., Polosukhin, I. (2017). Attention Is All You Need. NIPS 2017. arXiv:1706.03762v7",
+   "pages": 15,
+   "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697"
+  },
+  "template": {
+   "path": "G:\\science challenge\\第三期\\w06-paper2ppt\\tests\\fixtures\\template.pptx",
+   "note": "generated test fixture standing in for organizer template"
+  }
+ },
+ "constraints": {
+  "audience": "graduate ML seminar, familiar with seq2seq basics",
+  "duration_minutes": 15,
+  "max_slides": 10
+ },
+ "output_contract": {
+  "editable_pptx": {
+   "value": "G:\\science challenge\\第三期\\w06-paper2ppt\\tests\\out\\deck.pptx",
+   "null_reason": null
+  },
+  "speaker_notes": {
+   "value": "in-pptx notes slides (see slide_evidence_map notes field)",
+   "null_reason": null
+  },
+  "slide_evidence_map": {
+   "value": [
+    {
+     "slide": 1,
+     "claim": "The Transformer removes recurrence and convolutions from sequence transduction using attention only.",
+     "role": "title",
+     "evidence": [
+      {
+       "type": "quote",
+       "locator": "Title + Abstract",
+       "page": 1,
+       "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+       "supports": "paper title and core claim"
+      }
+     ],
+     "figures_used": []
+    },
+    {
+     "slide": 2,
+     "claim": "RNN-based transduction is fundamentally sequential, so training cannot be parallelized within a sequence.",
+     "role": "content",
+     "evidence": [
+      {
+       "type": "quote",
+       "locator": "Section 1",
+       "page": 2,
+       "quote": "Recurrent models typically factor computation along the symbol positions of the input and output sequences.",
+       "supports": "sequential computation"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 1",
+       "page": 2,
+       "quote": "The fundamental constraint of sequential computation, however, remains.",
+       "supports": null
+      }
+     ],
+     "figures_used": []
+    },
+    {
+     "slide": 3,
+     "claim": "Core idea: keep only attention - self-attention replaces recurrence everywhere, at a fraction of the training cost.",
+     "role": "content",
+     "evidence": [
+      {
+       "type": "quote",
+       "locator": "Abstract",
+       "page": 1,
+       "quote": "these models to be superior in quality while being more parallelizable and requiring significantly less time to train",
+       "supports": "quality + parallelism claim"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 3.2.2",
+       "page": 5,
+       "quote": "we use h = 8 parallel attention layers, or heads",
+       "supports": "multi-head config"
+      }
+     ],
+     "figures_used": []
+    },
+    {
+     "slide": 4,
+     "claim": "The architecture: 6-layer encoder (left) and decoder (right) built from multi-head self-attention + position-wise FFN sub-layers.",
+     "role": "figure",
+     "evidence": [
+      {
+       "type": "figure",
+       "locator": "Figure 1",
+       "page": 3,
+       "quote": "Figure 1: The Transformer - model architecture.",
+       "supports": "architecture diagram, original figure from the paper"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 3.1",
+       "page": 3,
+       "quote": "The encoder is composed of a stack of N = 6 identical layers.",
+       "supports": "depth"
+      }
+     ],
+     "figures_used": [
+      "Figure 1"
+     ]
+    },
+    {
+     "slide": 5,
+     "claim": "Scaled dot-product attention is computed per head, then concatenated; complexity per layer is O(n^2 * d) but constant in path length.",
+     "role": "two_column",
+     "evidence": [
+      {
+       "type": "quote",
+       "locator": "Section 3.2.1",
+       "page": 4,
+       "quote": "We suspect that for large values of dk, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients",
+       "supports": "motivation for the 1/sqrt(dk) scaling"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 3.2.2",
+       "page": 5,
+       "quote": "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions.",
+       "supports": "why multiple heads"
+      },
+      {
+       "type": "table",
+       "locator": "Table 1",
+       "page": 6,
+       "quote": "Maximum path lengths, per-layer complexity and minimum number of sequential operations",
+       "supports": "complexity comparison vs recurrent/convolutional layers"
+      }
+     ],
+     "figures_used": []
+    },
+    {
+     "slide": 6,
+     "claim": "Training recipe: Adam with warmup-then-decay schedule, heavy regularization (dropout 0.1, label smoothing 0.1).",
+     "role": "content",
+     "evidence": [
+      {
+       "type": "quote",
+       "locator": "Section 5.3",
+       "page": 7,
+       "quote": "We used the Adam optimizer [20] with β1 = 0.9, β2 = 0.98 and ε = 10−9.",
+       "supports": "optimizer settings"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 5.4",
+       "page": 7,
+       "quote": "We employ three types of regularization during training: resid[ual] drop[out] ... label smoothing",
+       "supports": "note: quote lightly normalized from line-wrapped PDF text"
+      }
+     ],
+     "figures_used": []
+    },
+    {
+     "slide": 7,
+     "claim": "Headline results: 28.4 BLEU EN-DE (>2 BLEU over previous best including ensembles) and 41.8 BLEU EN-FR single-model SOTA, at a fraction of training FLOPs.",
+     "role": "content",
+     "evidence": [
+      {
+       "type": "table",
+       "locator": "Table 2",
+       "page": 8,
+       "quote": "The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+       "supports": "headline table; numbers above read from Table 2 rows"
+      },
+      {
+       "type": "quote",
+       "locator": "Abstract",
+       "page": 1,
+       "quote": "improving over the existing best results, including ensembles, by over 2 BLEU",
+       "supports": "margin claim"
+      }
+     ],
+     "figures_used": []
+    },
+    {
+     "slide": 8,
+     "claim": "The architecture generalizes beyond translation: strong English constituency parsing results with both large and limited training data.",
+     "role": "content",
+     "evidence": [
+      {
+       "type": "table",
+       "locator": "Table 4",
+       "page": 10,
+       "quote": "The Transformer generalizes well to other tasks by applying it successfully to English constituency parsing",
+       "supports": "parsing results table (caption paraphrased from abstract sentence)"
+      },
+      {
+       "type": "quote",
+       "locator": "Abstract",
+       "page": 1,
+       "quote": "We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+       "supports": "generality claim"
+      }
+     ],
+     "figures_used": []
+    },
+    {
+     "slide": 9,
+     "claim": "Takeaways: attention-only transduction is faster to train and stronger; the paper itself lists no explicit limitations, so the caveats below are the presenter's reading.",
+     "role": "content",
+     "evidence": [
+      {
+       "type": "quote",
+       "locator": "Conclusion",
+       "page": 10,
+       "quote": "we presented the Transformer, the first sequence transduction model based entirely on attention",
+       "supports": "paper's own summary"
+      },
+      {
+       "type": "section",
+       "locator": "Conclusion",
+       "page": 10,
+       "quote": "We plan to extend the Transformer to problems involving input and output modalities other than text",
+       "supports": "future work only - the caveat bullets are the presenter's interpretation, flagged in-slide"
+      }
+     ],
+     "figures_used": []
+    }
+   ]
+  },
+  "rendered_preview": {
+   "value": "G:\\science challenge\\第三期\\w06-paper2ppt\\tests\\out\\render\\deck.pdf",
+   "null_reason": null
+  },
+  "narrative_summary": {
+   "value": {
+    "problem": {
+     "statement": "Dominant sequence transduction models (RNN/LSTM encoder-decoder with attention) compute sequentially along symbol positions, blocking parallelization within a training sequence and making training slow.",
+     "evidence": [
+      {
+       "type": "quote",
+       "locator": "Section 1",
+       "page": 2,
+       "quote": "Recurrent models typically factor computation along the symbol positions of the input and output sequences.",
+       "note": "sequential computation constraint"
+      },
+      {
+       "type": "quote",
+       "locator": "Abstract",
+       "page": 1,
+       "quote": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder.",
+       "note": "status quo before this work"
+      }
+     ]
+    },
+    "method": {
+     "statement": "The Transformer: an encoder-decoder built solely on attention (multi-head self-attention + point-wise FFN), no recurrence or convolution, with positional encodings injecting order.",
+     "evidence": [
+      {
+       "type": "figure",
+       "locator": "Figure 1",
+       "page": 3,
+       "quote": "Figure 1: The Transformer - model architecture.",
+       "note": "overall architecture"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 3.1",
+       "page": 3,
+       "quote": "The encoder is composed of a stack of N = 6 identical layers.",
+       "note": "encoder depth"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 3.2.2",
+       "page": 5,
+       "quote": "we use h = 8 parallel attention layers, or heads",
+       "note": "multi-head configuration"
+      }
+     ]
+    },
+    "results": {
+     "statement": "28.4 BLEU on WMT14 EN-DE (over 2 BLEU above previous best including ensembles) and 41.8 BLEU on WMT14 EN-FR (new single-model SOTA) at a fraction of the training cost; also generalizes to English constituency parsing.",
+     "evidence": [
+      {
+       "type": "table",
+       "locator": "Table 2",
+       "page": 8,
+       "quote": "The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+       "note": "main quantitative results"
+      },
+      {
+       "type": "quote",
+       "locator": "Abstract",
+       "page": 1,
+       "quote": "our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs",
+       "note": "training cost context"
+      }
+     ]
+    },
+    "limitations": {
+     "statement": "The paper has no explicit limitations section. Inferred caveats: results shown on translation + one parsing task only; the fixed learned positional encoding targets sequences up to a maximum length; the paper does not study data efficiency below large corpora.",
+     "evidence": [
+      {
+       "type": "section",
+       "locator": "Conclusion",
+       "page": 10,
+       "quote": "We plan to extend the Transformer to problems involving input and output modalities other than text",
+       "note": "future-work phrasing only; no limitations section exists in the paper"
+      },
+      {
+       "type": "quote",
+       "locator": "Section 3.5",
+       "page": 6,
+       "quote": "we also inject information about the relative or absolute position of the tokens in the sequence",
+       "note": "positional encoding is length-bound (inference by the deck author, flagged)"
+      }
+     ],
+     "uncertainty_flag": "limitation statements 2 and 3 are the presenter's interpretation, not verbatim paper claims"
+    },
+    "talk_order": [
+     "problem",
+     "core idea",
+     "architecture",
+     "attention details",
+     "training recipe",
+     "headline results",
+     "generalization",
+     "limitations+takeaways"
+    ]
+   }
+  },
+  "uncertainty": {
+   "value": [
+    "Slide 4 uses the embedded image extracted from page 3 (p3_img0.png); Figure 2's two sub-images (page 4) were not embedded because per-panel attribution was uncertain - they are referenced textually on slide 5 via Table 1 instead.",
+    "Slide 8 parsing F1 values are quoted from Table 4 as remembered values during planning; exact digits should be re-verified against page 10 before a live talk.",
+    "The paper predates 2018 follow-ups; no post-paper context is included because only the paper itself is in evidence scope."
+   ]
+  },
+  "changes": {
+   "value": [
+    {
+     "step": "extract",
+     "change": "first assembly wrote title/bullets into LAYOUT placeholders, producing empty slides; fixed to write into the slide's cloned placeholders (bug caught by reopening deck.pptx and by insert_picture AttributeError)"
+    },
+    {
+     "step": "plan",
+     "change": "slide 4 title shortened from 'Architecture: stacked attention (Figure 1)' to 'Architecture (Figure 1)' after check_deck flagged overflow in the narrow Picture-with-Caption title placeholder (2 est. lines vs 1 capacity at 22pt)"
+    },
+    {
+     "step": "check",
+     "change": "image detection fixed: pictures inserted into placeholders keep shape_type PLACEHOLDER(14), detection switched to p:pic element tag"
+    },
+    {
+     "step": "render",
+     "change": "PDF export via LibreOffice 25.8 headless; verified 9 pages, expected titles present, Figure 1 drawn only on slide 4 (content-stream Do check)"
+    }
+   ]
+  }
+ },
+ "deliverables": {
+  "editable_pptx": "G:\\science challenge\\第三期\\w06-paper2ppt\\tests\\out\\deck.pptx",
+  "speaker_notes": "in-pptx notes slides (see slide_evidence_map notes field)",
+  "rendered_preview": "G:\\science challenge\\第三期\\w06-paper2ppt\\tests\\out\\render\\deck.pdf"
+ },
+ "narrative": {
+  "problem": {
+   "statement": "Dominant sequence transduction models (RNN/LSTM encoder-decoder with attention) compute sequentially along symbol positions, blocking parallelization within a training sequence and making training slow.",
+   "evidence": [
+    {
+     "type": "quote",
+     "locator": "Section 1",
+     "page": 2,
+     "quote": "Recurrent models typically factor computation along the symbol positions of the input and output sequences.",
+     "note": "sequential computation constraint"
+    },
+    {
+     "type": "quote",
+     "locator": "Abstract",
+     "page": 1,
+     "quote": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder.",
+     "note": "status quo before this work"
+    }
+   ]
+  },
+  "method": {
+   "statement": "The Transformer: an encoder-decoder built solely on attention (multi-head self-attention + point-wise FFN), no recurrence or convolution, with positional encodings injecting order.",
+   "evidence": [
+    {
+     "type": "figure",
+     "locator": "Figure 1",
+     "page": 3,
+     "quote": "Figure 1: The Transformer - model architecture.",
+     "note": "overall architecture"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 3.1",
+     "page": 3,
+     "quote": "The encoder is composed of a stack of N = 6 identical layers.",
+     "note": "encoder depth"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 3.2.2",
+     "page": 5,
+     "quote": "we use h = 8 parallel attention layers, or heads",
+     "note": "multi-head configuration"
+    }
+   ]
+  },
+  "results": {
+   "statement": "28.4 BLEU on WMT14 EN-DE (over 2 BLEU above previous best including ensembles) and 41.8 BLEU on WMT14 EN-FR (new single-model SOTA) at a fraction of the training cost; also generalizes to English constituency parsing.",
+   "evidence": [
+    {
+     "type": "table",
+     "locator": "Table 2",
+     "page": 8,
+     "quote": "The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+     "note": "main quantitative results"
+    },
+    {
+     "type": "quote",
+     "locator": "Abstract",
+     "page": 1,
+     "quote": "our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs",
+     "note": "training cost context"
+    }
+   ]
+  },
+  "limitations": {
+   "statement": "The paper has no explicit limitations section. Inferred caveats: results shown on translation + one parsing task only; the fixed learned positional encoding targets sequences up to a maximum length; the paper does not study data efficiency below large corpora.",
+   "evidence": [
+    {
+     "type": "section",
+     "locator": "Conclusion",
+     "page": 10,
+     "quote": "We plan to extend the Transformer to problems involving input and output modalities other than text",
+     "note": "future-work phrasing only; no limitations section exists in the paper"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 3.5",
+     "page": 6,
+     "quote": "we also inject information about the relative or absolute position of the tokens in the sequence",
+     "note": "positional encoding is length-bound (inference by the deck author, flagged)"
+    }
+   ],
+   "uncertainty_flag": "limitation statements 2 and 3 are the presenter's interpretation, not verbatim paper claims"
+  },
+  "talk_order": [
+   "problem",
+   "core idea",
+   "architecture",
+   "attention details",
+   "training recipe",
+   "headline results",
+   "generalization",
+   "limitations+takeaways"
+  ]
+ },
+ "slide_evidence_map": [
+  {
+   "slide": 1,
+   "claim": "The Transformer removes recurrence and convolutions from sequence transduction using attention only.",
+   "role": "title",
+   "evidence": [
+    {
+     "type": "quote",
+     "locator": "Title + Abstract",
+     "page": 1,
+     "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+     "supports": "paper title and core claim"
+    }
+   ],
+   "figures_used": []
+  },
+  {
+   "slide": 2,
+   "claim": "RNN-based transduction is fundamentally sequential, so training cannot be parallelized within a sequence.",
+   "role": "content",
+   "evidence": [
+    {
+     "type": "quote",
+     "locator": "Section 1",
+     "page": 2,
+     "quote": "Recurrent models typically factor computation along the symbol positions of the input and output sequences.",
+     "supports": "sequential computation"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 1",
+     "page": 2,
+     "quote": "The fundamental constraint of sequential computation, however, remains.",
+     "supports": null
+    }
+   ],
+   "figures_used": []
+  },
+  {
+   "slide": 3,
+   "claim": "Core idea: keep only attention - self-attention replaces recurrence everywhere, at a fraction of the training cost.",
+   "role": "content",
+   "evidence": [
+    {
+     "type": "quote",
+     "locator": "Abstract",
+     "page": 1,
+     "quote": "these models to be superior in quality while being more parallelizable and requiring significantly less time to train",
+     "supports": "quality + parallelism claim"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 3.2.2",
+     "page": 5,
+     "quote": "we use h = 8 parallel attention layers, or heads",
+     "supports": "multi-head config"
+    }
+   ],
+   "figures_used": []
+  },
+  {
+   "slide": 4,
+   "claim": "The architecture: 6-layer encoder (left) and decoder (right) built from multi-head self-attention + position-wise FFN sub-layers.",
+   "role": "figure",
+   "evidence": [
+    {
+     "type": "figure",
+     "locator": "Figure 1",
+     "page": 3,
+     "quote": "Figure 1: The Transformer - model architecture.",
+     "supports": "architecture diagram, original figure from the paper"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 3.1",
+     "page": 3,
+     "quote": "The encoder is composed of a stack of N = 6 identical layers.",
+     "supports": "depth"
+    }
+   ],
+   "figures_used": [
+    "Figure 1"
+   ]
+  },
+  {
+   "slide": 5,
+   "claim": "Scaled dot-product attention is computed per head, then concatenated; complexity per layer is O(n^2 * d) but constant in path length.",
+   "role": "two_column",
+   "evidence": [
+    {
+     "type": "quote",
+     "locator": "Section 3.2.1",
+     "page": 4,
+     "quote": "We suspect that for large values of dk, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients",
+     "supports": "motivation for the 1/sqrt(dk) scaling"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 3.2.2",
+     "page": 5,
+     "quote": "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions.",
+     "supports": "why multiple heads"
+    },
+    {
+     "type": "table",
+     "locator": "Table 1",
+     "page": 6,
+     "quote": "Maximum path lengths, per-layer complexity and minimum number of sequential operations",
+     "supports": "complexity comparison vs recurrent/convolutional layers"
+    }
+   ],
+   "figures_used": []
+  },
+  {
+   "slide": 6,
+   "claim": "Training recipe: Adam with warmup-then-decay schedule, heavy regularization (dropout 0.1, label smoothing 0.1).",
+   "role": "content",
+   "evidence": [
+    {
+     "type": "quote",
+     "locator": "Section 5.3",
+     "page": 7,
+     "quote": "We used the Adam optimizer [20] with β1 = 0.9, β2 = 0.98 and ε = 10−9.",
+     "supports": "optimizer settings"
+    },
+    {
+     "type": "quote",
+     "locator": "Section 5.4",
+     "page": 7,
+     "quote": "We employ three types of regularization during training: resid[ual] drop[out] ... label smoothing",
+     "supports": "note: quote lightly normalized from line-wrapped PDF text"
+    }
+   ],
+   "figures_used": []
+  },
+  {
+   "slide": 7,
+   "claim": "Headline results: 28.4 BLEU EN-DE (>2 BLEU over previous best including ensembles) and 41.8 BLEU EN-FR single-model SOTA, at a fraction of training FLOPs.",
+   "role": "content",
+   "evidence": [
+    {
+     "type": "table",
+     "locator": "Table 2",
+     "page": 8,
+     "quote": "The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+     "supports": "headline table; numbers above read from Table 2 rows"
+    },
+    {
+     "type": "quote",
+     "locator": "Abstract",
+     "page": 1,
+     "quote": "improving over the existing best results, including ensembles, by over 2 BLEU",
+     "supports": "margin claim"
+    }
+   ],
+   "figures_used": []
+  },
+  {
+   "slide": 8,
+   "claim": "The architecture generalizes beyond translation: strong English constituency parsing results with both large and limited training data.",
+   "role": "content",
+   "evidence": [
+    {
+     "type": "table",
+     "locator": "Table 4",
+     "page": 10,
+     "quote": "The Transformer generalizes well to other tasks by applying it successfully to English constituency parsing",
+     "supports": "parsing results table (caption paraphrased from abstract sentence)"
+    },
+    {
+     "type": "quote",
+     "locator": "Abstract",
+     "page": 1,
+     "quote": "We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+     "supports": "generality claim"
+    }
+   ],
+   "figures_used": []
+  },
+  {
+   "slide": 9,
+   "claim": "Takeaways: attention-only transduction is faster to train and stronger; the paper itself lists no explicit limitations, so the caveats below are the presenter's reading.",
+   "role": "content",
+   "evidence": [
+    {
+     "type": "quote",
+     "locator": "Conclusion",
+     "page": 10,
+     "quote": "we presented the Transformer, the first sequence transduction model based entirely on attention",
+     "supports": "paper's own summary"
+    },
+    {
+     "type": "section",
+     "locator": "Conclusion",
+     "page": 10,
+     "quote": "We plan to extend the Transformer to problems involving input and output modalities other than text",
+     "supports": "future work only - the caveat bullets are the presenter's interpretation, flagged in-slide"
+    }
+   ],
+   "figures_used": []
+  }
+ ],
+ "quality_checks": {
+  "summary": {
+   "slide_count": "pass",
+   "placeholders": "pass",
+   "overflow": "pass",
+   "images": "pass",
+   "notes": "pass",
+   "evidence": "pass"
+  },
+  "checks": [
+   {
+    "level": "pass",
+    "code": "slide_count",
+    "message": "9 slides vs limit 10"
+   },
+   {
+    "level": "pass",
+    "code": "placeholders",
+    "message": "2358/2431 chars in placeholders (97%)"
+   },
+   {
+    "level": "pass",
+    "code": "overflow",
+    "message": "no overflow estimated"
+   },
+   {
+    "level": "pass",
+    "code": "images",
+    "message": "1 picture(s) checked, 0 distorted"
+   },
+   {
+    "level": "pass",
+    "code": "notes",
+    "message": "all slides have distinct speaker notes"
+   },
+   {
+    "level": "pass",
+    "code": "evidence",
+    "message": "every slide maps to paper evidence"
+   }
+  ],
+  "details": {
+   "placeholder_usage_per_slide": [
+    {
+     "slide": 1,
+     "chars": 137,
+     "chars_in_placeholders": 137,
+     "textbox_chars": 0
+    },
+    {
+     "slide": 2,
+     "chars": 346,
+     "chars_in_placeholders": 346,
+     "textbox_chars": 0
+    },
+    {
+     "slide": 3,
+     "chars": 309,
+     "chars_in_placeholders": 309,
+     "textbox_chars": 0
+    },
+    {
+     "slide": 4,
+     "chars": 236,
+     "chars_in_placeholders": 163,
+     "textbox_chars": 73
+    },
+    {
+     "slide": 5,
+     "chars": 273,
+     "chars_in_placeholders": 273,
+     "textbox_chars": 0
+    },
+    {
+     "slide": 6,
+     "chars": 231,
+     "chars_in_placeholders": 231,
+     "textbox_chars": 0
+    },
+    {
+     "slide": 7,
+     "chars": 311,
+     "chars_in_placeholders": 311,
+     "textbox_chars": 0
+    },
+    {
+     "slide": 8,
+     "chars": 277,
+     "chars_in_placeholders": 277,
+     "textbox_chars": 0
+    },
+    {
+     "slide": 9,
+     "chars": 311,
+     "chars_in_placeholders": 311,
+     "textbox_chars": 0
+    }
+   ],
+   "placeholder_char_ratio": 0.97,
+   "overflow": [],
+   "images": [],
+   "notes": [],
+   "evidence": []
+  }
+ },
+ "rendering": {
+  "tool": "libreoffice-headless (local test stand-in for container office-renderer)",
+  "command": "soffice --headless --convert-to pdf --outdir render deck.pptx",
+  "pdf": "render/deck.pdf",
+  "pdf_pages": 9,
+  "checks": [
+   {
+    "check": "page count equals slide count",
+    "result": "pass"
+   },
+   {
+    "check": "every expected slide title present in extracted PDF text",
+    "result": "pass"
+   },
+   {
+    "check": "Figure 1 image drawn only on slide 4 (content stream Do operator)",
+    "result": "pass"
+   },
+   {
+    "check": "no blank pages (every page carries body text)",
+    "result": "pass"
+   }
+  ],
+  "issues": [],
+  "note": "container runs the same export through office-renderer; font substitution was not observable locally because the template uses theme default fonts available to LibreOffice"
+ },
+ "changes": [
+  {
+   "step": "extract",
+   "change": "first assembly wrote title/bullets into LAYOUT placeholders, producing empty slides; fixed to write into the slide's cloned placeholders (bug caught by reopening deck.pptx and by insert_picture AttributeError)"
+  },
+  {
+   "step": "plan",
+   "change": "slide 4 title shortened from 'Architecture: stacked attention (Figure 1)' to 'Architecture (Figure 1)' after check_deck flagged overflow in the narrow Picture-with-Caption title placeholder (2 est. lines vs 1 capacity at 22pt)"
+  },
+  {
+   "step": "check",
+   "change": "image detection fixed: pictures inserted into placeholders keep shape_type PLACEHOLDER(14), detection switched to p:pic element tag"
+  },
+  {
+   "step": "render",
+   "change": "PDF export via LibreOffice 25.8 headless; verified 9 pages, expected titles present, Figure 1 drawn only on slide 4 (content-stream Do check)"
+  }
+ ],
+ "uncertainty": [
+  "Slide 4 uses the embedded image extracted from page 3 (p3_img0.png); Figure 2's two sub-images (page 4) were not embedded because per-panel attribution was uncertain - they are referenced textually on slide 5 via Table 1 instead.",
+  "Slide 8 parsing F1 values are quoted from Table 4 as remembered values during planning; exact digits should be re-verified against page 10 before a live talk.",
+  "The paper predates 2018 follow-ups; no post-paper context is included because only the paper itself is in evidence scope."
+ ]
+}
