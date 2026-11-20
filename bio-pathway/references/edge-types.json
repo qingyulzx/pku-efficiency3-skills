@@ -1,0 +1,139 @@
+{
+  "$comment": "biopathway edge-type semantics library. Machine-readable contract shared by validate_model.py, render_svg.py, apply_edit.py and verify_outputs.py. Arrow/head semantics are ORTHOGONAL encodings: head style = regulation sign/direction; line dash = evidence directness; badges = modification type. Never overload one visual channel with two meanings.",
+  "version": "1.0.0",
+  "edge_types": {
+    "activation": {
+      "label": "activation",
+      "zh": "激活",
+      "head": "arrow",
+      "requires_direction": true,
+      "sign": "positive",
+      "description": "A increases the activity/level of B. Filled arrowhead."
+    },
+    "inhibition": {
+      "label": "inhibition",
+      "zh": "抑制",
+      "head": "tbar",
+      "requires_direction": true,
+      "sign": "negative",
+      "description": "A decreases the activity/level/stability of B. Blunt T-bar end (no pointed arrow)."
+    },
+    "binding": {
+      "label": "binding / association",
+      "zh": "结合",
+      "head": "none",
+      "requires_direction": false,
+      "sign": "neutral",
+      "description": "Physical association, docking or recruitment. Plain line, no arrowhead (direction not implied by binding itself)."
+    },
+    "phosphorylation": {
+      "label": "phosphorylation",
+      "zh": "磷酸化",
+      "head": "arrow",
+      "requires_direction": true,
+      "sign": "positive",
+      "badge": "P",
+      "description": "A phosphorylates B. Filled arrowhead ending at a P badge on the target node."
+    },
+    "dephosphorylation": {
+      "label": "dephosphorylation",
+      "zh": "去磷酸化",
+      "head": "tbar",
+      "requires_direction": true,
+      "sign": "negative",
+      "badge": "P",
+      "description": "A removes phosphate from B. T-bar end plus crossed P badge."
+    },
+    "ubiquitination": {
+      "label": "ubiquitination",
+      "zh": "泛素化",
+      "head": "arrow",
+      "requires_direction": true,
+      "sign": "negative",
+      "badge": "Ub",
+      "description": "A ubiquitinates B (usually targeting it for degradation). Arrowhead plus Ub badge."
+    },
+    "methylation": {
+      "label": "methylation",
+      "zh": "甲基化",
+      "head": "arrow",
+      "requires_direction": true,
+      "sign": "context",
+      "badge": "Me",
+      "description": "A methylates B. Sign depends on context; state sign explicitly in the model."
+    },
+    "acetylation": {
+      "label": "acetylation",
+      "zh": "乙酰化",
+      "head": "arrow",
+      "requires_direction": true,
+      "sign": "context",
+      "badge": "Ac",
+      "description": "A acetylates B. Sign depends on context; state sign explicitly in the model."
+    },
+    "transcriptional_regulation": {
+      "label": "transcriptional regulation",
+      "zh": "转录调控",
+      "head": "by-sign",
+      "requires_direction": true,
+      "sign": "by-sign",
+      "description": "A (TF or co-factor) regulates transcription of gene B. Head is arrow for activation, T-bar for repression; sign must be set."
+    },
+    "translocation": {
+      "label": "translocation / transport",
+      "zh": "转运/易位",
+      "head": "open-arrow",
+      "requires_direction": true,
+      "sign": "neutral",
+      "description": "A moves to a compartment. Hollow (open) arrowhead ending at the destination compartment boundary. Target may be a compartment."
+    },
+    "complex_formation": {
+      "label": "complex formation",
+      "zh": "复合物形成",
+      "head": "none",
+      "requires_direction": false,
+      "sign": "neutral",
+      "description": "Members assemble into a complex node. Plain lines joining members to the complex node."
+    },
+    "conversion": {
+      "label": "biochemical conversion",
+      "zh": "生化转化",
+      "head": "arrow",
+      "requires_direction": true,
+      "sign": "neutral",
+      "description": "A is converted into B (e.g. GDP/GTP exchange states, cleavage products)."
+    },
+    "unspecified_interaction": {
+      "label": "interaction (type not stated)",
+      "zh": "相互作用（类型未说明）",
+      "head": "none",
+      "requires_direction": false,
+      "sign": "neutral",
+      "description": "Source says the entities interact but does not state the mechanism. Plain line plus '?' annotation. Prefer this over guessing a typed arrow."
+    }
+  },
+  "evidence_confidence": {
+    "direct": {"dash": null, "legend": "solid line = direct statement in source"},
+    "indirect": {"dash": "6,4", "legend": "dashed line = inferred/indirect evidence (stated via intermediate or in a different context)"}
+  },
+  "direction_encoding": {
+    "directed": "head style per edge type / sign",
+    "undirected": "no arrowhead; legend notes 'direction not stated in source'"
+  },
+  "node_types": {
+    "protein": {"shape": "roundrect", "fill": "#dbe9f6", "stroke": "#2c5f8a"},
+    "gene": {"shape": "rect", "fill": "#e8f0e4", "stroke": "#3f6b3f", "font_style": "italic", "legend": "italic label, rectangular node = gene (DNA locus / transcript target)"},
+    "rna": {"shape": "rect", "fill": "#f3e8f5", "stroke": "#7a4b84", "font_style": "italic"},
+    "complex": {"shape": "hexagon", "fill": "#fdefd8", "stroke": "#a8752a", "legend": "hexagon = complex (multiple subunits)"},
+    "molecule": {"shape": "circle", "fill": "#e0f0ef", "stroke": "#2a7a76", "legend": "circle = small molecule / ligand / metabolite"},
+    "receptor": {"shape": "roundrect", "fill": "#dbe9f6", "stroke": "#2c5f8a", "membrane_anchor": true, "legend": "anchored on membrane band"},
+    "cell": {"shape": "ellipse", "fill": "#f5e8e8", "stroke": "#8a4a4a", "legend": "ellipse = cell type"},
+    "family": {"shape": "roundrect", "fill": "#eeeeee", "stroke": "#777777", "stroke_dasharray": "4,3", "legend": "dashed grey outline = family/class (not a single gene product) — attach edges to members where possible"},
+    "compartment": {"shape": "band", "legend": "background region (membrane drawn as double line, nucleus as double-bordered rounded region)"}
+  },
+  "palette": {
+    "edge_stroke": "#222222",
+    "text": "#111111",
+    "compartment_fills": {"extracellular": "#fbfbf7", "membrane": "#f2e9dc", "cytoplasm": "#ffffff", "nucleus": "#eef2fb", "organelle": "#f7f2e8", "unspecified": "#fafafa"}
+  }
+}

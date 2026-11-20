@@ -1,0 +1,16 @@
+{
+  "source_article": "Brown MA, Ried T. Shifting the Focus of Signaling Abnormalities in Colon Cancer. Cancers 2022;14(3):784.",
+  "doi": "https://doi.org/10.3390/cancers14030784",
+  "pmcid": "PMC8834070",
+  "pmid": "35159051",
+  "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)",
+  "fetched_from": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8834070/",
+  "fetched_on": "2026-11-20",
+  "excerpts": "Section 3.1-3.3 and Figure 2 caption, verbatim, bracketed reference numbers stripped",
+  "sha256": {
+    "example.svg": "022763f1cee89fd4f3791d8f28e08bee26c6e903aaad4daf9733c6622907cf07",
+    "model.json": "a07e1b7fadfee6c81adf2a5e14a41ab261851db00de7e2914c17439e8d667617",
+    "README.md": "4fe349ae86050925135c02bbba629742ee8d3f92a9d2c367e87a1ff258a8f7a9",
+    "source-excerpt.md": "af6885ea79930ce369212ef2befe9faec6626f47a5749a4d5926bbc16a738371"
+  }
+}
