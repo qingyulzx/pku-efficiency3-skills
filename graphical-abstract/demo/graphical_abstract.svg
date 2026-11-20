@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<title>Cobalt-doped ceria catalyst ageing (robustness test model)</title>
+<defs>
+<marker id="arrow-b9b9b9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B9B9"/></marker>
+</defs>
+<rect id="canvas-background" x="0" y="0" width="1600" height="900" fill="#FFFFFF"/>
+<g id="layer-content" data-title="All figure content">
+  <rect id="p-q-frame" x="36" y="74" width="413.33" height="790" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="1.5" rx="10">
+    <desc>panel 1: question</desc></rect>
+  <rect id="p-q-strip" x="36" y="74" width="413.33" height="5" fill="#0072B2" stroke="none" stroke-width="0" rx="2">
+    <desc>panel accent (role: question)</desc></rect>
+  <circle id="p-q-badge" cx="64" cy="108" r="14" fill="#0072B2" stroke="none" stroke-width="0">
+    <desc>reading-order step 1</desc></circle>
+  <text id="p-q-badgenum" x="64" y="100.5" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    <desc>step 1 of the reading order</desc><tspan x="64" dy="0">1</tspan></text>
+  <text id="p-q-heading" x="86" y="96" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="21" font-weight="bold" fill="#1A1A1A" text-anchor="start">
+    <desc>panel heading: Question</desc><tspan x="86" dy="0">Question</tspan></text>
+  <rect id="n-q" x="77.67" y="458.88" width="330" height="64.24" fill="#D6E8F3" stroke="#0072B2" stroke-width="1.6" rx="8">
+    <desc>entity | materials/notes.md Question | "Do cobalt-doped ceria catalysts retain activity after thermal ageing?"</desc></rect>
+  <text id="n-q-label" x="242.67" y="471.88" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="16.5" font-weight="normal" fill="#1A1A1A" text-anchor="middle"><tspan x="242.67" dy="0">Do cobalt-doped ceria catalysts retain</tspan><tspan x="242.67" dy="21.12">activity after thermal ageing?</tspan></text>
+  <rect id="p-r-frame" x="469.33" y="74" width="640.67" height="790" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="1.5" rx="10">
+    <desc>panel 2: results</desc></rect>
+  <rect id="p-r-strip" x="469.33" y="74" width="640.67" height="5" fill="#E69F00" stroke="none" stroke-width="0" rx="2">
+    <desc>panel accent (role: results)</desc></rect>
+  <circle id="p-r-badge" cx="497.33" cy="108" r="14" fill="#E69F00" stroke="none" stroke-width="0">
+    <desc>reading-order step 2</desc></circle>
+  <text id="p-r-badgenum" x="497.33" y="100.5" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    <desc>step 2 of the reading order</desc><tspan x="497.33" dy="0">2</tspan></text>
+  <text id="p-r-heading" x="519.33" y="96" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="21" font-weight="bold" fill="#1A1A1A" text-anchor="start">
+    <desc>panel heading: Results</desc><tspan x="519.33" dy="0">Results</tspan></text>
+  <text id="p-r-ytick-0" x="479.33" y="800" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#5A5A5A" text-anchor="end"><tspan x="479.33" dy="0">0</tspan></text>
+  <line id="p-r-baseline" x1="487.33" y1="806" x2="1092" y2="806" stroke="#1A1A1A" stroke-width="1.5"/>
+  <text id="p-r-ytick-1" x="479.33" y="667.2" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#5A5A5A" text-anchor="end"><tspan x="479.33" dy="0">20</tspan></text>
+  <line id="p-r-grid-1" x1="487.33" y1="673.2" x2="1092" y2="673.2" stroke="#ECECEC" stroke-width="1"/>
+  <text id="p-r-ytick-2" x="479.33" y="534.4" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#5A5A5A" text-anchor="end"><tspan x="479.33" dy="0">40</tspan></text>
+  <line id="p-r-grid-2" x1="487.33" y1="540.4" x2="1092" y2="540.4" stroke="#ECECEC" stroke-width="1"/>
+  <text id="p-r-ytick-3" x="479.33" y="401.6" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#5A5A5A" text-anchor="end"><tspan x="479.33" dy="0">60</tspan></text>
+  <line id="p-r-grid-3" x1="487.33" y1="407.6" x2="1092" y2="407.6" stroke="#ECECEC" stroke-width="1"/>
+  <text id="p-r-ytick-4" x="479.33" y="268.8" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#5A5A5A" text-anchor="end"><tspan x="479.33" dy="0">80</tspan></text>
+  <line id="p-r-grid-4" x1="487.33" y1="274.8" x2="1092" y2="274.8" stroke="#ECECEC" stroke-width="1"/>
+  <text id="p-r-ytick-5" x="479.33" y="136" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#5A5A5A" text-anchor="end"><tspan x="479.33" dy="0">100</tspan></text>
+  <line id="p-r-grid-5" x1="487.33" y1="142" x2="1092" y2="142" stroke="#ECECEC" stroke-width="1"/>
+  <text id="p-r-unit" x="479.33" y="132" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="bold" fill="#5A5A5A" text-anchor="start"><tspan x="479.33" dy="0">%</tspan></text>
+  <rect id="s-before" x="556.11" y="201.76" width="64" height="604.24" fill="#0072B2" stroke="none" stroke-width="0" rx="3">
+    <desc>datum | materials/notes.md Results | "CO conversion before ageing: 91%."</desc></rect>
+  <text id="s-before-value" x="588.11" y="181.76" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#1A1A1A" text-anchor="middle"><tspan x="588.11" dy="0">91%</tspan></text>
+  <text id="s-before-xlabel" x="588.11" y="814" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A1A1A" text-anchor="middle"><tspan x="588.11" dy="0">CO conversion before ageing</tspan></text>
+  <rect id="s-after" x="757.67" y="361.12" width="64" height="444.88" fill="#0072B2" stroke="none" stroke-width="0" rx="3">
+    <desc>datum | materials/notes.md Results | "CO conversion after ageing: 67%."</desc></rect>
+  <text id="s-after-value" x="789.67" y="341.12" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#1A1A1A" text-anchor="middle"><tspan x="789.67" dy="0">67%</tspan></text>
+  <text id="s-after-xlabel" x="789.67" y="814" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A1A1A" text-anchor="middle"><tspan x="789.67" dy="0">CO conversion after ageing</tspan></text>
+  <rect id="s-missing" x="959.22" y="474" width="64" height="332" fill="#0072B2" stroke="none" stroke-width="0" rx="3">
+    <desc>datum</desc></rect>
+  <text id="s-missing-value" x="991.22" y="454" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#1A1A1A" text-anchor="middle"><tspan x="991.22" dy="0">50%</tspan></text>
+  <text id="s-missing-xlabel" x="991.22" y="814" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="13" font-weight="normal" fill="#1A1A1A" text-anchor="middle"><tspan x="991.22" dy="0">Selectivity (not reported)</tspan></text>
+  <rect id="p-c-frame" x="1130" y="74" width="434" height="790" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="1.5" rx="10">
+    <desc>panel 3: conclusion</desc></rect>
+  <rect id="p-c-strip" x="1130" y="74" width="434" height="5" fill="#CC79A7" stroke="none" stroke-width="0" rx="2">
+    <desc>panel accent (role: conclusion)</desc></rect>
+  <circle id="p-c-badge" cx="1158" cy="108" r="14" fill="#CC79A7" stroke="none" stroke-width="0">
+    <desc>reading-order step 3</desc></circle>
+  <text id="p-c-badgenum" x="1158" y="100.5" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    <desc>step 3 of the reading order</desc><tspan x="1158" dy="0">3</tspan></text>
+  <text id="p-c-heading" x="1180" y="96" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="21" font-weight="bold" fill="#1A1A1A" text-anchor="start">
+    <desc>panel heading: Conclusion</desc><tspan x="1180" dy="0">Conclusion</tspan></text>
+  <rect id="b-1-marker" x="1148" y="147" width="9" height="9" fill="#CC79A7" stroke="none" stroke-width="0"></rect>
+  <text id="b-1" x="1170" y="142" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="16" font-weight="normal" fill="#1A1A1A" text-anchor="start">
+    <desc>claim | materials/notes.md Conclusion | "Thermal ageing halves CO conversion; dopant stabilisation is needed."</desc><tspan x="1170" dy="0">Thermal ageing reduces CO conversion from 91%</tspan><tspan x="1170" dy="20.48">to 67%, and this long bullet is deliberately written to</tspan><tspan x="1170" dy="20.48">be far too long so that it overflows the small</tspan><tspan x="1170" dy="20.48">conclusion panel and triggers the overflow</tspan><tspan x="1170" dy="20.48">detector, which must report an error instead of</tspan><tspan x="1170" dy="20.48">silently clipping the text outside the canvas.</tspan></text>
+  <rect id="b-2-marker" x="1148" y="289.64" width="9" height="9" fill="#CC79A7" stroke="none" stroke-width="0"></rect>
+  <text id="b-2" x="1170" y="284.64" font-family="Helvetica, Arial, 'Noto Sans', 'DejaVu Sans', sans-serif" font-size="16" font-weight="normal" fill="#1A1A1A" text-anchor="start">
+    <desc>claim | materials/notes.md Methods | "The cobalt loading was 5 wt%."</desc><tspan x="1170" dy="0">Cobalt loading was 5 wt%.</tspan></text>
+  <line id="link-36-469" x1="451.33" y1="108" x2="463.33" y2="108" stroke="#B9B9B9" stroke-width="2" marker-end="url(#arrow-b9b9b9)"/>
+  <line id="link-469-1130" x1="1112" y1="108" x2="1124" y2="108" stroke="#B9B9B9" stroke-width="2" marker-end="url(#arrow-b9b9b9)"/>
+</g>
+</svg>

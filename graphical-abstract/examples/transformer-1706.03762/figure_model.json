@@ -1,0 +1,84 @@
+{
+  "schema": "graphical-abstract/1",
+  "case_id": "example-arxiv-1706.03762",
+  "title": "Attention Is All You Need — the Transformer",
+  "caption_note": "Graphical abstract derived from the published abstract of arXiv:1706.03762v7. All quotes verbatim; locators are Abstract sentence numbers.",
+  "canvas": { "width": 1800, "height": 950 },
+  "panels": [
+    {
+      "id": "p-question", "role": "question", "heading": "Research question", "layout": "flow",
+      "nodes": [
+        { "id": "ent-dominant", "label": "Dominant sequence transduction models: recurrent or convolutional networks, encoder-decoder", "layer": 0,
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 1",
+                      "quote": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration." } },
+        { "id": "ent-attention", "label": "Best models connect encoder and decoder via attention", "layer": 1, "accent": "sky",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 2",
+                      "quote": "The best performing models also connect the encoder and decoder through an attention mechanism." } },
+        { "id": "ent-q", "label": "Can attention alone — no recurrence, no convolutions — carry sequence transduction?", "layer": 2, "emph": true, "accent": "blue",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 3",
+                      "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely." } }
+      ],
+      "edges": [
+        { "id": "rel-motivates", "from": "ent-attention", "to": "ent-q", "label": "motivates",
+          "meaning": "the attention mechanism in existing models motivates the question",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 2",
+                      "quote": "The best performing models also connect the encoder and decoder through an attention mechanism." } }
+      ]
+    },
+    {
+      "id": "p-method", "role": "method", "heading": "Method: the Transformer", "layout": "flow",
+      "nodes": [
+        { "id": "ent-transformer", "label": "The Transformer: a new simple network architecture based solely on attention mechanisms", "layer": 0, "emph": true, "accent": "green",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 3",
+                      "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely." } },
+        { "id": "ent-norec", "label": "Dispenses with recurrence and convolutions entirely", "layer": 1,
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 3",
+                      "quote": "dispensing with recurrence and convolutions entirely" } },
+        { "id": "ent-tasks", "label": "Evaluated on two machine translation tasks", "layer": 2,
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 4",
+                      "quote": "Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train." } }
+      ]
+    },
+    {
+      "id": "p-results", "role": "results", "heading": "Results: WMT 2014 BLEU", "layout": "chart",
+      "chart": {
+        "type": "bar", "unit": " BLEU", "show_values": true,
+        "series": [
+          { "id": "res-ende", "label": "English-to-German (single model)", "value": 28.4,
+            "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 5",
+                        "quote": "Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU." } },
+          { "id": "res-enfr", "label": "English-to-French (single model, new SOTA)", "value": 41.8,
+            "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 6",
+                        "quote": "On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature." } }
+        ]
+      }
+    },
+    {
+      "id": "p-cost", "role": "results", "heading": "Training cost", "layout": "stats",
+      "stats": [
+        { "id": "stat-days", "value": "3.5 days", "accent": "blue",
+          "label": "training time on eight GPUs — a small fraction of the cost of the best models from the literature",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 6",
+                      "quote": "41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature" } },
+        { "id": "stat-margin", "value": "> 2 BLEU", "accent": "green",
+          "label": "improvement over existing best results on English-to-German, including ensembles",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 5",
+                      "quote": "improving over the existing best results, including ensembles by over 2 BLEU" } }
+      ]
+    },
+    {
+      "id": "p-conclusion", "role": "conclusion", "heading": "Conclusion", "layout": "text",
+      "bullets": [
+        { "id": "cl-quality", "text": "Superior quality while more parallelizable and requiring significantly less time to train.",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 4",
+                      "quote": "show these models to be superior in quality while being more parallelizable and requiring significantly less time to train" } },
+        { "id": "cl-generalize", "text": "Generalizes well to other tasks: English constituency parsing with both large and limited training data.",
+          "source": { "file": "examples/transformer-1706.03762/material_abstract.md", "locator": "Abstract, sentence 7",
+                      "quote": "We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data." } }
+      ]
+    }
+  ],
+  "legend": { "auto": true },
+  "notes": [ "Source: Vaswani et al., Attention Is All You Need, arXiv:1706.03762v7 (DOI 10.48550/arXiv.1706.03762); quotes verbatim from the published abstract." ],
+  "checks": { "min_font_px": 12 }
+}

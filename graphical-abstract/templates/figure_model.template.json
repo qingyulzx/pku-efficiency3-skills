@@ -1,0 +1,55 @@
+{
+  "schema": "graphical-abstract/1",
+  "case_id": "REPLACE_WITH_CASE_ID",
+  "title": "Figure title (one line)",
+  "caption_note": "One-line provenance: what material, what version, what the numbers are.",
+  "canvas": { "width": 1800, "height": 1000 },
+  "panels": [
+    {
+      "id": "p-question", "role": "question", "heading": "Research question", "layout": "flow",
+      "nodes": [
+        { "id": "ent-context", "label": "Context entity", "layer": 0,
+          "source": { "file": "materials/REPLACE.md", "locator": "section, sentence N", "quote": "verbatim sentence" } },
+        { "id": "ent-question", "label": "The question the material poses", "layer": 1, "emph": true,
+          "source": { "file": "materials/REPLACE.md", "locator": "section, sentence N", "quote": "verbatim sentence" } }
+      ],
+      "edges": []
+    },
+    {
+      "id": "p-method", "role": "method", "heading": "Method", "layout": "flow",
+      "nodes": [
+        { "id": "ent-setup", "label": "Study design / system", "layer": 0,
+          "source": { "file": "materials/REPLACE.md", "locator": "section, sentence N", "quote": "verbatim sentence" } },
+        { "id": "ent-arm-a", "label": "Condition A", "layer": 1, "accent": "blue",
+          "source": { "file": "materials/REPLACE.md", "locator": "section, sentence N", "quote": "verbatim sentence" } },
+        { "id": "ent-arm-b", "label": "Condition B", "layer": 1, "accent": "orange",
+          "source": { "file": "materials/REPLACE.md", "locator": "section, sentence N", "quote": "verbatim sentence" } }
+      ],
+      "edges": [],
+      "groups": [ { "id": "grp-arms", "label": "compared conditions", "members": ["ent-arm-a", "ent-arm-b"],
+                    "source": { "file": "materials/REPLACE.md", "locator": "section, sentence N", "quote": "verbatim sentence" } } ]
+    },
+    {
+      "id": "p-results", "role": "results", "heading": "Key result", "layout": "chart",
+      "chart": {
+        "type": "bar", "unit": "REPLACE_UNIT", "show_values": true,
+        "series": [
+          { "id": "res-a", "label": "Condition A", "value": 0,
+            "source": { "file": "materials/REPLACE.md", "locator": "Results, sentence N", "quote": "verbatim sentence containing the number" } },
+          { "id": "res-b", "label": "Condition B", "value": 0,
+            "source": { "file": "materials/REPLACE.md", "locator": "Results, sentence N", "quote": "verbatim sentence containing the number" } }
+        ]
+      }
+    },
+    {
+      "id": "p-conclusion", "role": "conclusion", "heading": "Conclusion", "layout": "text",
+      "bullets": [
+        { "id": "cl-1", "text": "Claim in the material's own terms.",
+          "source": { "file": "materials/REPLACE.md", "locator": "Conclusion, sentence N", "quote": "verbatim sentence" } }
+      ]
+    }
+  ],
+  "legend": { "auto": true },
+  "notes": [ "Caption-only material (study size, funding, caveats) goes here." ],
+  "checks": { "min_font_px": 12 }
+}
