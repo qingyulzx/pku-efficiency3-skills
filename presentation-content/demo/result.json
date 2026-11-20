@@ -1,0 +1,226 @@
+{
+ "case_id": "w07-local-lab-001",
+ "status": "complete",
+ "editable_presentation": {
+  "deck_path": "w07-local-lab-001_deck.pptx",
+  "content_pages": 8,
+  "backup_pages": 2,
+  "total_slides": 10,
+  "template": {
+   "path": "input/template_lab.pptx",
+   "sha256": "10328dbc0ce37d76ac4ea364cfe1c6ac3c73559e4b7ee6aef8e851d39fa4c802",
+   "source": "case template",
+   "adaptations": [
+    {
+     "page": 1,
+     "what": "body text box added",
+     "why": "layout has no body placeholder"
+    }
+   ],
+   "layout_selection": "placeholder-signature fallback (Chinese layout names defeated name matching)"
+  }
+ },
+ "page_evidence_map": [
+  {
+   "page": 1,
+   "claim": "Transformer：不用循环、不用卷积，序列转导只靠注意力",
+   "locator": "1706.03762.pdf p.1 标题区",
+   "quote": "Attention Is All You Need",
+   "strength": "direct"
+  },
+  {
+   "page": 3,
+   "claim": "动机：主流模型背着 RNN/CNN 的串行包袱，训练慢",
+   "locator": "1706.03762.pdf Abstract（p.1-2）",
+   "quote": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration.",
+   "strength": "direct"
+  },
+  {
+   "page": 4,
+   "claim": "方法主干：多头注意力让模型同时在多个表示子空间里对齐信息",
+   "locator": "1706.03762.pdf p.5 §3.2.2",
+   "quote": "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions.",
+   "strength": "direct"
+  },
+  {
+   "page": 4,
+   "claim": "方法主干：多头注意力让模型同时在多个表示子空间里对齐信息",
+   "locator": "1706.03762.pdf Abstract",
+   "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+   "strength": "direct"
+  },
+  {
+   "page": 5,
+   "claim": "换掉循环换来什么：更短的最大路径长度、更少的串行步",
+   "locator": "1706.03762.pdf p.6 Table 1（题注）",
+   "quote": "Maximum path lengths, per-layer complexity and minimum number of sequential operations",
+   "strength": "direct"
+  },
+  {
+   "page": 6,
+   "claim": "结果：28.4 BLEU（EN-DE），比含 ensemble 的最好结果还高 2 BLEU 以上",
+   "locator": "1706.03762.pdf Abstract",
+   "quote": "Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU.",
+   "strength": "direct"
+  },
+  {
+   "page": 6,
+   "claim": "结果：28.4 BLEU（EN-DE），比含 ensemble 的最好结果还高 2 BLEU 以上",
+   "locator": "1706.03762.pdf p.8 Table 2（题注）",
+   "quote": "The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost.",
+   "strength": "direct"
+  },
+  {
+   "page": 7,
+   "claim": "消融：多头不是玄学——单头掉 0.9 BLEU，头太多也掉",
+   "locator": "1706.03762.pdf p.9 §5.4 / Table 3",
+   "quote": "single-head attention is 0.9 BLEU worse than the best setting, quality also drops off with too many heads.",
+   "strength": "direct"
+  },
+  {
+   "page": 8,
+   "claim": "下一步：借多头与位置编码；风险在'小数据是否仍占优'",
+   "locator": "1706.03762.pdf Abstract",
+   "quote": "We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+   "strength": "indirect"
+  },
+  {
+   "page": 8,
+   "claim": "下一步：借多头与位置编码；风险在'小数据是否仍占优'",
+   "locator": "本页'小数据风险'主张",
+   "quote": "论文仅在 WMT 级数据与成分句法任务上验证，未覆盖我们组的低资源场景",
+   "strength": "gap"
+  },
+  {
+   "page": 9,
+   "claim": "备份 A：为什么不用 RNN？三种层的复杂度对照",
+   "locator": "1706.03762.pdf p.6 Table 1",
+   "quote": "Maximum path lengths, per-layer complexity and minimum number of sequential operations",
+   "strength": "direct"
+  },
+  {
+   "page": 10,
+   "claim": "备份 B：EN-FR 训练成本细节",
+   "locator": "1706.03762.pdf Abstract",
+   "quote": "On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature.",
+   "strength": "direct"
+  }
+ ],
+ "render_and_version_record": {
+  "render": {
+   "status": "ok",
+   "pdf": "previews/w07-local-lab-001_deck.pdf",
+   "soffice": "C:\\Program Files\\LibreOffice\\program\\soffice.exe"
+  },
+  "audit": {
+   "n_slides": 10,
+   "slides_without_notes": 0,
+   "gap_marker_count": 2
+  },
+  "versions": [
+   {
+    "step": "build v1",
+    "change": "content pages fell to 章节过渡版式",
+    "why": "signature matcher missed OBJECT(7) placeholder type",
+    "fix": "treat OBJECT as body; rebuild v2 correct"
+   },
+   {
+    "step": "build v2",
+    "change": "bullet wording de-duplicated the literal gap marker",
+    "why": "audit gap_marker_count was 3 vs 2 actual missing figures"
+   }
+  ]
+ },
+ "speaker_notes": "all 10 slides carry notes (audit slides_without_notes=0); full text in deck notes + outline.md",
+ "qa_preparation": [
+  {
+   "page": 1,
+   "q": "这篇和我们的方向有什么关系？",
+   "a": "我们的 seq2seq 管线里 RNN 编码器可以直接对照替换，第 4 页讲细节。"
+  },
+  {
+   "page": 2,
+   "q": "相关工作（§2）不讲吗？",
+   "a": "组里都熟，砍掉了，原文献 §2 可自行查阅。"
+  },
+  {
+   "page": 3,
+   "q": "attention 不是早就有了吗，新在哪？",
+   "a": "新在'只用'注意力：把 RNN/CNN 整个替换掉而不是叠加。"
+  },
+  {
+   "page": 4,
+   "q": "为什么除以 √d_k？",
+   "a": "防止内积过大把 softmax 推进饱和区，梯度消失；论文 §3.2.1 有推导。"
+  },
+  {
+   "page": 4,
+   "q": "头数多少合适？",
+   "a": "第 7 页消融给了答案。"
+  },
+  {
+   "page": 5,
+   "q": "长序列怎么办？",
+   "a": "论文用 restricted self-attention（r 邻域）作对照，我们后续可关注稀疏注意力方向。"
+  },
+  {
+   "page": 6,
+   "q": "和 GNMT/ConvS2S 的 FLOPs 对比具体多少？",
+   "a": "表 2 原表逐项列出（p.8），口述易错，建议现场翻原文；数字见备份页 B2 的表格页。"
+  },
+  {
+   "page": 7,
+   "q": "为什么头太多会掉？",
+   "a": "论文未给机制解释，只报告现象；每头维度被摊薄可能是原因之一（我们的推测，inferred）。"
+  },
+  {
+   "page": 8,
+   "q": "低资源场景有没有旁证？",
+   "a": "论文 Table 4 给了 limited training data 的成分句法结果，可作间接旁证（p.10），但任务差异大，结论强度按 inferred 对待。"
+  }
+ ],
+ "content_decisions": [
+  {
+   "content": "Related Work 逐条综述（论文 §2）",
+   "reason": "组会听众同方向、熟悉扩展 LSTM/ConvS2S 谱系，背景铺垫超 1 页就挤占方法时间（组会判据：方法+进度 ≥60%）",
+   "where": "留在材料 p.2-3，问答时按需口述"
+  },
+  {
+   "content": "英语成分句法分析实验细节（Table 4 数字展开）",
+   "reason": "组会主线是方法与复用，泛化性一句结论+表引用已够，细节属 P2",
+   "where": "仅保留第 8 页一句引文；原文 p.10 Table 4 可查"
+  },
+  {
+   "content": "注意力可视化（Figure 3-5）",
+   "reason": "10 分钟预算内可视化属锦上添花（P3），且与本组行动项无关",
+   "where": "留在材料 p.13-15，问答可展示"
+  },
+  {
+   "content": "训练细节超参全表（§5.3）",
+   "reason": "复现需查表而非听讲，上页会稀释方法页",
+   "where": "备份问答口述 + 材料 p.7"
+  }
+ ],
+ "uncertainty": [
+  "Table 1 / Table 2 images were not extracted from the PDF; pages 5-6 carry explicit missing-figure markers and speak the numbers instead",
+  "page 8 low-resource risk claim has no direct support in the paper (strength=gap): stated as an unverified area, not a finding",
+  "render used local LibreOffice; container environments without soffice will record a render_gap instead"
+ ],
+ "sources": [
+  {
+   "path": "input/materials/1706.03762.pdf",
+   "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+   "role": "paper"
+  },
+  {
+   "path": "input/materials/fig1_architecture.png",
+   "sha256": "7af7242552b5cde9a7cf58a369b0db2e33ffcdebba542b468cb104d784874671",
+   "role": "figure (extracted from paper p.3)"
+  },
+  {
+   "path": "input/template_lab.pptx",
+   "sha256": "10328dbc0ce37d76ac4ea364cfe1c6ac3c73559e4b7ee6aef8e851d39fa4c802",
+   "role": "template"
+  }
+ ]
+}

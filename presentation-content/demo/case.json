@@ -1,0 +1,24 @@
+{
+  "case_id": "w07-local-lab-001",
+  "task": "把下面提供的论文材料组织成一次实验室组会汇报：页面结构、图表引用、讲稿备注齐全，10 分钟讲完，页数不超过 8 页（不含备用页）。",
+  "materials": [
+    "materials/1706.03762.pdf",
+    "materials/fig1_architecture.png"
+  ],
+  "constraints": {
+    "audience": "实验室组会（NLP 方向，熟悉 seq2seq 与注意力机制，未读过本文）",
+    "duration_minutes": 10,
+    "slide_count": 8,
+    "template": "template_lab.pptx"
+  },
+  "output_contract": {
+    "editable_presentation": "可编辑演示文件（pptx 路径 + 页级结构、主张、图表、模板适配结果）",
+    "page_evidence_map": "页级证据映射：每页主张对应论文图、表、章节或数据（locator + 引文）",
+    "render_and_version_record": "渲染与版本记录：源文件、导出件、字体/模板和修改记录",
+    "speaker_notes": "每页讲稿/备注（不复读页面要点）",
+    "qa_preparation": "问答准备：预期追问与口径一致的回答要点",
+    "content_decisions": "取舍决策留痕：哪些内容被砍、为什么、去向",
+    "uncertainty": "不确定性与材料缺口说明",
+    "sources": "来源清单（路径 + sha256 + 角色）"
+  }
+}

@@ -1,0 +1,104 @@
+{
+ "pptx": "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\w07-local-lab-001_deck.pptx",
+ "render": {
+  "status": "ok",
+  "pdf": "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\w07-local-lab-001_deck.pdf",
+  "soffice": "C:\\Program Files\\LibreOffice\\program\\soffice.exe",
+  "stdout": "convert G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\w07-local-lab-001_deck.pptx as a Impress document -> G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\w07-",
+  "pngs": [
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-01.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-02.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-03.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-04.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-05.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-06.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-07.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-08.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-09.png",
+   "G:\\science challenge\\第三期\\w07-content-org\\tests\\case_lab\\output\\previews\\slide-10.png"
+  ]
+ },
+ "audit": {
+  "status": "ok",
+  "n_slides": 10,
+  "slides_without_notes": 0,
+  "fonts_used": [],
+  "gap_marker_count": 2,
+  "slides": [
+   {
+    "slide": 1,
+    "layout": "封面版式",
+    "text_chars": 139,
+    "notes": true,
+    "gap_markers": []
+   },
+   {
+    "slide": 2,
+    "layout": "正文版式A",
+    "text_chars": 93,
+    "notes": true,
+    "gap_markers": []
+   },
+   {
+    "slide": 3,
+    "layout": "正文版式A",
+    "text_chars": 158,
+    "notes": true,
+    "gap_markers": []
+   },
+   {
+    "slide": 4,
+    "layout": "正文版式A",
+    "text_chars": 169,
+    "notes": true,
+    "gap_markers": []
+   },
+   {
+    "slide": 5,
+    "layout": "正文版式A",
+    "text_chars": 216,
+    "notes": true,
+    "gap_markers": [
+     "[图缺失] Table 1: 复杂度与路径长度对照（源：1706.03762.pdf p.6 Table 1）"
+    ]
+   },
+   {
+    "slide": 6,
+    "layout": "正文版式A",
+    "text_chars": 286,
+    "notes": true,
+    "gap_markers": [
+     "[图缺失] Table 2: 与 SOTA 的 BLEU/训练成本对比（源：1706.03762.pdf p.8 Table 2）"
+    ]
+   },
+   {
+    "slide": 7,
+    "layout": "正文版式A",
+    "text_chars": 124,
+    "notes": true,
+    "gap_markers": []
+   },
+   {
+    "slide": 8,
+    "layout": "正文版式A",
+    "text_chars": 211,
+    "notes": true,
+    "gap_markers": []
+   },
+   {
+    "slide": 9,
+    "layout": "正文版式A",
+    "text_chars": 164,
+    "notes": true,
+    "gap_markers": []
+   },
+   {
+    "slide": 10,
+    "layout": "正文版式A",
+    "text_chars": 188,
+    "notes": true,
+    "gap_markers": []
+   }
+  ]
+ }
+}
