@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2078" height="2449" viewBox="0 0 2078 2449">
+<title>模块化真空镀膜系统装置图（溅射 + 离子束铣）</title>
+<desc>Layered editable figure generated from an intermediate representation. Elements carry data-id and source locations; verbatim source quotes are stored in each element&#x27;s &lt;desc&gt; and in the sidecar geometry report.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/>
+  </marker>
+</defs>
+<g id="layer-frame" data-purpose="canvas border and title block">
+<text x="1039.0" y="34.0" font-size="19.0" text-anchor="middle" fill="#111111" font-family="sans-serif" font-weight="bold">模块化真空镀膜系统装置图（溅射 + 离子束铣）</text>
+<text x="1039.0" y="54.0" font-size="12.0" text-anchor="middle" fill="#444444" font-family="sans-serif">DN100CF 三腔布局：装载锁 / 磁控溅射腔 / 离子束铣腔</text>
+<rect x="8.0" y="8.0" width="2062.0" height="2433.0" rx="6.0" fill="none" stroke="#cccccc" stroke-width="1.00"/>
+</g>
+<g id="layer-structure" data-purpose="structural elements: component glyphs and connections">
+<g id="C1" data-id="C1" data-type="load_lock" data-source-loc="§II 第1段">
+<title>装载锁 Load lock</title>
+<desc>source quote: One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.</desc>
+<rect x="522.6" y="119.0" width="86.0" height="48.0" rx="10.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.80"/>
+<circle cx="565.6" cy="143.0" r="11.0" fill="none" stroke="#1a1a1a" stroke-width="1.40"/>
+<line x1="565.6" y1="132.0" x2="565.6" y2="154.0" stroke="#1a1a1a" stroke-width="1.00"/>
+<line x1="554.6" y1="143.0" x2="576.6" y2="143.0" stroke="#1a1a1a" stroke-width="1.00"/>
+</g>
+<g id="C2" data-id="C2" data-type="valve" data-source-loc="§II 第1段">
+<title>快开门 Quick-access door</title>
+<desc>source quote: One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.</desc>
+<polygon points="1776.7,100.0 1809.7,113.0 1776.7,126.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+<polygon points="1842.7,100.0 1809.7,113.0 1842.7,126.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+</g>
+<g id="C3" data-id="C3" data-type="other" data-source-loc="§II 第3段">
+<title>传输杆 Transfer rod</title>
+<desc>source quote: The transfer rod is reinforced to support the weight of the complete sample-holder assembly.</desc>
+<rect x="73.0" y="104.0" width="150.0" height="54.0" rx="6.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.50"/>
+</g>
+<g id="C4" data-id="C4" data-type="electronics" data-source-loc="§II 第1段">
+<title>电馈通 Electrical feedthrough</title>
+<desc>source quote: One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.</desc>
+<rect x="137.1" y="263.0" width="86.0" height="28.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+<line x1="170.1" y1="283.0" x2="190.1" y2="283.0" stroke="#1a1a1a" stroke-width="1.80"/>
+<line x1="180.1" y1="283.0" x2="180.1" y2="277.0" stroke="#1a1a1a" stroke-width="1.80"/>
+</g>
+<g id="C5" data-id="C5" data-type="valve" data-source-loc="§II 第1段">
+<title>进气口 Gas inlet</title>
+<desc>source quote: One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.</desc>
+<polygon points="101.2,428.0 134.2,441.0 101.2,454.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+<polygon points="167.2,428.0 134.2,441.0 167.2,454.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+</g>
+<g id="C6" data-id="C6" data-type="scroll_pump" data-source-loc="§II 第1段">
+<title>粗抽泵（涡旋泵）Scroll pump（装载锁）</title>
+<desc>source quote: After loading a sample, the load lock is pumped with a separate scroll pump to a pressure of p ≈ 10⁻¹ mbar within about t = 4 min before the gate valve is opened.</desc>
+<circle cx="205.6" cy="605.0" r="14.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.80"/>
+<polygon points="199.3,596.6 213.3,605.0 199.3,613.4" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+</g>
+<g id="C7" data-id="C7" data-type="valve" data-source-loc="§II 第1段">
+<title>闸阀 Gate valve</title>
+<desc>source quote: The load lock is separated from the main chambers by a gate valve.</desc>
+<polygon points="99.7,756.0 132.7,769.0 99.7,782.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+<polygon points="165.7,756.0 132.7,769.0 165.7,782.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+</g>
+<g id="C8" data-id="C8" data-type="process_chamber" data-source-loc="§II 第2段">
+<title>溅射腔（4× 2英寸磁控溅射源）</title>
+<desc>source quote: One of them is equipped with four 2-inch magnetron sputter sources installed on O-ring sealed rods. The working distance can be adjusted between 52 mm and 150 mm.</desc>
+<rect x="994.0" y="119.0" width="86.0" height="48.0" rx="10.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.80"/>
+<circle cx="1037.0" cy="143.0" r="11.0" fill="none" stroke="#1a1a1a" stroke-width="1.40"/>
+<line x1="1037.0" y1="132.0" x2="1037.0" y2="154.0" stroke="#1a1a1a" stroke-width="1.00"/>
+<line x1="1026.0" y1="143.0" x2="1048.0" y2="143.0" stroke="#1a1a1a" stroke-width="1.00"/>
+</g>
+<g id="C9" data-id="C9" data-type="sputter_source" data-source-loc="§II 第2段">
+<title>磁控溅射源 ×4（O圈密封杆安装）</title>
+<desc>source quote: One of them is equipped with four 2-inch magnetron sputter sources installed on O-ring sealed rods.</desc>
+<circle cx="613.6" cy="292.0" r="17.0" fill="#fde9d9" stroke="#1a1a1a" stroke-width="1.60"/>
+<circle cx="607.6" cy="288.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="617.6" cy="285.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="620.6" cy="297.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="609.6" cy="299.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="613.6" cy="292.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+</g>
+<g id="C10" data-id="C10" data-type="other" data-source-loc="§II 第3段">
+<title>样品架 Sample holder（带屏蔽板/快门）</title>
+<desc>source quote: The mechanical design is based on a central assembly attached to the transfer rod, a vacuum-compatible stepper motor, bearing supports, and the shield.</desc>
+<rect x="1297.0" y="104.0" width="264.9" height="69.0" rx="6.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.50"/>
+</g>
+<g id="C11" data-id="C11" data-type="process_chamber" data-source-loc="§II 第5段">
+<title>离子束铣腔（含离子源）</title>
+<desc>source quote: The second process chamber contains an ion-beam source for milling and surface preparation.</desc>
+<rect x="972.9" y="263.0" width="86.0" height="43.0" rx="10.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.80"/>
+<circle cx="1015.9" cy="284.5" r="11.0" fill="none" stroke="#1a1a1a" stroke-width="1.40"/>
+<line x1="1015.9" y1="273.5" x2="1015.9" y2="295.5" stroke="#1a1a1a" stroke-width="1.00"/>
+<line x1="1004.9" y1="284.5" x2="1026.9" y2="284.5" stroke="#1a1a1a" stroke-width="1.00"/>
+</g>
+<g id="C12" data-id="C12" data-type="ion_beam_source" data-source-loc="§II 第2段">
+<title>离子束源 Ion-beam source</title>
+<desc>source quote: The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge.</desc>
+<circle cx="1023.5" cy="441.0" r="16.0" fill="#fde9d9" stroke="#1a1a1a" stroke-width="1.60"/>
+<circle cx="1017.5" cy="437.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="1027.5" cy="434.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="1030.5" cy="446.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="1019.5" cy="448.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+<circle cx="1023.5" cy="441.0" r="1.6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="0.80"/>
+</g>
+<g id="C13" data-id="C13" data-type="turbomolecular_pump" data-source-loc="§II 第3段">
+<title>分子泵 Turbomolecular pump</title>
+<desc>source quote: The turbomolecular pump remains at full speed during sample loading and is throttled to a low-speed mode with 70% of its nominal speed during deposition to reduce the mechanical load at high pressure and allow for higher working pressures.</desc>
+<circle cx="600.6" cy="463.5" r="22.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.80"/>
+<polygon points="590.7,450.3 612.7,463.5 590.7,476.7" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+</g>
+<g id="C14" data-id="C14" data-type="pressure_gauge" data-source-loc="§II 第2段">
+<title>全量程真空计 Full-range pressure gauge</title>
+<desc>source quote: The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge.</desc>
+<circle cx="210.0" cy="929.0" r="15.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+<line x1="210.0" y1="929.0" x2="198.0" y2="949.0" stroke="#1a1a1a" stroke-width="1.40"/>
+<line x1="210.0" y1="929.0" x2="222.0" y2="949.0" stroke="#1a1a1a" stroke-width="1.40"/>
+</g>
+<g id="C15" data-id="C15" data-type="scroll_pump" data-source-loc="§II 第2段">
+<title>前级涡旋泵 Scroll pump（分子泵前级）</title>
+<desc>source quote: The required backing pressure is provided by a small scroll pump.</desc>
+<circle cx="201.2" cy="1097.0" r="14.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.80"/>
+<polygon points="194.9,1088.6 208.9,1097.0 194.9,1105.4" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.40"/>
+</g>
+<g id="C16" data-id="C16" data-type="filter" data-source-loc="§II 第3段">
+<title>孔径板 Aperture plates（DN100CF 法兰）</title>
+<desc>source quote: Together with aperture plates mounted in the DN100CF flanges, this geometry reduces direct cross-contamination between neighboring sources and allows pre-sputtering of the sources.</desc>
+<rect x="1817.9" y="260.0" width="74.0" height="34.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+<line x1="1823.9" y1="266.0" x2="1885.9" y2="266.0" stroke="#1a1a1a" stroke-width="1.00"/>
+<line x1="1823.9" y1="288.0" x2="1885.9" y2="288.0" stroke="#1a1a1a" stroke-width="1.00"/>
+<line x1="1836.4" y1="266.0" x2="1836.4" y2="288.0" stroke="#1a1a1a" stroke-width="0.90" stroke-dasharray="3,2"/>
+<line x1="1854.9" y1="266.0" x2="1854.9" y2="288.0" stroke="#1a1a1a" stroke-width="0.90" stroke-dasharray="3,2"/>
+<line x1="1873.4" y1="266.0" x2="1873.4" y2="288.0" stroke="#1a1a1a" stroke-width="0.90" stroke-dasharray="3,2"/>
+</g>
+<g id="C17" data-id="C17" data-type="controller" data-source-loc="Figure 8 caption（§IV）">
+<title>联锁控制器 Interlock controller</title>
+<desc>source quote: The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.</desc>
+<rect x="141.0" y="1247.0" width="86.0" height="28.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+<line x1="174.0" y1="1267.0" x2="194.0" y2="1267.0" stroke="#1a1a1a" stroke-width="1.80"/>
+<line x1="184.0" y1="1267.0" x2="184.0" y2="1261.0" stroke="#1a1a1a" stroke-width="1.80"/>
+</g>
+<g id="C18" data-id="C18" data-type="power_supply" data-source-loc="Figure 8 caption（§IV）">
+<title>DC/RF 电源 DC and RF power supplies</title>
+<desc>source quote: The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.</desc>
+<rect x="159.9" y="1411.0" width="86.0" height="28.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+<line x1="192.9" y1="1431.0" x2="212.9" y2="1431.0" stroke="#1a1a1a" stroke-width="1.80"/>
+<line x1="202.9" y1="1431.0" x2="202.9" y2="1425.0" stroke="#1a1a1a" stroke-width="1.80"/>
+</g>
+<g id="C19" data-id="C19" data-type="controller" data-source-loc="Figure 8 caption（§IV）">
+<title>时序过程控制系统 Time-based process control</title>
+<desc>source quote: The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.</desc>
+<rect x="597.0" y="591.0" width="86.0" height="42.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+<line x1="630.0" y1="625.0" x2="650.0" y2="625.0" stroke="#1a1a1a" stroke-width="1.80"/>
+<line x1="640.0" y1="625.0" x2="640.0" y2="619.0" stroke="#1a1a1a" stroke-width="1.80"/>
+</g>
+<g id="L1" data-id="L1" data-from="C5" data-to="C1" data-medium="工艺气体" data-kind="material" data-source-loc="§II 第1段">
+<desc>source quote: One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.</desc>
+<polyline points="208.4,441.0 464.0,441.0 464.0,143.0 490.0,143.0" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="L2" data-id="L2" data-from="C6" data-to="C1" data-medium="抽真空" data-kind="material" data-source-loc="§II 第1段">
+<desc>source quote: After loading a sample, the load lock is pumped with a separate scroll pump to a pressure of p ≈ 10⁻¹ mbar within about t = 4 min before the gate valve is opened.</desc>
+<polyline points="351.2,605.0 464.0,605.0 464.0,143.0 490.0,143.0" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="L3" data-id="L3" data-from="C1" data-to="C8" data-medium="样品传输（轴向运动）" data-kind="material" data-source-loc="§II 第4段">
+<desc>source quote: Axial motion of the transfer rod moves the sample from the load lock into the process chambers, while rotation of the transfer rod defines the angular position of the sample with respect to the deposition or milling sources, see Figure 4.</desc>
+<polyline points="641.3,143.0 920.0,143.0" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="L4" data-id="L4" data-from="C7" data-to="C1" data-medium="真空隔离" data-kind="material" data-source-loc="§II 第1段">
+<desc>source quote: The load lock is separated from the main chambers by a gate valve.</desc>
+<polyline points="205.3,769.0 464.0,769.0 464.0,143.0 490.0,143.0" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="L5" data-id="L5" data-from="C13" data-to="C11" data-medium="抽真空" data-kind="material" data-source-loc="§II 第2段">
+<desc>source quote: Our design reaches a base pressure of p = 5·10⁻⁸ mbar without bakeout.</desc>
+<polyline points="711.2,463.5 894.0,463.5 894.0,284.5 920.0,284.5" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="L6" data-id="L6" data-from="C15" data-to="C13" data-medium="前级抽气" data-kind="material" data-source-loc="§II 第2段">
+<desc>source quote: The required backing pressure is provided by a small scroll pump.</desc>
+<polyline points="342.3,1097.0 464.0,1097.0 464.0,463.5 490.0,463.5" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="L7" data-id="L7" data-from="C9" data-to="C10" data-medium="溅射沉积（材料流）" data-kind="material" data-source-loc="§II 第4段">
+<desc>source quote: During standard deposition, the sample can be aligned facing one selected magnetron source.</desc>
+<polyline points="737.2,292.0 1258.0,292.0 1258.0,135.5 1284.0,135.5" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="L8" data-id="L8" data-from="C12" data-to="C10" data-medium="离子束（铣削/清洗）" data-kind="energy" data-source-loc="§II 第5段">
+<desc>source quote: Integrating ion-beam milling into the same compact vacuum system enables controlled material removal, surface cleaning, and subsequent deposition without breaking vacuum.</desc>
+<polyline points="1126.9,441.0 1258.0,441.0 1258.0,135.5 1284.0,135.5" fill="none" stroke="#1f77b4" stroke-width="1.40" stroke-dasharray="2,3" marker-end="url(#arrow)"/>
+</g>
+<g id="L9" data-id="L9" data-from="C14" data-to="C11" data-medium="压力读数" data-kind="signal" data-source-loc="§II 第2段">
+<desc>source quote: The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge.</desc>
+<polyline points="360.0,933.0 894.0,933.0 894.0,284.5 920.0,284.5" fill="none" stroke="#1f77b4" stroke-width="1.40" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+</g>
+<g id="L10" data-id="L10" data-from="C4" data-to="C10" data-medium="电信号" data-kind="signal" data-source-loc="§II 第3段">
+<desc>source quote: A pair of bevel gears transmits the vacuum motor torque to a 3-inch sample disk, enabling rotation of the substrate during deposition.</desc>
+<polyline points="300.2,277.0 1258.0,277.0 1258.0,135.5 1284.0,135.5" fill="none" stroke="#7f7f7f" stroke-width="1.40" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+</g>
+<g id="L11" data-id="L11" data-from="C18" data-to="C9" data-medium="DC/RF 功率" data-kind="energy" data-source-loc="Figure 8 caption（§IV）">
+<desc>source quote: The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.</desc>
+<polyline points="345.7,1425.0 464.0,1425.0 464.0,292.0 490.0,292.0" fill="none" stroke="#7f7f7f" stroke-width="1.40" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+</g>
+<g id="L12" data-id="L12" data-from="C17" data-to="C19" data-medium="控制信号" data-kind="signal" data-source-loc="Figure 8 caption（§IV）">
+<desc>source quote: The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.</desc>
+<polyline points="308.0,1261.0 464.0,1261.0 464.0,612.0 490.0,612.0" fill="none" stroke="#7f7f7f" stroke-width="1.40" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+</g>
+<g id="L13" data-id="L13" data-from="C19" data-to="C12" data-medium="时序控制" data-kind="signal" data-source-loc="Figure 8 caption（§IV）">
+<desc>source quote: The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.</desc>
+<polyline points="790.0,612.0 894.0,612.0 894.0,441.0 920.0,441.0" fill="none" stroke="#7f7f7f" stroke-width="1.40" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+</g>
+<g id="L14" data-id="L14" data-from="C3" data-to="C10" data-medium="机械连接" data-kind="material" data-source-loc="§II 第4段">
+<desc>source quote: In contrast to conventional systems, the sample holder remains mechanically connected to the transfer rod during loading, transfer, deposition, and ion-beam milling.</desc>
+<polyline points="236.0,128.0 1258.0,128.0 1258.0,135.5 1284.0,135.5" fill="none" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+</g>
+<g id="layer-annotation" data-purpose="labels, condition tags, legend, uncertainty notes">
+<!-- label for C1 -->
+<text x="565.6" y="196.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">装载锁 Load lock</text>
+<text x="492.0" y="95.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C1</text>
+<text x="565.6" y="216.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">规格: DN100CF</text>
+<text x="565.6" y="229.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">double-cross</text>
+<text x="565.6" y="243.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">抽至: p≈10⁻¹ mbar, t≈4</text>
+<text x="565.6" y="256.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">min</text>
+<!-- label for C2 -->
+<text x="1809.7" y="136.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">快开门 Quick-access door</text>
+<text x="1706.9" y="95.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C2</text>
+<!-- label for C3 -->
+<text x="148.0" y="166.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">传输杆 Transfer rod</text>
+<text x="62.0" y="95.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C3</text>
+<text x="148.0" y="186.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">备注: 加强设计，承载样品架总</text>
+<text x="148.0" y="199.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">成</text>
+<text x="180.1" y="273.0" font-size="12.0" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif">E</text>
+<!-- label for C4 -->
+<text x="180.1" y="300.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">电馈通 Electrical feedthrough</text>
+<text x="62.0" y="259.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C4</text>
+<!-- label for C5 -->
+<text x="134.2" y="464.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">进气口 Gas inlet</text>
+<text x="62.0" y="423.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C5</text>
+<!-- label for C6 -->
+<text x="205.6" y="628.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">粗抽泵（涡旋泵）Scroll pump（装载锁）</text>
+<text x="62.0" y="587.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C6</text>
+<!-- label for C7 -->
+<text x="132.7" y="792.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">闸阀 Gate valve</text>
+<text x="62.0" y="751.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C7</text>
+<!-- label for C8 -->
+<text x="1037.0" y="196.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">溅射腔（4× 2英寸磁控溅射源）</text>
+<text x="922.0" y="95.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C8</text>
+<text x="1037.0" y="216.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">规格: DN100CF double-cross</text>
+<text x="1037.0" y="229.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">源数量: four 2-inch magnetron sputter</text>
+<text x="1037.0" y="243.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">sources</text>
+<text x="1037.0" y="256.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">工作距离: 52–150 mm 可调</text>
+<!-- label for C9 -->
+<text x="613.6" y="330.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">磁控溅射源 ×4（O圈密封杆安装）</text>
+<text x="492.0" y="259.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C9</text>
+<text x="613.6" y="350.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">尺寸: 2-inch</text>
+<text x="613.6" y="363.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">数量: 4（径向排布）</text>
+<!-- label for C10 -->
+<text x="1429.4" y="181.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">样品架 Sample holder（带屏蔽板/快门）</text>
+<text x="1286.0" y="95.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C10</text>
+<text x="1429.4" y="201.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">组成: 中央总成+真空步进电机+轴承支撑+屏蔽板</text>
+<text x="1429.4" y="214.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">传动: 一对锥齿轮驱动 3 英寸样品盘</text>
+<text x="1429.4" y="228.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">材料: 结构铝制；锁紧杆不锈钢</text>
+<!-- label for C11 -->
+<text x="1015.9" y="315.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">离子束铣腔（含离子源）</text>
+<text x="922.0" y="259.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C11</text>
+<text x="1015.9" y="335.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">规格: DN100CF double-cross</text>
+<!-- label for C12 -->
+<text x="1023.5" y="464.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">离子束源 Ion-beam source</text>
+<text x="922.0" y="423.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C12</text>
+<!-- label for C13 -->
+<text x="600.6" y="509.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">分子泵 Turbomolecular pump</text>
+<text x="492.0" y="423.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C13</text>
+<text x="600.6" y="529.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">抽速级别: 200–300 l/s</text>
+<text x="600.6" y="542.5" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">运行模式: 装载时全速；镀膜时降至 70%</text>
+<text x="600.6" y="556.0" font-size="10.5" text-anchor="middle" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">名义转速</text>
+<text x="210.0" y="932.0" font-size="10.0" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif">P</text>
+<!-- label for C14 -->
+<text x="210.0" y="956.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">全量程真空计 Full-range pressure gauge</text>
+<text x="62.0" y="915.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C14</text>
+<!-- label for C15 -->
+<text x="201.2" y="1120.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">前级涡旋泵 Scroll pump（分子泵前级）</text>
+<text x="62.0" y="1079.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C15</text>
+<!-- label for C16 -->
+<text x="1854.9" y="300.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">孔径板 Aperture plates（DN100CF 法兰）</text>
+<text x="1706.9" y="259.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C16</text>
+<text x="184.0" y="1257.0" font-size="12.0" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif">E</text>
+<!-- label for C17 -->
+<text x="184.0" y="1284.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">联锁控制器 Interlock controller</text>
+<text x="62.0" y="1243.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C17</text>
+<text x="202.9" y="1421.0" font-size="12.0" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif">E</text>
+<!-- label for C18 -->
+<text x="202.9" y="1448.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">DC/RF 电源 DC and RF power supplies</text>
+<text x="62.0" y="1407.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C18</text>
+<text x="640.0" y="608.0" font-size="12.0" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif">E</text>
+<!-- label for C19 -->
+<text x="640.0" y="628.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">时序过程控制系统 Time-based process</text>
+<text x="640.0" y="642.0" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">control</text>
+<text x="492.0" y="587.0" font-size="9.5" text-anchor="start" fill="#666666" font-family="sans-serif">C19</text>
+<text x="464.0" y="286.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">工艺气体</text>
+<text x="464.0" y="356.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">抽真空；抽至 p≈10⁻¹ mbar /</text>
+<text x="464.0" y="368.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">约4 min</text>
+<text x="780.6" y="113.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">样品传输（轴向运动）；过闸阀</text>
+<text x="780.6" y="125.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">后腔压 ≈7·10⁻⁷ mbar（约20</text>
+<text x="780.6" y="137.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">min）</text>
+<text x="464.0" y="450.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">真空隔离</text>
+<text x="802.6" y="445.5" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">抽真空；极限真空 5·10⁻⁸</text>
+<text x="802.6" y="457.5" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">mbar（无烘烤）</text>
+<text x="464.0" y="774.2" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">前级抽气</text>
+<text x="997.6" y="286.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">溅射沉积（材料流）</text>
+<text x="1258.0" y="282.2" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">离子束（铣削/清洗）</text>
+<text x="894.0" y="602.8" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">压力读数</text>
+<text x="779.1" y="271.0" font-size="10.5" text-anchor="middle" fill="#7f7f7f" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">电信号；(连接为推断)</text>
+<text x="464.0" y="852.5" font-size="10.5" text-anchor="middle" fill="#7f7f7f" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">DC/RF 功率；(连接为推断)</text>
+<text x="464.0" y="930.5" font-size="10.5" text-anchor="middle" fill="#7f7f7f" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">控制信号；(连接为推断)</text>
+<text x="894.0" y="520.5" font-size="10.5" text-anchor="middle" fill="#7f7f7f" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">时序控制；(连接为推断)</text>
+<text x="747.0" y="122.0" font-size="10.5" text-anchor="middle" fill="#1f77b4" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">机械连接</text>
+<rect x="1692.9" y="64.0" width="324.0" height="226.0" rx="8.0" fill="none" stroke="#999999" stroke-width="1.00" stroke-dasharray="6,4"/>
+<text x="1702.9" y="82.0" font-size="11.0" text-anchor="start" fill="#777777" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">材料未给出连接关系（未连线）</text>
+<text x="60.0" y="1640.0" font-size="12.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">图例 Legend</text>
+<line x1="60.0" y1="1654.0" x2="94.0" y2="1654.0" stroke="#1f77b4" stroke-width="1.80" marker-end="url(#arrow)"/>
+<text x="102.0" y="1658.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">工艺气体（实线：物料/气体流动）</text>
+<line x1="60.0" y1="1671.0" x2="94.0" y2="1671.0" stroke="#d62728" stroke-width="1.80" marker-end="url(#arrow)"/>
+<text x="102.0" y="1675.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">抽真空（实线：物料/气体流动）</text>
+<line x1="60.0" y1="1688.0" x2="94.0" y2="1688.0" stroke="#2ca02c" stroke-width="1.80" marker-end="url(#arrow)"/>
+<text x="102.0" y="1692.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">样品传输（轴向运动）（实线：物料/气体流动）</text>
+<line x1="60.0" y1="1705.0" x2="94.0" y2="1705.0" stroke="#9467bd" stroke-width="1.80" marker-end="url(#arrow)"/>
+<text x="102.0" y="1709.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">真空隔离（实线：物料/气体流动）</text>
+<line x1="60.0" y1="1722.0" x2="94.0" y2="1722.0" stroke="#ff7f0e" stroke-width="1.80" marker-end="url(#arrow)"/>
+<text x="102.0" y="1726.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">前级抽气（实线：物料/气体流动）</text>
+<line x1="60.0" y1="1739.0" x2="94.0" y2="1739.0" stroke="#8c564b" stroke-width="1.80" marker-end="url(#arrow)"/>
+<text x="102.0" y="1743.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">溅射沉积（材料流）（实线：物料/气体流动）</text>
+<line x1="60.0" y1="1756.0" x2="94.0" y2="1756.0" stroke="#17becf" stroke-width="1.80" stroke-dasharray="2,3" marker-end="url(#arrow)"/>
+<text x="102.0" y="1760.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">离子束（铣削/清洗）（点线：能量/热量传递）</text>
+<line x1="60.0" y1="1773.0" x2="94.0" y2="1773.0" stroke="#bcbd22" stroke-width="1.80" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="102.0" y="1777.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">压力读数（虚线：信号/电连接）</text>
+<line x1="60.0" y1="1790.0" x2="94.0" y2="1790.0" stroke="#7f7f7f" stroke-width="1.80" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="102.0" y="1794.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">电信号（虚线：信号/电连接）</text>
+<line x1="60.0" y1="1807.0" x2="94.0" y2="1807.0" stroke="#7f7f7f" stroke-width="1.80" stroke-dasharray="2,3" marker-end="url(#arrow)"/>
+<text x="102.0" y="1811.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">DC/RF 功率（点线：能量/热量传递）</text>
+<line x1="60.0" y1="1824.0" x2="94.0" y2="1824.0" stroke="#7f7f7f" stroke-width="1.80" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="102.0" y="1828.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">控制信号（虚线：信号/电连接）</text>
+<line x1="60.0" y1="1841.0" x2="94.0" y2="1841.0" stroke="#7f7f7f" stroke-width="1.80" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="102.0" y="1845.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">时序控制（虚线：信号/电连接）</text>
+<line x1="60.0" y1="1858.0" x2="94.0" y2="1858.0" stroke="#2ca02c" stroke-width="1.80" marker-end="url(#arrow)"/>
+<text x="102.0" y="1862.0" font-size="11.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">机械连接（实线：物料/气体流动）</text>
+</g>
+<g id="layer-source" data-purpose="source index and provenance">
+<text x="24.0" y="1899.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">来源索引（元素 → 材料位置）：</text>
+<text x="24.0" y="1912.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C1 装载锁 Load lock ← §II 第1段</text>
+<text x="24.0" y="1926.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C2 快开门 Quick-access door ← §II 第1段</text>
+<text x="24.0" y="1939.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C3 传输杆 Transfer rod ← §II 第3段</text>
+<text x="24.0" y="1953.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C4 电馈通 Electrical feedthrough ← §II 第1段</text>
+<text x="24.0" y="1966.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C5 进气口 Gas inlet ← §II 第1段</text>
+<text x="24.0" y="1980.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C6 粗抽泵（涡旋泵）Scroll pump（装载锁） ← §II 第1段</text>
+<text x="24.0" y="1993.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C7 闸阀 Gate valve ← §II 第1段</text>
+<text x="24.0" y="2007.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C8 溅射腔（4× 2英寸磁控溅射源） ← §II 第2段</text>
+<text x="24.0" y="2020.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C9 磁控溅射源 ×4（O圈密封杆安装） ← §II 第2段</text>
+<text x="24.0" y="2034.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C10 样品架 Sample holder（带屏蔽板/快门） ← §II 第3段</text>
+<text x="24.0" y="2047.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C11 离子束铣腔（含离子源） ← §II 第5段</text>
+<text x="24.0" y="2061.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C12 离子束源 Ion-beam source ← §II 第2段</text>
+<text x="24.0" y="2074.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C13 分子泵 Turbomolecular pump ← §II 第3段</text>
+<text x="24.0" y="2088.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C14 全量程真空计 Full-range pressure gauge ← §II 第2段</text>
+<text x="24.0" y="2101.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C15 前级涡旋泵 Scroll pump（分子泵前级） ← §II 第2段</text>
+<text x="24.0" y="2115.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C16 孔径板 Aperture plates（DN100CF 法兰） ← §II 第3段</text>
+<text x="24.0" y="2128.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C17 联锁控制器 Interlock controller ← Figure 8 caption（§IV）</text>
+<text x="24.0" y="2142.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C18 DC/RF 电源 DC and RF power supplies ← Figure 8 caption（§IV）</text>
+<text x="24.0" y="2155.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">C19 时序过程控制系统 Time-based process control ← Figure 8 caption（§IV）</text>
+<text x="24.0" y="2169.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L1 C5→C1 ← §II 第1段</text>
+<text x="24.0" y="2182.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L2 C6→C1 ← §II 第1段</text>
+<text x="24.0" y="2196.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L3 C1→C8 ← §II 第4段</text>
+<text x="24.0" y="2209.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L4 C7→C1 ← §II 第1段</text>
+<text x="24.0" y="2223.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L5 C13→C11 ← §II 第2段</text>
+<text x="24.0" y="2236.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L6 C15→C13 ← §II 第2段</text>
+<text x="24.0" y="2250.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L7 C9→C10 ← §II 第4段</text>
+<text x="24.0" y="2263.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L8 C12→C10 ← §II 第5段</text>
+<text x="24.0" y="2277.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L9 C14→C11 ← §II 第2段</text>
+<text x="24.0" y="2290.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L10 C4→C10 ← §II 第3段</text>
+<text x="24.0" y="2304.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L11 C18→C9 ← Figure 8 caption（§IV）</text>
+<text x="24.0" y="2317.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L12 C17→C19 ← Figure 8 caption（§IV）</text>
+<text x="24.0" y="2331.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L13 C19→C12 ← Figure 8 caption（§IV）</text>
+<text x="24.0" y="2344.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">L14 C3→C10 ← §II 第4段</text>
+<text x="24.0" y="2358.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">数据来源：arXiv:2609.17220v1 A transfer-rod-mounted rotatable sample holder enabling a compact modular vacuum system for ion-beam milling, oblique magnetron sputtering, and co-sputtering ｜ 生成工具：setup-roadmap skill render.py ｜ 图层：结构/标注/来源（可在SVG编辑器中分层编辑） ｜ 生成时间：2026-11-20 20:42</text>
+</g>
+</svg>

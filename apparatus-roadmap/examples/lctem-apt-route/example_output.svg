@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2924" height="820" viewBox="0 0 2924 820">
+<title>关联 LCTEM–cryo-APT 工作流技术路线图</title>
+<desc>Layered editable figure generated from an intermediate representation. Elements carry data-id and source locations; verbatim source quotes are stored in each element&#x27;s &lt;desc&gt; and in the sidecar geometry report.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/>
+  </marker>
+</defs>
+<g id="layer-frame" data-purpose="canvas border and title block">
+<text x="1462.0" y="34.0" font-size="19.0" text-anchor="middle" fill="#111111" font-family="sans-serif" font-weight="bold">关联 LCTEM–cryo-APT 工作流技术路线图</text>
+<text x="1462.0" y="54.0" font-size="12.0" text-anchor="middle" fill="#444444" font-family="sans-serif">液固界面：原位成像 → 冷冻 → 低温传输 → PFIB 制样 → APT 组分分析</text>
+<rect x="8.0" y="8.0" width="2908.0" height="804.0" rx="6.0" fill="none" stroke="#cccccc" stroke-width="1.00"/>
+</g>
+<g id="layer-structure" data-purpose="structural elements: component glyphs and connections">
+<g id="S0" data-id="S0" data-kind="start" data-source-loc="Abstract 第4句">
+<title>MEMS 纳米芯片（含 Li 电解质）</title>
+<desc>source quote: This work presents a novel workflow for site-specific cryo-APT sample preparation of liquid-solid interfaces from in-situ electrochemical LCTEM Micro-Electro-Mechanical Systems (MEMS) chips.</desc>
+<rect x="60.0" y="76.0" width="233.2" height="40.0" rx="20.0" fill="#e8f5e9" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="S1" data-id="S1" data-kind="stage" data-source-loc="Abstract 第1句">
+<title>原位电化学 LCTEM 成像</title>
+<desc>source quote: Operando/in-situ liquid cell transmission electron microscopy (LCTEM) allows for real time imaging of dynamic nanoscale liquid-based processes.</desc>
+<rect x="413.2" y="76.0" width="250.0" height="95.5" rx="8.0" fill="#eaf2fb" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="S2" data-id="S2" data-kind="step" data-source-loc="Abstract 第5句">
+<title>冷冻固定（cryogenic freezing）</title>
+<desc>source quote: Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis.</desc>
+<rect x="783.2" y="76.0" width="250.0" height="95.5" rx="8.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="S3" data-id="S3" data-kind="step" data-source-loc="Abstract 第5句">
+<title>低温惰性气体传输（transfer suitcase）</title>
+<desc>source quote: Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis.</desc>
+<rect x="1153.2" y="76.0" width="250.0" height="79.0" rx="8.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="S4" data-id="S4" data-kind="stage" data-source-loc="Abstract 第5句">
+<title>cryo-PFIB 制样</title>
+<desc>source quote: Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis.</desc>
+<rect x="1523.2" y="76.0" width="250.0" height="145.0" rx="8.0" fill="#eaf2fb" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="S5" data-id="S5" data-kind="step" data-source-loc="Abstract 第5句">
+<title>低温传输至原子探针</title>
+<desc>source quote: Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis.</desc>
+<rect x="1893.2" y="76.0" width="250.0" height="79.0" rx="8.0" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="S6" data-id="S6" data-kind="stage" data-source-loc="Abstract 第3句">
+<title>cryo-APT 组分分析</title>
+<desc>source quote: Cryogenic atom probe tomography (cryo-APT) overcomes these limitations by offering (near-)atomic scale compositional analysis of frozen liquid-solid interfaces.</desc>
+<rect x="2263.2" y="76.0" width="250.0" height="112.0" rx="8.0" fill="#eaf2fb" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="S7" data-id="S7" data-kind="end" data-source-loc="Abstract 第6句">
+<title>关联结果：动态成像 + 近原子组分</title>
+<desc>source quote: This correlative approach provides dynamic nanoscale imaging and near atomic scale compositional analysis of liquid-solid interfaces.</desc>
+<rect x="2633.2" y="76.0" width="241.8" height="40.0" rx="20.0" fill="#e8f5e9" stroke="#1a1a1a" stroke-width="1.60"/>
+</g>
+<g id="E1" data-id="E1" data-from="S0" data-to="S1" data-kind="main" data-source-loc="Abstract 第5句">
+<desc>source quote: a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen</desc>
+<polyline points="293.2,96.0 383.2,96.0 383.2,123.8 413.2,123.8" fill="none" stroke="#1a1a1a" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="E2" data-id="E2" data-from="S1" data-to="S2" data-kind="main" data-source-loc="Abstract 第5句">
+<desc>source quote: a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen</desc>
+<polyline points="663.2,123.8 783.2,123.8" fill="none" stroke="#1a1a1a" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="E3" data-id="E3" data-from="S2" data-to="S3" data-kind="main" data-source-loc="Abstract 第5句">
+<desc>source quote: was successfully frozen, transferred to the cryo stage of a PFIB</desc>
+<polyline points="1033.2,123.8 1123.2,123.8 1123.2,115.5 1153.2,115.5" fill="none" stroke="#1a1a1a" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="E4" data-id="E4" data-from="S3" data-to="S4" data-kind="main" data-source-loc="Abstract 第5句">
+<desc>source quote: transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures</desc>
+<polyline points="1403.2,115.5 1493.2,115.5 1493.2,148.5 1523.2,148.5" fill="none" stroke="#1a1a1a" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="E5" data-id="E5" data-from="S4" data-to="S5" data-kind="main" data-source-loc="Abstract 第5句">
+<desc>source quote: followed by cryogenic transfer to an atom probe for nanoscale compositional analysis</desc>
+<polyline points="1773.2,148.5 1863.2,148.5 1863.2,115.5 1893.2,115.5" fill="none" stroke="#1a1a1a" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="E6" data-id="E6" data-from="S5" data-to="S6" data-kind="main" data-source-loc="Abstract 第5句">
+<desc>source quote: followed by cryogenic transfer to an atom probe for nanoscale compositional analysis</desc>
+<polyline points="2143.2,115.5 2233.2,115.5 2233.2,132.0 2263.2,132.0" fill="none" stroke="#1a1a1a" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+<g id="E7" data-id="E7" data-from="S6" data-to="S7" data-kind="main" data-source-loc="Abstract 第6句">
+<desc>source quote: This correlative approach provides dynamic nanoscale imaging and near atomic scale compositional analysis of liquid-solid interfaces.</desc>
+<polyline points="2513.2,132.0 2603.2,132.0 2603.2,96.0 2633.2,96.0" fill="none" stroke="#1a1a1a" stroke-width="1.80" marker-end="url(#arrow)"/>
+</g>
+</g>
+<g id="layer-annotation" data-purpose="labels, condition tags, legend, uncertainty notes">
+<text x="176.6" y="100.5" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">MEMS 纳米芯片（含 Li 电解质）</text>
+<text x="423.2" y="95.0" font-size="13.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">原位电化学 LCTEM 成像</text>
+<text x="655.2" y="93.0" font-size="9.5" text-anchor="end" fill="#666666" font-family="sans-serif">S1</text>
+<text x="423.2" y="113.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">目标：液固界面动态纳米尺度实时成像</text>
+<text x="423.2" y="129.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">方法：液池电镜 LCTEM（MEMS 芯片）</text>
+<text x="423.2" y="146.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输出：动态纳米成像</text>
+<text x="793.2" y="95.0" font-size="13.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">冷冻固定（cryogenic freezing）</text>
+<text x="1025.2" y="93.0" font-size="9.5" text-anchor="end" fill="#666666" font-family="sans-serif">S2</text>
+<text x="793.2" y="113.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输入：电化学 LCTEM 支架上的 MEMS 纳米</text>
+<text x="793.2" y="129.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">芯片</text>
+<text x="793.2" y="146.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输出：冷冻态纳米芯片</text>
+<text x="1163.2" y="95.0" font-size="13.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">低温惰性气体传输（transfer suitcase）</text>
+<text x="1395.2" y="93.0" font-size="9.5" text-anchor="end" fill="#666666" font-family="sans-serif">S3</text>
+<text x="1163.2" y="113.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输入：冷冻态纳米芯片</text>
+<text x="1163.2" y="129.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输出：PFIB 低温台上的芯片</text>
+<text x="1533.2" y="95.0" font-size="13.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">cryo-PFIB 制样</text>
+<text x="1765.2" y="93.0" font-size="9.5" text-anchor="end" fill="#666666" font-family="sans-serif">S4</text>
+<text x="1533.2" y="113.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">目标：制备含电解质-电极界面的 APT 针尖</text>
+<text x="1533.2" y="129.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">样品</text>
+<text x="1533.2" y="146.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">方法：低温等离子聚焦离子束</text>
+<text x="1533.2" y="162.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输入：PFIB 低温台上的芯片</text>
+<text x="1533.2" y="179.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输出：含电解质-电极界面的 APT 针尖</text>
+<text x="1533.2" y="195.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">◆ 里程碑：全程低温保持界面冻结态</text>
+<polygon points="1747.2,62.0 1767.2,68.0 1747.2,74.0" fill="#f5b301" stroke="#7a5c00" stroke-width="1.00"/>
+<text x="1903.2" y="95.0" font-size="13.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">低温传输至原子探针</text>
+<text x="2135.2" y="93.0" font-size="9.5" text-anchor="end" fill="#666666" font-family="sans-serif">S5</text>
+<text x="1903.2" y="113.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输入：APT 针尖样品</text>
+<text x="1903.2" y="129.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输出：原子探针中的针尖样品</text>
+<text x="2273.2" y="95.0" font-size="13.0" text-anchor="start" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">cryo-APT 组分分析</text>
+<text x="2505.2" y="93.0" font-size="9.5" text-anchor="end" fill="#666666" font-family="sans-serif">S6</text>
+<text x="2273.2" y="113.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">目标：冷冻液固界面的（近）原子尺度组分</text>
+<text x="2273.2" y="129.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">分析</text>
+<text x="2273.2" y="146.0" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">方法：低温原子探针层析 APT</text>
+<text x="2273.2" y="162.5" font-size="11.5" text-anchor="start" fill="#333333" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">输出：纳米尺度组分分析</text>
+<text x="2754.1" y="100.5" font-size="13.0" text-anchor="middle" fill="#111111" font-family="sans-serif" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" font-weight="bold">关联结果：动态成像 + 近原子组分</text>
+</g>
+<g id="layer-source" data-purpose="source index and provenance">
+<text x="24.0" y="351.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">来源索引（元素 → 材料位置）：</text>
+<text x="24.0" y="364.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S0 MEMS 纳米芯片（含 Li 电解质） ← Abstract 第4句</text>
+<text x="24.0" y="378.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S1 原位电化学 LCTEM 成像 ← Abstract 第1句</text>
+<text x="24.0" y="391.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S2 冷冻固定（cryogenic freezing） ← Abstract 第5句</text>
+<text x="24.0" y="405.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S3 低温惰性气体传输（transfer suitcase） ← Abstract 第5句</text>
+<text x="24.0" y="418.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S4 cryo-PFIB 制样 ← Abstract 第5句</text>
+<text x="24.0" y="432.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S5 低温传输至原子探针 ← Abstract 第5句</text>
+<text x="24.0" y="445.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S6 cryo-APT 组分分析 ← Abstract 第3句</text>
+<text x="24.0" y="459.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">S7 关联结果：动态成像 + 近原子组分 ← Abstract 第6句</text>
+<text x="24.0" y="472.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">E1 S0→S1 ← Abstract 第5句</text>
+<text x="24.0" y="486.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">E2 S1→S2 ← Abstract 第5句</text>
+<text x="24.0" y="499.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">E3 S2→S3 ← Abstract 第5句</text>
+<text x="24.0" y="513.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">E4 S3→S4 ← Abstract 第5句</text>
+<text x="24.0" y="526.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">E5 S4→S5 ← Abstract 第5句</text>
+<text x="24.0" y="540.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">E6 S5→S6 ← Abstract 第5句</text>
+<text x="24.0" y="553.5" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">E7 S6→S7 ← Abstract 第6句</text>
+<text x="24.0" y="567.0" font-size="10.0" text-anchor="start" fill="#888888" font-family="sans-serif">数据来源：arXiv:2504.19020v1 A Workflow for Correlative in-situ Nano-chip Liquid Cell Transmission Electron Microscopy and Atom Probe Tomography Enabled by Cryogenic Plasma Focused Ion Beam ｜ 生成工具：setup-roadmap skill render.py ｜ 图层：结构/标注/来源（可在SVG编辑器中分层编辑） ｜ 生成时间：2026-11-20 20:42</text>
+</g>
+</svg>

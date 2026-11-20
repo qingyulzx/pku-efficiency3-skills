@@ -1,0 +1,36 @@
+Source: arXiv:2504.19020v1 (cond-mat.mtrl-sci), "A Workflow for Correlative
+in-situ Nano-chip Liquid Cell Transmission Electron Microscopy and Atom
+Probe Tomography Enabled by Cryogenic Plasma Focused Ion Beam", Mulcahy,
+Conroy et al., 26 Apr 2025. https://doi.org/10.48550/arXiv.2504.19020
+
+Excerpt: the paper abstract, transcribed from the arXiv abstract page.
+The abstract itself narrates the complete workflow chain (LCTEM imaging ->
+cryogenic freezing -> inert-gas transfer -> cryo-PFIB preparation ->
+cryogenic transfer -> APT analysis), which is what this example draws.
+Inline math/formatting linearized; wording unchanged. All quotes in
+intermediate.json are verified against THIS file.
+
+------------------------------------------------------------------------
+
+Operando/in-situ liquid cell transmission electron microscopy (LCTEM)
+allows for real time imaging of dynamic nanoscale liquid-based processes.
+However, due to the thick liquid cell of traditional LCTEM holders and thus
+scattering of the electron beam passing through the cell, the achievable
+spatial and chemical resolution is limited. Cryogenic atom probe tomography
+(cryo-APT) overcomes these limitations by offering (near-)atomic scale
+compositional analysis of frozen liquid-solid interfaces. However, APT
+provides limited structural analysis and has no capacity for dynamic or
+operando liquid cell studies. This work presents a novel workflow for
+site-specific cryo-APT sample preparation of liquid-solid interfaces from
+in-situ electrochemical LCTEM Micro-Electro-Mechanical Systems (MEMS)
+chips. Using cryogenic inert gas transfer suitcase and a cryogenic
+plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte
+from an electrochemistry LCTEM holder was successfully frozen, transferred
+to the cryo stage of a PFIB and prepared into APT needle samples containing
+the electrolyte-electrode interface at cryogenic temperatures, followed by
+cryogenic transfer to an atom probe for nanoscale compositional analysis.
+This correlative approach provides dynamic nanoscale imaging and near
+atomic scale compositional analysis of liquid-solid interfaces. This method
+enables reliable and reproducible APT sample preparation of these frozen
+interfaces from MEMs based nanochips and can hence be used across materials
+systems and energy-conversion or storage devices.

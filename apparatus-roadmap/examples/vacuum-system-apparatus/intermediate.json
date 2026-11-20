@@ -1,0 +1,348 @@
+{
+  "figure_type": "apparatus",
+  "title": "模块化真空镀膜系统装置图（溅射 + 离子束铣）",
+  "subtitle": "DN100CF 三腔布局：装载锁 / 磁控溅射腔 / 离子束铣腔",
+  "source_document": {
+    "id": "arXiv:2609.17220v1",
+    "title": "A transfer-rod-mounted rotatable sample holder enabling a compact modular vacuum system for ion-beam milling, oblique magnetron sputtering, and co-sputtering",
+    "version": "v1, 15 Sep 2026"
+  },
+  "components": [
+    {
+      "id": "C1",
+      "label": "装载锁 Load lock",
+      "type": "load_lock",
+      "specs": [
+        {"key": "规格", "value": "DN100CF double-cross"},
+        {"key": "抽至", "value": "p≈10⁻¹ mbar, t≈4 min"}
+      ],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump."}
+    },
+    {
+      "id": "C2",
+      "label": "快开门 Quick-access door",
+      "type": "valve",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump."}
+    },
+    {
+      "id": "C3",
+      "label": "传输杆 Transfer rod",
+      "type": "other",
+      "specs": [{"key": "备注", "value": "加强设计，承载样品架总成"}],
+      "certainty": "quoted",
+      "source": {"location": "§II 第3段", "quote": "The transfer rod is reinforced to support the weight of the complete sample-holder assembly."}
+    },
+    {
+      "id": "C4",
+      "label": "电馈通 Electrical feedthrough",
+      "type": "electronics",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump."}
+    },
+    {
+      "id": "C5",
+      "label": "进气口 Gas inlet",
+      "type": "valve",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump."}
+    },
+    {
+      "id": "C6",
+      "label": "粗抽泵（涡旋泵）Scroll pump（装载锁）",
+      "type": "scroll_pump",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "After loading a sample, the load lock is pumped with a separate scroll pump to a pressure of p ≈ 10⁻¹ mbar within about t = 4 min before the gate valve is opened."}
+    },
+    {
+      "id": "C7",
+      "label": "闸阀 Gate valve",
+      "type": "valve",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "The load lock is separated from the main chambers by a gate valve."}
+    },
+    {
+      "id": "C8",
+      "label": "溅射腔（4× 2英寸磁控溅射源）",
+      "type": "process_chamber",
+      "specs": [
+        {"key": "规格", "value": "DN100CF double-cross"},
+        {"key": "源数量", "value": "four 2-inch magnetron sputter sources"},
+        {"key": "工作距离", "value": "52–150 mm 可调"}
+      ],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "One of them is equipped with four 2-inch magnetron sputter sources installed on O-ring sealed rods. The working distance can be adjusted between 52 mm and 150 mm."}
+    },
+    {
+      "id": "C9",
+      "label": "磁控溅射源 ×4（O圈密封杆安装）",
+      "type": "sputter_source",
+      "specs": [
+        {"key": "尺寸", "value": "2-inch"},
+        {"key": "数量", "value": "4（径向排布）"}
+      ],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "One of them is equipped with four 2-inch magnetron sputter sources installed on O-ring sealed rods."}
+    },
+    {
+      "id": "C10",
+      "label": "样品架 Sample holder（带屏蔽板/快门）",
+      "type": "other",
+      "specs": [
+        {"key": "组成", "value": "中央总成+真空步进电机+轴承支撑+屏蔽板"},
+        {"key": "传动", "value": "一对锥齿轮驱动 3 英寸样品盘"},
+        {"key": "材料", "value": "结构铝制；锁紧杆不锈钢"}
+      ],
+      "certainty": "quoted",
+      "source": {"location": "§II 第3段", "quote": "The mechanical design is based on a central assembly attached to the transfer rod, a vacuum-compatible stepper motor, bearing supports, and the shield."}
+    },
+    {
+      "id": "C11",
+      "label": "离子束铣腔（含离子源）",
+      "type": "process_chamber",
+      "specs": [{"key": "规格", "value": "DN100CF double-cross"}],
+      "certainty": "quoted",
+      "source": {"location": "§II 第5段", "quote": "The second process chamber contains an ion-beam source for milling and surface preparation."}
+    },
+    {
+      "id": "C12",
+      "label": "离子束源 Ion-beam source",
+      "type": "ion_beam_source",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge."}
+    },
+    {
+      "id": "C13",
+      "label": "分子泵 Turbomolecular pump",
+      "type": "turbomolecular_pump",
+      "specs": [
+        {"key": "抽速级别", "value": "200–300 l/s"},
+        {"key": "运行模式", "value": "装载时全速；镀膜时降至 70% 名义转速"}
+      ],
+      "certainty": "quoted",
+      "source": {"location": "§II 第3段", "quote": "The turbomolecular pump remains at full speed during sample loading and is throttled to a low-speed mode with 70% of its nominal speed during deposition to reduce the mechanical load at high pressure and allow for higher working pressures."}
+    },
+    {
+      "id": "C14",
+      "label": "全量程真空计 Full-range pressure gauge",
+      "type": "pressure_gauge",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge."}
+    },
+    {
+      "id": "C15",
+      "label": "前级涡旋泵 Scroll pump（分子泵前级）",
+      "type": "scroll_pump",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "The required backing pressure is provided by a small scroll pump."}
+    },
+    {
+      "id": "C16",
+      "label": "孔径板 Aperture plates（DN100CF 法兰）",
+      "type": "filter",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第3段", "quote": "Together with aperture plates mounted in the DN100CF flanges, this geometry reduces direct cross-contamination between neighboring sources and allows pre-sputtering of the sources."}
+    },
+    {
+      "id": "C17",
+      "label": "联锁控制器 Interlock controller",
+      "type": "controller",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "Figure 8 caption（§IV）", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes."}
+    },
+    {
+      "id": "C18",
+      "label": "DC/RF 电源 DC and RF power supplies",
+      "type": "power_supply",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "Figure 8 caption（§IV）", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes."}
+    },
+    {
+      "id": "C19",
+      "label": "时序过程控制系统 Time-based process control",
+      "type": "controller",
+      "specs": [],
+      "certainty": "quoted",
+      "source": {"location": "Figure 8 caption（§IV）", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes."}
+    }
+  ],
+  "connections": [
+    {
+      "id": "L1",
+      "from": "C5",
+      "to": "C1",
+      "medium": "工艺气体",
+      "kind": "material",
+      "conditions": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump."}
+    },
+    {
+      "id": "L2",
+      "from": "C6",
+      "to": "C1",
+      "medium": "抽真空",
+      "kind": "material",
+      "conditions": [{"key": "抽至", "value": "p≈10⁻¹ mbar / 约4 min"}],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "After loading a sample, the load lock is pumped with a separate scroll pump to a pressure of p ≈ 10⁻¹ mbar within about t = 4 min before the gate valve is opened."}
+    },
+    {
+      "id": "L3",
+      "from": "C1",
+      "to": "C8",
+      "medium": "样品传输（轴向运动）",
+      "kind": "material",
+      "conditions": [{"key": "过闸阀后腔压", "value": "≈7·10⁻⁷ mbar（约20 min）"}],
+      "certainty": "quoted",
+      "source": {"location": "§II 第4段", "quote": "Axial motion of the transfer rod moves the sample from the load lock into the process chambers, while rotation of the transfer rod defines the angular position of the sample with respect to the deposition or milling sources, see Figure 4."}
+    },
+    {
+      "id": "L4",
+      "from": "C7",
+      "to": "C1",
+      "medium": "真空隔离",
+      "kind": "material",
+      "conditions": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第1段", "quote": "The load lock is separated from the main chambers by a gate valve."}
+    },
+    {
+      "id": "L5",
+      "from": "C13",
+      "to": "C11",
+      "medium": "抽真空",
+      "kind": "material",
+      "conditions": [{"key": "极限真空", "value": "5·10⁻⁸ mbar（无烘烤）"}],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "Our design reaches a base pressure of p = 5·10⁻⁸ mbar without bakeout."}
+    },
+    {
+      "id": "L6",
+      "from": "C15",
+      "to": "C13",
+      "medium": "前级抽气",
+      "kind": "material",
+      "conditions": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "The required backing pressure is provided by a small scroll pump."}
+    },
+    {
+      "id": "L7",
+      "from": "C9",
+      "to": "C10",
+      "medium": "溅射沉积（材料流）",
+      "kind": "material",
+      "conditions": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第4段", "quote": "During standard deposition, the sample can be aligned facing one selected magnetron source."}
+    },
+    {
+      "id": "L8",
+      "from": "C12",
+      "to": "C10",
+      "medium": "离子束（铣削/清洗）",
+      "kind": "energy",
+      "conditions": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第5段", "quote": "Integrating ion-beam milling into the same compact vacuum system enables controlled material removal, surface cleaning, and subsequent deposition without breaking vacuum."}
+    },
+    {
+      "id": "L9",
+      "from": "C14",
+      "to": "C11",
+      "medium": "压力读数",
+      "kind": "signal",
+      "conditions": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第2段", "quote": "The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge."}
+    },
+    {
+      "id": "L10",
+      "from": "C4",
+      "to": "C10",
+      "medium": "电信号",
+      "kind": "signal",
+      "conditions": [],
+      "certainty": "inferred",
+      "source": {"location": "§II 第3段", "quote": "A pair of bevel gears transmits the vacuum motor torque to a 3-inch sample disk, enabling rotation of the substrate during deposition."}
+    },
+    {
+      "id": "L11",
+      "from": "C18",
+      "to": "C9",
+      "medium": "DC/RF 功率",
+      "kind": "energy",
+      "conditions": [],
+      "certainty": "inferred",
+      "source": {"location": "Figure 8 caption（§IV）", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes."}
+    },
+    {
+      "id": "L12",
+      "from": "C17",
+      "to": "C19",
+      "medium": "控制信号",
+      "kind": "signal",
+      "conditions": [],
+      "certainty": "inferred",
+      "source": {"location": "Figure 8 caption（§IV）", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes."}
+    },
+    {
+      "id": "L13",
+      "from": "C19",
+      "to": "C12",
+      "medium": "时序控制",
+      "kind": "signal",
+      "conditions": [],
+      "certainty": "inferred",
+      "source": {"location": "Figure 8 caption（§IV）", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes."}
+    },
+    {
+      "id": "L14",
+      "from": "C3",
+      "to": "C10",
+      "medium": "机械连接",
+      "kind": "material",
+      "conditions": [],
+      "certainty": "quoted",
+      "source": {"location": "§II 第4段", "quote": "In contrast to conventional systems, the sample holder remains mechanically connected to the transfer rod during loading, transfer, deposition, and ion-beam milling."}
+    }
+  ],
+  "extraction_index": [
+    {"mention": "装载锁（含快开门/传输杆/电馈通/进气口）", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.", "mapped_id": "C1"},
+    {"mention": "快开门 quick-access door", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.", "mapped_id": "C2"},
+    {"mention": "传输杆 transfer rod", "quote": "The transfer rod is reinforced to support the weight of the complete sample-holder assembly.", "mapped_id": "C3"},
+    {"mention": "电馈通 electrical feedthrough", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.", "mapped_id": "C4"},
+    {"mention": "进气口 gas inlet", "quote": "One chamber serves as a load lock and is equipped with a quick-access door, a transfer rod, an electrical feedthrough, a gas inlet, and a roughing pump.", "mapped_id": "C5"},
+    {"mention": "涡旋泵（装载锁粗抽）", "quote": "After loading a sample, the load lock is pumped with a separate scroll pump to a pressure of p ≈ 10⁻¹ mbar within about t = 4 min before the gate valve is opened.", "mapped_id": "C6"},
+    {"mention": "闸阀 gate valve", "quote": "The load lock is separated from the main chambers by a gate valve.", "mapped_id": "C7"},
+    {"mention": "溅射腔（4×2英寸磁控源）", "quote": "One of them is equipped with four 2-inch magnetron sputter sources installed on O-ring sealed rods. The working distance can be adjusted between 52 mm and 150 mm.", "mapped_id": "C8"},
+    {"mention": "磁控溅射源 magnetron sputter sources", "quote": "One of them is equipped with four 2-inch magnetron sputter sources installed on O-ring sealed rods.", "mapped_id": "C9"},
+    {"mention": "样品架（中央总成+真空步进电机+锥齿轮+屏蔽板）", "quote": "The mechanical design is based on a central assembly attached to the transfer rod, a vacuum-compatible stepper motor, bearing supports, and the shield.", "mapped_id": "C10"},
+    {"mention": "离子束铣腔", "quote": "The second process chamber contains an ion-beam source for milling and surface preparation.", "mapped_id": "C11"},
+    {"mention": "离子束源 ion-beam source", "quote": "The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge.", "mapped_id": "C12"},
+    {"mention": "分子泵（200–300 l/s 级）", "quote": "The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge.", "mapped_id": "C13"},
+    {"mention": "全量程真空计", "quote": "The other one is equipped with an ion-beam source, a turbomolecular pump of the 200 to 300 l/s pumping speed class, and a full-range pressure gauge.", "mapped_id": "C14"},
+    {"mention": "前级涡旋泵", "quote": "The required backing pressure is provided by a small scroll pump.", "mapped_id": "C15"},
+    {"mention": "孔径板 aperture plates", "quote": "Together with aperture plates mounted in the DN100CF flanges, this geometry reduces direct cross-contamination between neighboring sources and allows pre-sputtering of the sources.", "mapped_id": "C16"},
+    {"mention": "联锁控制器 interlock controller", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.", "mapped_id": "C17"},
+    {"mention": "DC/RF 电源", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.", "mapped_id": "C18"},
+    {"mention": "时序过程控制系统", "quote": "The electronic infrastructure includes an interlock controller, DC and RF power supplies, and a time-based process control system for deposition and ion-beam milling processes.", "mapped_id": "C19"},
+    {"mention": "真空兼容步进电机（样品架子部件）", "quote": "A pair of bevel gears transmits the vacuum motor torque to a 3-inch sample disk, enabling rotation of the substrate during deposition.", "mapped_id": "C10"},
+    {"mention": "3 英寸样品盘（样品架子部件）", "quote": "A pair of bevel gears transmits the vacuum motor torque to a 3-inch sample disk, enabling rotation of the substrate during deposition.", "mapped_id": "C10"},
+    {"mention": "屏蔽板（兼衬底快门/源屏蔽）", "quote": "The shielding plate mounted to the sample holder acts as a substrate shutter and simultaneously shields inactive magnetron sources, see Figure 4.", "mapped_id": "C10"},
+    {"mention": "系统总体（三腔 DN100CF 布局）", "quote": "The vacuum system presented in this work is based on a compact modular layout consisting of three standard DN100CF double-cross chambers, as shown in Figure 1.", "mapped_id": "C8"}
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "figure_type": "route",
+  "title": "关联 LCTEM–cryo-APT 工作流技术路线图",
+  "subtitle": "液固界面：原位成像 → 冷冻 → 低温传输 → PFIB 制样 → APT 组分分析",
+  "source_document": {
+    "id": "arXiv:2504.19020v1",
+    "title": "A Workflow for Correlative in-situ Nano-chip Liquid Cell Transmission Electron Microscopy and Atom Probe Tomography Enabled by Cryogenic Plasma Focused Ion Beam",
+    "version": "v1, 26 Apr 2025"
+  },
+  "nodes": [
+    {
+      "id": "S0",
+      "kind": "start",
+      "label": "MEMS 纳米芯片（含 Li 电解质）",
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第4句", "quote": "This work presents a novel workflow for site-specific cryo-APT sample preparation of liquid-solid interfaces from in-situ electrochemical LCTEM Micro-Electro-Mechanical Systems (MEMS) chips."}
+    },
+    {
+      "id": "S1",
+      "kind": "stage",
+      "label": "原位电化学 LCTEM 成像",
+      "objective": "液固界面动态纳米尺度实时成像",
+      "methods": ["液池电镜 LCTEM（MEMS 芯片）"],
+      "outputs": ["动态纳米成像"],
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第1句", "quote": "Operando/in-situ liquid cell transmission electron microscopy (LCTEM) allows for real time imaging of dynamic nanoscale liquid-based processes."}
+    },
+    {
+      "id": "S2",
+      "kind": "step",
+      "label": "冷冻固定（cryogenic freezing）",
+      "inputs": ["电化学 LCTEM 支架上的 MEMS 纳米芯片"],
+      "outputs": ["冷冻态纳米芯片"],
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第5句", "quote": "Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis."}
+    },
+    {
+      "id": "S3",
+      "kind": "step",
+      "label": "低温惰性气体传输（transfer suitcase）",
+      "inputs": ["冷冻态纳米芯片"],
+      "outputs": ["PFIB 低温台上的芯片"],
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第5句", "quote": "Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis."}
+    },
+    {
+      "id": "S4",
+      "kind": "stage",
+      "label": "cryo-PFIB 制样",
+      "objective": "制备含电解质-电极界面的 APT 针尖样品",
+      "methods": ["低温等离子聚焦离子束"],
+      "inputs": ["PFIB 低温台上的芯片"],
+      "outputs": ["含电解质-电极界面的 APT 针尖"],
+      "milestone": "全程低温保持界面冻结态",
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第5句", "quote": "Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis."}
+    },
+    {
+      "id": "S5",
+      "kind": "step",
+      "label": "低温传输至原子探针",
+      "inputs": ["APT 针尖样品"],
+      "outputs": ["原子探针中的针尖样品"],
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第5句", "quote": "Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB), a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen, transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures, followed by cryogenic transfer to an atom probe for nanoscale compositional analysis."}
+    },
+    {
+      "id": "S6",
+      "kind": "stage",
+      "label": "cryo-APT 组分分析",
+      "objective": "冷冻液固界面的（近）原子尺度组分分析",
+      "methods": ["低温原子探针层析 APT"],
+      "outputs": ["纳米尺度组分分析"],
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第3句", "quote": "Cryogenic atom probe tomography (cryo-APT) overcomes these limitations by offering (near-)atomic scale compositional analysis of frozen liquid-solid interfaces."}
+    },
+    {
+      "id": "S7",
+      "kind": "end",
+      "label": "关联结果：动态成像 + 近原子组分",
+      "certainty": "quoted",
+      "source": {"location": "Abstract 第6句", "quote": "This correlative approach provides dynamic nanoscale imaging and near atomic scale compositional analysis of liquid-solid interfaces."}
+    }
+  ],
+  "edges": [
+    {
+      "id": "E1",
+      "from": "S0",
+      "to": "S1",
+      "kind": "main",
+      "source": {"location": "Abstract 第5句", "quote": "a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen"}
+    },
+    {
+      "id": "E2",
+      "from": "S1",
+      "to": "S2",
+      "kind": "main",
+      "source": {"location": "Abstract 第5句", "quote": "a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen"}
+    },
+    {
+      "id": "E3",
+      "from": "S2",
+      "to": "S3",
+      "kind": "main",
+      "source": {"location": "Abstract 第5句", "quote": "was successfully frozen, transferred to the cryo stage of a PFIB"}
+    },
+    {
+      "id": "E4",
+      "from": "S3",
+      "to": "S4",
+      "kind": "main",
+      "source": {"location": "Abstract 第5句", "quote": "transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures"}
+    },
+    {
+      "id": "E5",
+      "from": "S4",
+      "to": "S5",
+      "kind": "main",
+      "source": {"location": "Abstract 第5句", "quote": "followed by cryogenic transfer to an atom probe for nanoscale compositional analysis"}
+    },
+    {
+      "id": "E6",
+      "from": "S5",
+      "to": "S6",
+      "kind": "main",
+      "source": {"location": "Abstract 第5句", "quote": "followed by cryogenic transfer to an atom probe for nanoscale compositional analysis"}
+    },
+    {
+      "id": "E7",
+      "from": "S6",
+      "to": "S7",
+      "kind": "main",
+      "source": {"location": "Abstract 第6句", "quote": "This correlative approach provides dynamic nanoscale imaging and near atomic scale compositional analysis of liquid-solid interfaces."}
+    }
+  ],
+  "extraction_index": [
+    {"mention": "MEMS 纳米芯片（含 Li 电解质，起点）", "quote": "This work presents a novel workflow for site-specific cryo-APT sample preparation of liquid-solid interfaces from in-situ electrochemical LCTEM Micro-Electro-Mechanical Systems (MEMS) chips.", "mapped_id": "S0"},
+    {"mention": "原位电化学 LCTEM 成像", "quote": "Operando/in-situ liquid cell transmission electron microscopy (LCTEM) allows for real time imaging of dynamic nanoscale liquid-based processes.", "mapped_id": "S1"},
+    {"mention": "冷冻固定", "quote": "a MEMs nanochip containing a Li electrolyte from an electrochemistry LCTEM holder was successfully frozen", "mapped_id": "S2"},
+    {"mention": "低温惰性气体传输", "quote": "Using cryogenic inert gas transfer suitcase and a cryogenic plasma-focused ion beam (PFIB)", "mapped_id": "S3"},
+    {"mention": "cryo-PFIB 制样（APT 针尖）", "quote": "transferred to the cryo stage of a PFIB and prepared into APT needle samples containing the electrolyte-electrode interface at cryogenic temperatures", "mapped_id": "S4"},
+    {"mention": "低温传输至原子探针", "quote": "followed by cryogenic transfer to an atom probe for nanoscale compositional analysis", "mapped_id": "S5"},
+    {"mention": "cryo-APT 组分分析", "quote": "Cryogenic atom probe tomography (cryo-APT) overcomes these limitations by offering (near-)atomic scale compositional analysis of frozen liquid-solid interfaces.", "mapped_id": "S6"},
+    {"mention": "关联终点（动态成像+近原子组分）", "quote": "This correlative approach provides dynamic nanoscale imaging and near atomic scale compositional analysis of liquid-solid interfaces.", "mapped_id": "S7"},
+    {"mention": "方法适用范围声明（跨材料体系/储能器件）", "quote": "This method enables reliable and reproducible APT sample preparation of these frozen interfaces from MEMs based nanochips and can hence be used across materials systems and energy-conversion or storage devices.", "status": "omitted", "reason": "适用范围声明，非工作流步骤，画入图末注释而非节点"}
+  ]
+}
