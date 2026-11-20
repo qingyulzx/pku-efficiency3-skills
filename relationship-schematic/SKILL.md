@@ -32,9 +32,9 @@ mechanism here exists to make those failures impossible to ship silently.
 
 Scripts live in `scripts/` (pure Python 3 stdlib + optional cairosvg/PIL;
 auto-detect browser headless for export). Symbol semantics live in
-`symbols/symbols.json` and are documented in
-`references/symbol-conventions.md`; the model format in
-`references/model-schema.md`. Read both references before your first run.
+`/skills/weekly-skill/symbols/symbols.json` and are documented in
+`/skills/weekly-skill/references/symbol-conventions.md`; the model format in
+`/skills/weekly-skill/references/model-schema.md`. Read both references before your first run.
 
 ## Workflow (7 steps)
 
@@ -43,8 +43,11 @@ Work under `/app/work`; final artifacts go to `/app/output`.
 ### Step 1 — Scaffold the floor deliverable
 
 ```
-python scripts/init_result.py --case /input/case.json --work /app/work --output /app/output
+python /skills/weekly-skill/scripts/init_result.py --case /input/case.json --work /app/work --output /app/output
 ```
+
+If that command fails for any reason (wrong CWD, import error, anything), do NOT proceed without the floor: write /app/output/result.json by hand right now — case_id plus every output_contract field as explicit null with a reason, status "partial". The skeleton must exist before any other work. This skill is installed at /skills/weekly-skill; always invoke its scripts by absolute path.
+
 
 Reads the case, creates dirs, writes `/app/output/result.json` with every
 `output_contract` field present and `null`, `status: "partial"`, and a
@@ -55,7 +58,7 @@ files yourself — never assume content from labels or filenames.
 ### Step 2 — Extract the entity–relation table (your judgment, not a script's)
 
 Read the actual material (PDF text via the platform tools, tables, case text)
-and build `/app/work/model.json` per `references/model-schema.md`:
+and build `/app/work/model.json` per `/skills/weekly-skill/references/model-schema.md`:
 
 - one entity per scientific actor; `label` = canonical name as printed in the
   source; `type` = functional role shown as a small subtitle;
@@ -91,7 +94,7 @@ Extraction rules for the hard cases:
 ### Step 3 — Validate before drawing
 
 ```
-python scripts/model_check.py /app/work/model.json
+python /skills/weekly-skill/scripts/model_check.py /app/work/model.json
 ```
 
 Exit 0 = clean (warnings allowed). Fix every error — the renderer refuses on
@@ -102,7 +105,7 @@ carry them into result.json rather than "fixing" them by invention.
 ### Step 4 — Render the editable SVG
 
 ```
-python scripts/make_schematic.py /app/work/model.json -o /app/work/figure.svg --report /app/work/layout.json
+python /skills/weekly-skill/scripts/make_schematic.py /app/work/model.json -o /app/work/figure.svg --report /app/work/layout.json
 ```
 
 Produces a layered SVG: `node-*` / `edge-*` / `group-*` / `legend` groups,
@@ -114,7 +117,7 @@ nothing is ever clipped.
 ### Step 5 — Read the drawing back and verify
 
 ```
-python scripts/verify_svg.py /app/work/model.json /app/work/figure.svg --out /app/work/verify.json
+python /skills/weekly-skill/scripts/verify_svg.py /app/work/model.json /app/work/figure.svg --out /app/work/verify.json
 ```
 
 This is the core anti-failure gate. It checks entity/relation coverage,
@@ -131,7 +134,7 @@ quotes support, and record the conflict in result.json `uncertainty`.
 ### Step 6 — Export and compliance-check
 
 ```
-python scripts/export_svg.py /app/work/figure.svg -o /app/output --pdf
+python /skills/weekly-skill/scripts/export_svg.py /app/work/figure.svg -o /app/output --pdf
 ```
 
 Writes `<name>_300dpi.png` and `<name>.pdf` into `/app/output`, trying
@@ -166,7 +169,7 @@ When the case provides an SVG to modify rather than material to draw:
    attributes (figures from this skill are fully self-describing).
 2. **Local changes** (relabel, recolour, edge type/label, title, delete an
    unattached element) → write an edits JSON and run
-   `python scripts/edit_svg.py figure.svg edits.json -o figure_edited.svg`.
+   `python /skills/weekly-skill/scripts/edit_svg.py figure.svg edits.json -o figure_edited.svg`.
    Every op needs a `reason`; the report proves untouched elements are
    byte-identical (`preserved.ok`). Then re-export (Step 6).
 3. **Structural changes** (add/remove entities or relations, flip a

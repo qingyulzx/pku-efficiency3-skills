@@ -30,7 +30,7 @@ description: 把固定论文/研究材料适配进指定 PPT 模板，产出可�
 
 ### 步骤 3 — 模板能力分析（脚本）
 ```
-python scripts/analyze_template.py <template.pptx> --out manifest.json
+python /skills/weekly-skill/scripts/analyze_template.py <template.pptx> --out manifest.json
 ```
 读 manifest.json 的四块输出再决策：
 - `suggested_role_mapping`：六个角色（title/section/content/two_content/picture/closing）→ 版式候选；
@@ -41,15 +41,15 @@ python scripts/analyze_template.py <template.pptx> --out manifest.json
 **你做映射决策**：每页选 role（或显式 layout 名覆盖）。anomalies 里的坑要内化，例如无图片版式的模板，图片页会走自由区域放置。
 
 ### 步骤 4 — 写 content.json 并装配（脚本）
-按 `references/content-schema.md` 写 slides 数组：每页 role/layout、title、bullets（level 0-4）、image（path+caption）、notes、evidence（source/location/quote）。然后：
+按 `/skills/weekly-skill/references/content-schema.md` 写 slides 数组：每页 role/layout、title、bullets（level 0-4）、image（path+caption）、notes、evidence（source/location/quote）。然后：
 
 ```
 # 新建模式（无 starting deck）
-python scripts/build_deck.py --template template.pptx --content content.json \
+python /skills/weekly-skill/scripts/build_deck.py --template template.pptx --content content.json \
     --out deck.pptx --report build_report.json
 
 # 保源编辑模式（有 starting deck）：只在指定页上动刀，其余页原样保留
-python scripts/build_deck.py --template template.pptx --start-deck starting.pptx \
+python /skills/weekly-skill/scripts/build_deck.py --template template.pptx --start-deck starting.pptx \
     --content content.json --out deck.pptx --report build_report.json
 ```
 编辑模式用 `slide_index`（以输入 starting deck 的原始页序为基准）+ `delete_slides`；无 `slide_index` 的 spec 追加新页。
@@ -58,7 +58,7 @@ python scripts/build_deck.py --template template.pptx --start-deck starting.pptx
 
 ### 步骤 5 — 一致性扫描 + 修复循环（脚本 → 你决策）
 ```
-python scripts/check_deck.py deck.pptx --out check_report.json [--pdf deck.pdf]
+python /skills/weekly-skill/scripts/check_deck.py deck.pptx --out check_report.json [--pdf deck.pdf]
 ```
 逐条读 findings（slide/shape/code/severity/message/fix），error 级必须处理：
 - `OVERFLOW_EST` → 你改 content.json（删 bullet/降层级/拆页），重跑步骤 4；
@@ -70,7 +70,7 @@ python scripts/check_deck.py deck.pptx --out check_report.json [--pdf deck.pdf]
 用 office-renderer（LibreOffice）把 deck.pptx 转成 PDF，再跑一次 check_deck 带 `--pdf`。确认：页数一致、无字体替换告警、图片完整。有偏差记录进 result.json 的渲染记录。
 
 ### 步骤 7 — 收尾 result.json
-按 `references/output-contract.md` 补全所有字段：主结果（pptx/PDF 路径）、逐页证据映射（每页 source/location/quote）、模板继承说明（用的哪个 layout、manifest 摘要）、渲染与版本记录（build_report/check_report 摘要 + 修复轮次）、不确定性（估计器 vs 渲染的差异、被裁剪的内容）。对照骨架确认没有字段漏掉。
+按 `/skills/weekly-skill/references/output-contract.md` 补全所有字段：主结果（pptx/PDF 路径）、逐页证据映射（每页 source/location/quote）、模板继承说明（用的哪个 layout、manifest 摘要）、渲染与版本记录（build_report/check_report 摘要 + 修复轮次）、不确定性（估计器 vs 渲染的差异、被裁剪的内容）。对照骨架确认没有字段漏掉。
 
 ## 硬规则（违反即产物不合格）
 
@@ -83,7 +83,7 @@ python scripts/check_deck.py deck.pptx --out check_report.json [--pdf deck.pdf]
 
 ## 异常处理
 
-所有失败路径带机器可读原因码，处置见 `references/exceptions.md`（UNREADABLE_PPTX / LAYOUT_NOT_FOUND / NO_BODY_PLACEHOLDER / IMAGE_FILE_MISSING / NEEDS_SPLIT / FONT_SIZE_FLOOR / IMAGE_DISTORTION / PDF_PAGE_MISMATCH 等）：能自动补偿的自动补偿并记入报告，不能的显式落进 result.json 的 uncertainty/limitations，绝不静默吞掉。
+所有失败路径带机器可读原因码，处置见 `/skills/weekly-skill/references/exceptions.md`（UNREADABLE_PPTX / LAYOUT_NOT_FOUND / NO_BODY_PLACEHOLDER / IMAGE_FILE_MISSING / NEEDS_SPLIT / FONT_SIZE_FLOOR / IMAGE_DISTORTION / PDF_PAGE_MISMATCH 等）：能自动补偿的自动补偿并记入报告，不能的显式落进 result.json 的 uncertainty/limitations，绝不静默吞掉。
 
 ## 文件
 
@@ -91,10 +91,10 @@ python scripts/check_deck.py deck.pptx --out check_report.json [--pdf deck.pdf]
 - `scripts/build_deck.py` — 模板内装配（新建/编辑两种模式）
 - `scripts/check_deck.py` — 整册一致性审计（fix 循环的输入）
 - `scripts/tmpl_common.py` — 共享库（几何/主题/容量估算/角色映射）
-- `references/content-schema.md` — content.json 契约
-- `references/adaptation-rules.md` — 映射/阶梯/图片/颜色规则细节
-- `references/exceptions.md` — 异常码字典与处置路径
-- `references/output-contract.md` — result.json 字段契约
-- `examples/` — 最小调用示例（源自 arXiv:1706.03762 真实材料，含溯源）
+- `/skills/weekly-skill/references/content-schema.md` — content.json 契约
+- `/skills/weekly-skill/references/adaptation-rules.md` — 映射/阶梯/图片/颜色规则细节
+- `/skills/weekly-skill/references/exceptions.md` — 异常码字典与处置路径
+- `/skills/weekly-skill/references/output-contract.md` — result.json 字段契约
+- `/skills/weekly-skill/examples/` — 最小调用示例（源自 arXiv:1706.03762 真实材料，含溯源）
 
 依赖：python-pptx >= 1.0（1.0.2 实测）、Pillow、lxml；PDF 导出用环境提供的 office-renderer。

@@ -26,7 +26,7 @@ description: Organize a paper or research material into an audience-aware academ
 1. 读 `/input/case.json` 与 task.md。确认：`case_id`、材料文件路径、约束
    （受众/时长/页数/模板）、`output_contract`（dict 或 list；可能不存在）。
 2. **立刻**写 `/app/output/result.json` 保底版：`case_id` + 契约全部字段（有契约逐字段
-   镜像，无契约用 references/output-schema.md §3 默认契约）+ 每字段 `null` +
+   镜像，无契约用 /skills/weekly-skill/references/output-schema.md §3 默认契约）+ 每字段 `null` +
    `null_reasons: {"字段": "Step N 产出"}` + `status: "running"`。
    之后每个 Step 只增强、不删除已填字段。
 3. 建工作目录 `/app/work`。
@@ -68,7 +68,7 @@ OCR 后重跑解析，没有工具就只按可读部分设计并在 result.json 
 
 产出 `/app/work/audience_plan.json`：`goal`（这次汇报要达成什么，一句话可检查）、
 `scenario`、`audience_prior`（听众先验/关注点）、页配比决策、依据（对照上表）。
-深挖某场景时再读 references/scenario-playbooks.md（展开版判据+问答模式+完成标准）。
+深挖某场景时再读 /skills/weekly-skill/references/scenario-playbooks.md（展开版判据+问答模式+完成标准）。
 
 ## Step 4 — 设计页级大纲与取舍（Agent 亲自判断）
 
@@ -83,7 +83,7 @@ Step 3 的受众计划，逐页决定：
 3. **取舍**：被砍内容全部进 `cut_log`（内容、对照判据的原因、去向：backup 页或仅留材料）。
 4. **问答预演**：每页过一遍"机制/数据/边界/价值"四问；关键追问配 backup 页。
 
-按 references/output-schema.md §2 的 schema 写 `/app/work/outline.json`。
+按 /skills/weekly-skill/references/output-schema.md §2 的 schema 写 `/app/work/outline.json`。
 **异常处置**：材料撑不起某场景关键页 → 该页 evidence 用 `gap` + 明确缺口描述；
 时长/页数冲突 → 按优先级砍并留痕；无逐字引文支撑的数字 → 不上页或标 `inferred`。
 
@@ -147,5 +147,5 @@ python /skills/weekly-skill/scripts/check_result.py \
 
 ## 最小调用示例
 
-见 examples/example-transformer.md（基于真实 arXiv 论文的示意输入/输出片段，
+见 /skills/weekly-skill/examples/example-transformer.md（基于真实 arXiv 论文的示意输入/输出片段，
 标注为示例，非正式案例结果）。

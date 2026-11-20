@@ -15,7 +15,7 @@ description: 实验装置图与技术路线图生成/编辑。从论文方法段
 - `/input/case.json`：任务说明（含 output_contract 字段名，如有）。
 - 材料文件（按 case 指定）：PDF 用容器 pdf-text-tool 取文字层，扫描页用
   ocr-tool；两者都失败的页记入 uncertainty，**不猜**。
-- 参考 `references/`：ir_schema.md（IR 格式）、symbol_library.md（图元/线型约定）、
+- 参考 `/skills/weekly-skill/references/`：ir_schema.md（IR 格式）、symbol_library.md（图元/线型约定）、
   extraction_playbook.md（判断规则）、output_contract.md（result.json 字段）。
 
 ## 工作流程（7 步，按序执行）
@@ -28,8 +28,11 @@ description: 实验装置图与技术路线图生成/编辑。从论文方法段
 立即初始化 result.json（所有契约字段 null + 原因）：
 
 ```
-python scripts/finalize_result.py --init --case /input/case.json --out /app/output/result.json
+python /skills/weekly-skill/scripts/finalize_result.py --init --case /input/case.json --out /app/output/result.json
 ```
+
+If that command fails for any reason (wrong CWD, import error, anything), do NOT proceed without the floor: write /app/output/result.json by hand right now — case_id plus every output_contract field as explicit null with a reason, status "partial". The skeleton must exist before any other work. This skill is installed at /skills/weekly-skill; always invoke its scripts by absolute path.
+
 
 此后每完成一步，回头把对应字段从 null 换成实值。中途崩溃也留下完整骨架。
 
@@ -47,14 +50,14 @@ python scripts/finalize_result.py --init --case /input/case.json --out /app/outp
 
 ### Step 4 IR 校验
 ```
-python scripts/validate_ir.py /app/output/intermediate.json
+python /skills/weekly-skill/scripts/validate_ir.py /app/output/intermediate.json
 ```
 exit 0 才继续。常见错误：id 重复、连接端点不存在、元素缺 source.location、
 extraction_index 有 omitted 无 reason。改 IR 再跑。
 
 ### Step 5 渲染
 ```
-python scripts/render.py /app/output/intermediate.json --outdir /app/output \
+python /skills/weekly-skill/scripts/render.py /app/output/intermediate.json --outdir /app/output \
        --name figure --also-png --also-pdf --png-scale 2 \
        [--font <font-discovery 找到的 CJK 字体路径>]
 ```
@@ -65,7 +68,7 @@ font-discovery 工具找字体重跑；PNG 因字体缺中文时 SVG 仍是真�
 
 ### Step 6 双向一致性校验（不过不算完成）
 ```
-python scripts/check_consistency.py /app/output/intermediate.json \
+python /skills/weekly-skill/scripts/check_consistency.py /app/output/intermediate.json \
        <材料文本文件> /app/output/figure.svg /app/output/figure.geometry.json \
        --out /app/output/consistency_report.json
 ```
@@ -78,7 +81,7 @@ python scripts/check_consistency.py /app/output/intermediate.json \
 数据映射、provenance、uncertainty 与图上标记一一对应），然后：
 
 ```
-python scripts/finalize_result.py --finalize --result /app/output/result.json \
+python /skills/weekly-skill/scripts/finalize_result.py --finalize --result /app/output/result.json \
        --case /input/case.json --artifact-dir /app/output \
        --consistency /app/output/consistency_report.json
 ```
@@ -90,7 +93,7 @@ exit 0 才算交付。partial 结果必须在 run_status 里列明未完成步�
 1. 用户给的新材料存成文本文件；
 2. 写 edits 文件（操作格式见 `scripts/edit_ir.py` 文档头）：
    add_component / add_connection / update_component / remove_component …；
-3. `python scripts/edit_ir.py intermediate.json edits.json --material 新材料.txt
+3. `python /skills/weekly-skill/scripts/edit_ir.py intermediate.json edits.json --material 新材料.txt
    --out intermediate_v2.json`——新增元素的 quote 会被逐字核验，核验不过整批拒绝；
 4. 对 v2 重跑 Step 4→6，result.json 的 provenance.change_records 自动带出。
 

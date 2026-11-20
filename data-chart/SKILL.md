@@ -28,7 +28,7 @@ Extract the data table from the materials (parse the PDF/CSV/JSON as needed;
 the source data for charts is provided in the case). For each numeric series
 record its exact source locator (file, table, row/column) - you will need it
 for traceability and it cannot be recovered later. Then write a chart spec
-per references/chart-spec.md:
+per /skills/weekly-skill/references/chart-spec.md:
 
 - Choose the chart type yourself (see the decision table in chart-spec.md);
   justify the choice in one sentence for result.json.
@@ -43,13 +43,13 @@ table, go directly to Step 6 with an explicit null result and reason.
 
 ## Step 2 - Pick the style profile and render
 
-Select references/styles/<profile>.json per references/journal-profiles.md
+Select /skills/weekly-skill/references/styles/<profile>.json per /skills/weekly-skill/references/journal-profiles.md
 (nature / ieee / plos / default, or a copy edited to a custom template, with
 requirements noted). Then:
 
 ```
-python scripts/chartgen.py --spec /app/work/<chart_id>.spec.json \
-    --style references/styles/<profile>.json --outdir /app/output/
+python /skills/weekly-skill/scripts/chartgen.py --spec /app/work/<chart_id>.spec.json \
+    --style /skills/weekly-skill/references/styles/<profile>.json --outdir /app/output/
 ```
 
 Outputs per chart: editable SVG (text as <text>, never outlined), vector PDF,
@@ -62,9 +62,9 @@ is the normal repair loop); 3 render error (partial outputs may exist).
 ## Step 3 - Verify by read-back (do not skip)
 
 ```
-python scripts/verify_svg.py --svg /app/output/<chart_id>.svg \
+python /skills/weekly-skill/scripts/verify_svg.py --svg /app/output/<chart_id>.svg \
     --glyphs /app/output/<chart_id>.glyphs.json \
-    --style references/styles/<profile>.json
+    --style /skills/weekly-skill/references/styles/<profile>.json
 ```
 
 This re-measures glyph geometry from the SVG itself, re-derives the
@@ -135,12 +135,12 @@ passed; source locators present for every series; uncertainties honest.
 
 ## Reference files
 
-- references/chart-spec.md - spec format, value rules, chart-type table
-- references/journal-profiles.md - profile selection, what each key controls
-- references/exceptions.md - full exception matrix (detection, disposition,
+- /skills/weekly-skill/references/chart-spec.md - spec format, value rules, chart-type table
+- /skills/weekly-skill/references/journal-profiles.md - profile selection, what each key controls
+- /skills/weekly-skill/references/exceptions.md - full exception matrix (detection, disposition,
   where recorded) - read it when anything fails or looks wrong
-- references/styles/*.json - style profiles with journal-quoted requirements
-- examples/transformer-benchmark/ - worked example on real published data
+- /skills/weekly-skill/references/styles/*.json - style profiles with journal-quoted requirements
+- /skills/weekly-skill/examples/transformer-benchmark/ - worked example on real published data
   (arXiv:1706.03762v7 Table 2) with verbatim quotes, locators and sha256
 
 ## Dependencies

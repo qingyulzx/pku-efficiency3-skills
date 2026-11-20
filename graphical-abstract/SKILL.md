@@ -20,7 +20,7 @@ Division of labour — **you do the science, the scripts do the drawing**:
 ## Environment & paths
 
 - Skill root: `/skills/weekly-skill` (scripts under `scripts/`, schema doc
-  under `references/`). Work under `/app/work`; final deliverables go to
+  under `/skills/weekly-skill/references/`). Work under `/app/work`; final deliverables go to
   `/app/output`.
 - Input: `/input/case.json` (+ task.md; material files referenced by the case).
 - Python with matplotlib is expected; if missing, PNG export falls back to
@@ -36,9 +36,12 @@ Read `/input/case.json` fully. Note `case_id` and every field of
 `output_contract` — these are your delivery obligations. Then immediately:
 
 ```bash
-python scripts/make_result.py --stage init \
+python /skills/weekly-skill/scripts/make_result.py --stage init \
   --case /input/case.json --out /app/output/result.json
 ```
+
+If that command fails for any reason (wrong CWD, import error, anything), do NOT proceed without the floor: write /app/output/result.json by hand right now — case_id plus every output_contract field as explicit null with a reason, status "partial". The skeleton must exist before any other work. This skill is installed at /skills/weekly-skill; always invoke its scripts by absolute path.
+
 
 This writes every contract field as an explicit `null` with a pending reason.
 From now on a crash still leaves a contract-complete deliverable. Re-run
@@ -57,7 +60,7 @@ text — later steps verify quotes against it automatically:
 
 ### Step 2 — Extract the science (your judgement, not a script's)
 
-Fill in a worksheet (template: `templates/agent_worksheet.md`) directly from
+Fill in a worksheet (template: `/skills/weekly-skill/templates/agent_worksheet.md`) directly from
 the material:
 
 1. **Question** — what problem does the material pose? Quote it verbatim.
@@ -79,7 +82,7 @@ source goes to the caption/notes, never onto the canvas as data.
 ### Step 3 — Author figure_model.json
 
 Write `/app/work/figure_model.json` following the schema in
-`references/model_schema.md` (full worked example: `examples/transformer-1706.03762/`).
+`/skills/weekly-skill/references/model_schema.md` (full worked example: `/skills/weekly-skill/examples/transformer-1706.03762/`).
 Key decisions you make:
 
 - **Panel plan**: usually 4–6 panels in reading order
@@ -98,7 +101,7 @@ Key decisions you make:
 ### Step 4 — Build and iterate
 
 ```bash
-python scripts/build_figure.py --model /app/work/figure_model.json \
+python /skills/weekly-skill/scripts/build_figure.py --model /app/work/figure_model.json \
   --outdir /app/work/out --sources /app/work/sources.json
 ```
 
@@ -114,7 +117,7 @@ rebuild. The figure is wrong until every error code is cleared.
 ### Step 5 — Verify like a reviewer
 
 ```bash
-python scripts/check_figure.py --outdir /app/work/out --sources /app/work/sources.json
+python /skills/weekly-skill/scripts/check_figure.py --outdir /app/work/out --sources /app/work/sources.json
 ```
 
 This re-runs all checks: SVG well-formedness, font floor, canvas bounds,
@@ -133,7 +136,7 @@ Write `/app/work/values.json` with your contract-field values
 Then:
 
 ```bash
-python scripts/make_result.py --stage final \
+python /skills/weekly-skill/scripts/make_result.py --stage final \
   --case /input/case.json --out /app/output/result.json \
   --values /app/work/values.json \
   --map /app/work/out/element_map.json \
@@ -167,19 +170,19 @@ claim `complete` over failing checks. Copy deliverables to `/app/output`:
 All failure modes, their signatures and remedies (material missing key
 numbers, entity ambiguity, text overflow, font substitution, canvas
 overflow, export failures, no matplotlib...) are in
-`references/exception_playbook.md` — consult it on any red output. The
+`/skills/weekly-skill/references/exception_playbook.md` — consult it on any red output. The
 one rule that overrides everything: **record honestly, never fabricate.**
 A `partial` result with documented limits scores better than a pretty
 figure with invented evidence.
 
 ## References
 
-- `references/model_schema.md` — figure_model.json field-by-field with
+- `/skills/weekly-skill/references/model_schema.md` — figure_model.json field-by-field with
   defaults and constraints.
-- `references/exception_playbook.md` — failure signatures → remedies.
-- `references/design_notes.md` — visual-encoding rules, colour-blind
+- `/skills/weekly-skill/references/exception_playbook.md` — failure signatures → remedies.
+- `/skills/weekly-skill/references/design_notes.md` — visual-encoding rules, colour-blind
   safety, layout conventions used by the builder.
-- `templates/agent_worksheet.md` — Step 2 extraction worksheet.
-- `templates/figure_model.template.json` — minimal starting model.
-- `examples/transformer-1706.03762/` — real-paper worked example
+- `/skills/weekly-skill/templates/agent_worksheet.md` — Step 2 extraction worksheet.
+- `/skills/weekly-skill/templates/figure_model.template.json` — minimal starting model.
+- `/skills/weekly-skill/examples/transformer-1706.03762/` — real-paper worked example
   (arXiv:1706.03762, verbatim quotes + sha256).

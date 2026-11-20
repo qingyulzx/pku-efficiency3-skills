@@ -27,12 +27,15 @@ aesthetic-only retouching; those belong to adjacent skills.
 - Input: `/input/case.json` (+ task.md). Work under `/app/work`; deliverables
   under `/app/output`.
 - First action of the whole run (before reading the case in depth):
-  `python scripts/scaffold_result.py --input /input/case.json --outdir /app/output`
+  `python /skills/weekly-skill/scripts/scaffold_result.py --input /input/case.json --outdir /app/output`
+
+If that command fails for any reason (wrong CWD, import error, anything), do NOT proceed without the floor: write /app/output/result.json by hand right now — case_id plus every output_contract field as explicit null with a reason, status "partial". The skeleton must exist before any other work. This skill is installed at /skills/weekly-skill; always invoke its scripts by absolute path.
+
   This writes a result.json with **every output-contract field present**,
   unproduced ones null + reason. Keep updating it stepwise; never delete a
   contract field.
 - All scripts below take `--model`/`--svg` style paths and are pure Python 3
-  (stdlib only) unless noted. `references/` is read by the scripts; read the
+  (stdlib only) unless noted. `/skills/weekly-skill/references/` is read by the scripts; read the
   `.md` files yourself before Step 1.
 
 ## Step 0 - Read the contract and scaffold (1 request)
@@ -47,20 +50,20 @@ scripts do the heavy lifting, you do the science.**
 
 Read the actual material (parse the PDF for real; read files, never assume
 content from labels). Build `/app/work/model.json` per
-`references/layout-conventions.md` by YOUR OWN judgement:
+`/skills/weekly-skill/references/layout-conventions.md` by YOUR OWN judgement:
 
 1. **Entities** — gene / protein / receptor / RNA / complex / molecule / cell /
-   family. Apply `references/naming-rules.md`: gene symbols italic and gene
+   family. Apply `/skills/weekly-skill/references/naming-rules.md`: gene symbols italic and gene
    nodes distinct from their proteins (*MYC* vs MYC); preferred symbols with
    source spellings in synonyms; families vs members; one node per stated
    complex. Each entity carries `source: {loc, quote}` — a VERBATIM quote and
    a location precise enough to re-find (section/paragraph/page/figure-caption).
-2. **Edges** — type from the closed set in `references/edge-types.json`
+2. **Edges** — type from the closed set in `/skills/weekly-skill/references/edge-types.json`
    (activation, inhibition, binding, phosphorylation, ubiquitination,
    transcriptional_regulation, translocation, complex_formation, ...).
    `directed` must be set explicitly. **Never guess direction**: if the quote
    has no directional cue, set `directed: false` and log an uncertainty
-   (`references/uncertainty-policy.md`). Binding/recruitment is undirected.
+   (`/skills/weekly-skill/references/uncertainty-policy.md`). Binding/recruitment is undirected.
    Transcriptional regulation targets a gene node and needs a sign.
 3. **Compartments** — extracellular / membrane / cytoplasm / nucleus (+ ER,
    Golgi, organelle sub-regions if the mechanism needs them). Entities whose
@@ -78,7 +81,7 @@ inhibitors, feedback and crosstalk (they hide in "however/whereas" sentences).
 ## Step 2 - Validate the model (script)
 
 ```
-python scripts/validate_model.py --model /app/work/model.json \
+python /skills/weekly-skill/scripts/validate_model.py --model /app/work/model.json \
     --report /app/work/validation-report.json
 ```
 
@@ -92,9 +95,9 @@ valid. If the material cannot support a required contract item, note it now
 ## Step 3 - Render SVG and export (scripts)
 
 ```
-python scripts/render_svg.py --model /app/work/model.json \
+python /skills/weekly-skill/scripts/render_svg.py --model /app/work/model.json \
     --out /app/output/pathway.svg --report /app/work/render-report.json
-python scripts/export_assets.py --svg /app/output/pathway.svg \
+python /skills/weekly-skill/scripts/export_assets.py --svg /app/output/pathway.svg \
     --outdir /app/output --model /app/work/model.json \
     --png-width 2400 --report /app/work/export-report.json
 ```
@@ -111,7 +114,7 @@ source text), then use source-preserving edits — the original model/SVG are
 backed up, every edit is logged in the model's change_log:
 
 ```
-python scripts/apply_edit.py --model /app/work/model.json --op add-edge \
+python /skills/weekly-skill/scripts/apply_edit.py --model /app/work/model.json --op add-edge \
     --id e-new --src A --tgt B --type inhibition --directed true \
     --sign negative --loc "..." --quote "..."
 ```
@@ -124,7 +127,7 @@ After edits, re-validate (automatic) and re-render (Step 3).
 ## Step 5 - Verify and finalize result.json (script + you)
 
 ```
-python scripts/verify_outputs.py --model /app/work/model.json \
+python /skills/weekly-skill/scripts/verify_outputs.py --model /app/work/model.json \
     --svg /app/output/pathway.svg --result /app/output/result.json \
     --exports /app/output/pathway.png /app/output/pathway.pdf \
     --report /app/output/verification-report.json
@@ -173,10 +176,10 @@ for anything null. Partial delivery must state its limits in plain words.
 - `scripts/export_assets.py` - PNG/PDF with fallback chain + blank check
 - `scripts/apply_edit.py` - source-preserving, logged edits
 - `scripts/verify_outputs.py` - read-back verification of the bundle
-- `references/edge-types.json` - machine-readable symbol semantics
-- `references/symbol-semantics.md` - visual grammar and its reasoning
-- `references/naming-rules.md` - gene/protein/family/complex conventions
-- `references/uncertainty-policy.md` - downgrade rules; never-guess policy
-- `references/layout-conventions.md` - model.json schema + layout algorithm
-- `examples/ras-mapk-case/` - a real-material worked example (Brown & Ried 2022)
+- `/skills/weekly-skill/references/edge-types.json` - machine-readable symbol semantics
+- `/skills/weekly-skill/references/symbol-semantics.md` - visual grammar and its reasoning
+- `/skills/weekly-skill/references/naming-rules.md` - gene/protein/family/complex conventions
+- `/skills/weekly-skill/references/uncertainty-policy.md` - downgrade rules; never-guess policy
+- `/skills/weekly-skill/references/layout-conventions.md` - model.json schema + layout algorithm
+- `/skills/weekly-skill/examples/ras-mapk-case/` - a real-material worked example (Brown & Ried 2022)
 - `README.md` - standalone usage documentation
