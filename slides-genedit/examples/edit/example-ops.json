@@ -1,0 +1,43 @@
+{
+  "_EXAMPLE": "Schema demonstration derived from a real paper (see _source). Not an official case output.",
+  "_source": {
+    "paper": "Attention Is All You Need",
+    "authors": "Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin",
+    "arxiv": "arXiv:1706.03762v7 [cs.CL]",
+    "doi": "10.48550/arXiv.1706.03762",
+    "fetched_from": "https://arxiv.org/abs/1706.03762",
+    "fetched_on": "2026-11-20",
+    "verbatim_quote_location": "Abstract",
+    "abstract_sha256": "062c384a940b00416e76c513973d595aeb1fbc6e0e09a433c18fddc5bdf529eb"
+  },
+  "context": "假设 starting deck 是上面 outline 生成的 4 页版本。修改指令：'第 2 页动机压成两条；末尾加一页参考文献页；其余不动。'",
+  "ops": [
+    {
+      "op": "replace_text",
+      "slide": 2,
+      "target": "body",
+      "bullets": [
+        {
+          "text": "主流模型：RNN/CNN encoder-decoder + 注意力连接",
+          "level": 0
+        },
+        {
+          "text": "Transformer：只留注意力，完全去掉循环与卷积",
+          "level": 0
+        }
+      ]
+    },
+    {
+      "op": "add_slide",
+      "after": 4,
+      "layout_hint": "title_only",
+      "title": "参考文献",
+      "notes": "Vaswani et al., Attention Is All You Need, arXiv:1706.03762v7."
+    },
+    {
+      "op": "set_notes",
+      "slide": 2,
+      "notes": "动机压成两条后，循环结构为何限制并行这句留给口头。"
+    }
+  ]
+}

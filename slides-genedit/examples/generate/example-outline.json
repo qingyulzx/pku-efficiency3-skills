@@ -1,0 +1,139 @@
+{
+  "_EXAMPLE": "Schema demonstration derived from a real paper (see _source). Not an official case output.",
+  "_source": {
+    "paper": "Attention Is All You Need",
+    "authors": "Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin",
+    "arxiv": "arXiv:1706.03762v7 [cs.CL]",
+    "doi": "10.48550/arXiv.1706.03762",
+    "fetched_from": "https://arxiv.org/abs/1706.03762",
+    "fetched_on": "2026-11-20",
+    "verbatim_quote_location": "Abstract",
+    "abstract_sha256": "062c384a940b00416e76c513973d595aeb1fbc6e0e09a433c18fddc5bdf529eb"
+  },
+  "meta": {
+    "title": "Attention Is All You Need — 5-minute group-meeting digest",
+    "audience": "组会同行（熟悉序列模型）",
+    "duration_min": 5,
+    "target_slides": 4,
+    "language": "zh"
+  },
+  "slides": [
+    {
+      "role": "title",
+      "layout_hint": "title",
+      "title": "Attention Is All You Need",
+      "subtitle": "Vaswani et al., arXiv:1706.03762v7 · 组会 5 分钟",
+      "notes": "一句话：只用注意力机制做序列转导，去掉循环与卷积。",
+      "evidence": [
+        {
+          "loc": "Abstract",
+          "quote": "the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely"
+        }
+      ]
+    },
+    {
+      "role": "problem",
+      "layout_hint": "title_content",
+      "title": "动机：循环/卷积编码器-解码器并行度受限",
+      "bullets": [
+        {
+          "text": "主流序列转导模型基于 RNN/CNN 的 encoder-decoder",
+          "level": 0
+        },
+        {
+          "text": "最佳模型靠注意力连接编码器与解码器",
+          "level": 0
+        },
+        {
+          "text": " Transformer 只保留注意力，完全去掉循环与卷积",
+          "level": 0
+        }
+      ],
+      "notes": "强调“更可并行、训练时间显著更短”是卖点，为结果页铺垫。",
+      "evidence": [
+        {
+          "loc": "Abstract",
+          "quote": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration."
+        },
+        {
+          "loc": "Abstract",
+          "quote": "superior in quality while being more parallelizable and requiring significantly less time to train"
+        }
+      ]
+    },
+    {
+      "role": "result",
+      "layout_hint": "title_content",
+      "title": "结果：28.4 BLEU（EN-DE），41.8 BLEU 单模型 SOTA（EN-FR）",
+      "bullets": [
+        {
+          "text": "WMT 2014 EN→DE：28.4 BLEU，超此前最佳（含集成）2 BLEU 以上",
+          "level": 0
+        },
+        {
+          "text": "WMT 2014 EN→FR：41.8 BLEU，单模型新 SOTA，8 卡训练 3.5 天",
+          "level": 0
+        },
+        {
+          "text": "训练成本仅为文献最佳模型的一小部分",
+          "level": 0
+        }
+      ],
+      "notes": "两个数字逐字来自摘要；口径（single-model、3.5 days on eight GPUs）必须一起讲。",
+      "evidence": [
+        {
+          "loc": "Abstract",
+          "quote": "achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU"
+        },
+        {
+          "loc": "Abstract",
+          "quote": "a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs"
+        }
+      ]
+    },
+    {
+      "role": "limitation",
+      "layout_hint": "title_content",
+      "title": "泛化与边界",
+      "bullets": [
+        {
+          "text": "摘要层面的证据：英文成分句法分析上成功泛化（大/小训练集）",
+          "level": 0
+        },
+        {
+          "text": "本页为 5 分钟摘要版：正文消融、表 2 复杂度分析未展开",
+          "level": 0
+        }
+      ],
+      "notes": "承认摘要版的边界：只覆盖摘要证据，未读全文表格的听众提醒看原文。",
+      "evidence": [
+        {
+          "loc": "Abstract",
+          "quote": "applying it successfully to English constituency parsing both with large and limited training data"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "action": "cut",
+      "item": "表 2 复杂度/注意力变体消融",
+      "reason": "5 分钟/4 页预算，摘要证据不足以支撑细节页"
+    },
+    {
+      "action": "kept",
+      "item": "两个 headline BLEU 数字同页",
+      "reason": "主结果；口径（single-model、8 GPU 3.5 天）随数字一起出现"
+    },
+    {
+      "action": "reordered",
+      "item": "动机页先于架构细节",
+      "reason": "组会同行熟悉序列模型，先讲'为什么要去循环'"
+    },
+    {
+      "action": "inferred",
+      "item": "limitation 页'摘要版边界'声明",
+      "reason": "材料（摘要）未含显式 limitation 章节，主动声明覆盖范围而非编造局限"
+    }
+  ]
+}
