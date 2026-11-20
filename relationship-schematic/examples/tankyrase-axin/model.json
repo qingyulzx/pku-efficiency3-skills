@@ -1,0 +1,141 @@
+{
+  "figure_label": "Example 2",
+  "title": "Tankyrase–Axin regulation of Wnt signaling and the XAV939 target module",
+  "canvas_width": 860,
+  "entities": [
+    {
+      "id": "XAV939",
+      "label": "XAV939",
+      "type": "small-molecule inhibitor",
+      "evidence": {
+        "quote": "XAV939 | Tankyrase, AXIN | activates AXIN | inhibits | colorectal cancer",
+        "locator": "Table 3, row XAV939",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "TNKS",
+      "label": "Tankyrase",
+      "type": "poly-ADP-ribose polymerase",
+      "evidence": {
+        "quote": "An activator of Wnt signaling pathway by poly-ADP-ribosylation of Axin1 and Axin2, regulates telomere length and vesicle trafficking",
+        "locator": "Table 1, row Tankyrase",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "AXIN1",
+      "label": "Axin1",
+      "type": "scaffold",
+      "evidence": {
+        "quote": "Component of the beta-catenin destruction complex that is required for down-regulating beta-catenin levels",
+        "locator": "Table 1, row Axin1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "AXIN2",
+      "label": "Axin2",
+      "type": "inhibitor",
+      "evidence": {
+        "quote": "Inhibitor of the Wnt signaling pathway by down-regulating beta-catenin",
+        "locator": "Table 1, row Axin2",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "WNTSIG",
+      "label": "Wnt/β-catenin\nsignaling",
+      "type": "pathway",
+      "evidence": {
+        "quote": "Wnt signaling activation can go through the canonical or non-canonical pathway depending on the association with the transcription activator beta-catenin",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    }
+  ],
+  "groups": [],
+  "relations": [
+    {
+      "id": "x_xav939_tnks",
+      "from": "XAV939",
+      "to": "TNKS",
+      "type": "inhibits",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "XAV939 | Tankyrase, AXIN | activates AXIN | inhibits | colorectal cancer",
+        "locator": "Table 3, row XAV939",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "x_tnks_axin1",
+      "from": "TNKS",
+      "to": "AXIN1",
+      "type": "modifies",
+      "direction": "A_to_B",
+      "label": "PAR",
+      "evidence": {
+        "quote": "An activator of Wnt signaling pathway by poly-ADP-ribosylation of Axin1 and Axin2",
+        "locator": "Table 1, row Tankyrase",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "x_tnks_axin2",
+      "from": "TNKS",
+      "to": "AXIN2",
+      "type": "modifies",
+      "direction": "A_to_B",
+      "label": "PAR",
+      "evidence": {
+        "quote": "An activator of Wnt signaling pathway by poly-ADP-ribosylation of Axin1 and Axin2",
+        "locator": "Table 1, row Tankyrase",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "x_tnks_wnt",
+      "from": "TNKS",
+      "to": "WNTSIG",
+      "type": "activates",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "An activator of Wnt signaling pathway by poly-ADP-ribosylation of Axin1 and Axin2",
+        "locator": "Table 1, row Tankyrase",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "x_axin2_wnt",
+      "from": "AXIN2",
+      "to": "WNTSIG",
+      "type": "inhibits",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "Inhibitor of the Wnt signaling pathway by down-regulating beta-catenin",
+        "locator": "Table 1, row Axin2",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "x_axin1_wnt",
+      "from": "AXIN1",
+      "to": "WNTSIG",
+      "type": "indirect",
+      "direction": "A_to_B",
+      "label": "via β-catenin",
+      "evidence": {
+        "quote": "Component of the beta-catenin destruction complex that is required for down-regulating beta-catenin levels",
+        "locator": "Table 1, row Axin1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    }
+  ],
+  "legend_extra": [
+    {"key": "PAR", "meaning": "poly-ADP-ribosylation"}
+  ]
+}

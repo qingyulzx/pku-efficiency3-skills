@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="760" height="621.02" viewBox="0 0 760 621.02">
+<ns0:title>Unit-test model: directions and uncertainty</ns0:title>
+<ns0:desc>Entity-relationship schematic generated from a verified relation table. Each node/edge group carries data-evidence-quote and data-evidence-locator.</ns0:desc>
+<ns0:defs>
+<ns0:marker id="mk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><ns0:path d="M0,0 L10,5 L0,10 z" fill="#1F2933" /></ns0:marker>
+<ns0:marker id="mk-bar" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><ns0:path d="M2,0 L2,10" stroke="#1F2933" stroke-width="2.6" /></ns0:marker>
+</ns0:defs>
+<ns0:rect x="0" y="0" width="760" height="621.02" fill="#FFFFFF" id="background" />
+<ns0:g id="edge-m1" data-relation-id="m1" data-from="KIN" data-to="SUB" data-type="modifies" data-direction="A_to_B" data-evidence-quote="Kinase A phosphorylates Substrate B." data-evidence-locator="s1" data-evidence-source="mini">
+<ns0:path d="M 330.15,328.02 C 330.15,364.02 330.15,372.02 330.15,397.02" fill="none" stroke="#1F2933" stroke-width="1.6" marker-end="url(#mk-arrow)" />
+<ns0:path d="M 330.15,328.02 330.15,397.02" stroke="none" fill="none" data-role="edge-axis" />
+<ns0:rect x="323.47" y="359.75" width="13.36" height="10.92" fill="#FFFFFF" fill-opacity="0.9" stroke="none" />
+<ns0:text x="330.15" y="368.02" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="11.5" text-anchor="middle" fill="#1F2933">P</ns0:text>
+</ns0:g>
+<ns0:g id="edge-m2" data-relation-id="m2" data-from="INH" data-to="KIN" data-type="inhibits" data-direction="A_to_B" data-evidence-quote="Inhibitor C blocks Kinase A." data-evidence-locator="s2" data-evidence-source="mini">
+<ns0:path d="M 239.55,193.03 C 239.55,229.02 330.15,237.02 321.9,265.74" fill="none" stroke="#1F2933" stroke-width="1.6" marker-end="url(#mk-bar)" />
+<ns0:path d="M 239.55,193.03 321.9,265.74" stroke="none" fill="none" data-role="edge-axis" />
+<rect x="260.65" y="221.10" width="40.16" height="10.92" fill="#FFFFFF" fill-opacity="0.9" stroke="none" /><text x="280.73" y="229.38" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="11.50" text-anchor="middle" fill="#1F2933">blocks</text></ns0:g>
+<ns0:g id="edge-m3" data-relation-id="m3" data-from="FAC" data-to="SUB" data-type="indirect" data-direction="unknown" data-evidence-quote="Factor D affects Substrate B." data-evidence-locator="s3" data-evidence-source="mini">
+<ns0:path d="M 91.72,193.03 C 91.72,289.77 330.15,311.27 321.98,400.66" fill="none" stroke="#1F2933" stroke-width="1.6" stroke-dasharray="7 5" />
+<ns0:path d="M 91.72,193.03 321.98,400.66" stroke="none" fill="none" data-role="edge-axis" />
+<ns0:rect x="204.89" y="292.25" width="12.1" height="10.92" fill="#FFFFFF" fill-opacity="0.9" stroke="none" />
+<ns0:text x="210.94" y="300.52" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="11.5" text-anchor="middle" fill="#1F2933">?</ns0:text>
+</ns0:g>
+<ns0:g id="edge-m4" data-relation-id="m4" data-from="TAR" data-to="PHA" data-type="modifies" data-direction="B_to_A" data-evidence-quote="Target F is dephosphorylated by Phosphatase E." data-evidence-locator="s4" data-evidence-source="mini">
+<ns0:path d="M 474.85,165.53 C 474.85,165.53 520.85,165.53 509.85,165.53" fill="none" stroke="#1F2933" stroke-width="1.6" marker-end="url(#mk-arrow)" />
+<ns0:path d="M 474.85,165.53 509.85,165.53" stroke="none" fill="none" data-role="edge-axis" />
+<ns0:rect x="485.07" y="157.25" width="25.55" height="10.92" fill="#FFFFFF" fill-opacity="0.9" stroke="none" />
+<ns0:text x="497.85" y="165.53" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="11.5" text-anchor="middle" fill="#1F2933">deP</ns0:text>
+</ns0:g>
+<ns0:g id="node-KIN" data-entity-id="KIN" data-label="Kinase A" data-type="kinase" data-evidence-quote="Kinase A phosphorylates Substrate B." data-evidence-locator="s1" data-evidence-source="mini">
+<ns0:rect x="284" y="273.02" width="92.3" height="55" rx="8" fill="#E0F2F1" stroke="#1F2933" stroke-width="1.4" />
+<ns0:text x="330.15" y="295.72" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" text-anchor="middle" fill="#1F2933">Kinase A</ns0:text>
+<ns0:text x="330.15" y="313.22" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="10.5" text-anchor="middle" fill="#6B7280">kinase</ns0:text>
+</ns0:g>
+<ns0:g id="node-SUB" data-entity-id="SUB" data-label="Substrate B" data-type="substrate" data-evidence-quote="Kinase A phosphorylates Substrate B." data-evidence-locator="s1" data-evidence-source="mini">
+<ns0:rect x="270.5" y="408.02" width="119.3" height="55" rx="8" fill="#E3F2FD" stroke="#1F2933" stroke-width="1.4" />
+<ns0:text x="330.15" y="430.72" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" text-anchor="middle" fill="#1F2933">Substrate B</ns0:text>
+<ns0:text x="330.15" y="448.22" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="10.5" text-anchor="middle" fill="#6B7280">substrate</ns0:text>
+</ns0:g>
+<ns0:g id="node-INH" data-entity-id="INH" data-label="Inhibitor C" data-type="inhibitor" data-evidence-quote="Inhibitor C blocks Kinase A." data-evidence-locator="s2" data-evidence-source="mini">
+<ns0:rect x="185.45" y="138.03" width="108.2" height="55" rx="8" fill="#FBE3E4" stroke="#1F2933" stroke-width="1.4" />
+<ns0:text x="239.55" y="160.72" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" text-anchor="middle" fill="#1F2933">Inhibitor C</ns0:text>
+<ns0:text x="239.55" y="178.22" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="10.5" text-anchor="middle" fill="#6B7280">inhibitor</ns0:text>
+</ns0:g>
+<ns0:g id="node-FAC" data-entity-id="FAC" data-label="Factor D" data-type="factor" data-evidence-quote="Factor D affects Substrate B." data-evidence-locator="s3" data-evidence-source="mini">
+<ns0:rect x="44" y="138.03" width="95.45" height="55" rx="8" fill="#E3F2FD" stroke="#1F2933" stroke-width="1.4" />
+<ns0:text x="91.72" y="160.72" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" text-anchor="middle" fill="#1F2933">Factor D</ns0:text>
+<ns0:text x="91.72" y="178.22" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="10.5" text-anchor="middle" fill="#6B7280">factor</ns0:text>
+</ns0:g>
+<ns0:g id="node-PHA" data-entity-id="PHA" data-label="Phosphatase E" data-type="phosphatase" data-evidence-quote="Target F is dephosphorylated by Phosphatase E." data-evidence-locator="s4" data-evidence-source="mini">
+<ns0:rect x="339.65" y="138.03" width="135.2" height="55" rx="8" fill="#EAE3F7" stroke="#1F2933" stroke-width="1.4" />
+<ns0:text x="407.25" y="160.72" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" text-anchor="middle" fill="#1F2933">Phosphatase E</ns0:text>
+<ns0:text x="407.25" y="178.22" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="10.5" text-anchor="middle" fill="#6B7280">phosphatase</ns0:text>
+</ns0:g>
+<ns0:g id="node-TAR" data-entity-id="TAR" data-label="Target F" data-type="target" data-evidence-quote="Target F is dephosphorylated by Phosphatase E." data-evidence-locator="s4" data-evidence-source="mini">
+<ns0:rect x="520.85" y="138.03" width="95.45" height="55" rx="8" fill="#E8EAF6" stroke="#1F2933" stroke-width="1.4" />
+<ns0:text x="568.57" y="160.72" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="15" text-anchor="middle" fill="#1F2933">Target F</ns0:text>
+<ns0:text x="568.57" y="178.22" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="10.5" text-anchor="middle" fill="#6B7280">target</ns0:text>
+</ns0:g>
+<ns0:g id="title">
+<ns0:text x="380" y="54.5" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="11.03" text-anchor="middle" fill="#6B7280" data-role="figure-label">Figure B</ns0:text>
+<ns0:text x="380" y="75.53" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="19" font-weight="bold" text-anchor="middle" fill="#1F2933" data-role="title">Unit-test model: directions and uncertainty (revised)</ns0:text>
+</ns0:g>
+<ns0:g id="legend">
+<ns0:g id="legend-item-indirect" data-type="indirect">
+<ns0:line x1="44" y1="542.02" x2="90" y2="542.02" stroke="#1F2933" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#mk-arrow)" />
+<ns0:text x="100" y="545.02" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="12.5" fill="#1F2933">indirect / unspecified effect</ns0:text>
+</ns0:g>
+<ns0:g id="legend-item-inhibits" data-type="inhibits">
+<ns0:line x1="296.38" y1="542.02" x2="342.38" y2="542.02" stroke="#1F2933" stroke-width="1.6" marker-end="url(#mk-bar)" />
+<ns0:text x="352.38" y="545.02" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="12.5" fill="#1F2933">inhibits / represses</ns0:text>
+</ns0:g>
+<ns0:g id="legend-item-modifies" data-type="modifies">
+<ns0:line x1="44" y1="568.02" x2="90" y2="568.02" stroke="#1F2933" stroke-width="1.6" marker-end="url(#mk-arrow)" />
+<ns0:text x="100" y="571.02" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="12.5" fill="#1F2933">modifies (e.g. phosphorylation P)</ns0:text>
+</ns0:g>
+<ns0:g id="legend-extra-3">
+<ns0:text x="376.75" y="571.02" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="12.5" fill="#1F2933">deP: dephosphorylation</ns0:text>
+</ns0:g>
+</ns0:g>
+<!-- edit_svg: 3 op(s) applied 2026-11-20T20:57:16+08:00: set_node_color:INH; set_title:title; set_edge_label:m2 --></ns0:svg>

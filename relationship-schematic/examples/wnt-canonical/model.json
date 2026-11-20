@@ -1,0 +1,386 @@
+{
+  "figure_label": "Example 1",
+  "title": "Canonical Wnt/β-catenin signaling",
+  "canvas_width": 980,
+  "entities": [
+    {
+      "id": "WNT",
+      "label": "Wnt ligand",
+      "type": "ligand",
+      "evidence": {
+        "quote": "The ligands of the frizzled family, cause activation of TCF/LEF family transcription factors in the canonical Wnt signaling pathways",
+        "locator": "Table 1, row Wnt",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "DKK1",
+      "label": "Dkk1",
+      "type": "secreted antagonist",
+      "evidence": {
+        "quote": "Inhibiting the interaction between LRP5/6 and Wnt",
+        "locator": "Table 1, row Dkk1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "FZD",
+      "label": "Frizzled",
+      "type": "receptor",
+      "evidence": {
+        "quote": "Receptor for Wnt proteins which are coupled to the beta-catenin canonical signaling pathway",
+        "locator": "Table 1, row Frizzled",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "LRP56",
+      "label": "LRP5/6",
+      "type": "co-receptor",
+      "evidence": {
+        "quote": "Co-receptor as a member of the frizzled family of seven-transmembrane spanning receptors",
+        "locator": "Table 1, row LRP5/6",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "RNF43",
+      "label": "RNF43",
+      "type": "E3 ubiquitin ligase",
+      "evidence": {
+        "quote": "A negative regulator of the Wnt signaling pathway by the ubiquitination, endocytosis, and degradation of Wnt receptor complex components Frizzled",
+        "locator": "Table 1, row RNF43",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "APC",
+      "label": "APC",
+      "type": "tumor suppressor",
+      "evidence": {
+        "quote": "Component of the beta-catenin destruction complex, serves as a negative regulator of Wnt signaling and promotes degradation of beta-catenin",
+        "locator": "Table 1, row APC",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "GSK3B",
+      "label": "GSK-3β",
+      "type": "kinase",
+      "evidence": {
+        "quote": "An active protein kinase and component of the beta-catenin destruction complex, phosphorylates the N-terminus of beta-catenin and promotes its degradation",
+        "locator": "Table 1, row GSK3β",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "CK1",
+      "label": "CK1",
+      "type": "kinase",
+      "evidence": {
+        "quote": "the degradation complexes consisting of adenomatous polyposis coli (APC), glycogen synthase kinase-3β (GSK-3β), Axin, casein kinase 1(CK1)",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "AXIN",
+      "label": "Axin",
+      "type": "scaffold",
+      "evidence": {
+        "quote": "Component of the beta-catenin destruction complex that is required for down-regulating beta-catenin levels",
+        "locator": "Table 1, row Axin1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "BTRCP",
+      "label": "β-TrCP",
+      "type": "E3 ubiquitin ligase",
+      "evidence": {
+        "quote": "followed by β-transducin repeat-containing protein (β-TrCP) E3 ligase mediated ubiquitination",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "CTNNB1",
+      "label": "β-catenin",
+      "type": "transcriptional coactivator",
+      "evidence": {
+        "quote": "beta-catenin accumulates in the nucleus as a coactivator of TCF/LEF family of transcription factors based on the occurrence of Wnt ligands, leading to the activation of Wnt response genes",
+        "locator": "Table 1, row beta-catenin",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "NUCLEUS",
+      "label": "Nucleus",
+      "type": "compartment",
+      "evidence": {
+        "quote": "Following the stimulation of the canonical pathway, beta-catenin is translocated from the cytoplasm to the nucleus",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "TCFLEF",
+      "label": "TCF/LEF",
+      "type": "transcription factor",
+      "evidence": {
+        "quote": "Transcriptional activator or repressor, beta-catenin binding, DNA binding",
+        "locator": "Table 1, row TCF1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "TARGETS",
+      "label": "Wnt response genes",
+      "type": "gene set",
+      "evidence": {
+        "quote": "leading to the activation of Wnt response genes",
+        "locator": "Table 1, row beta-catenin",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "DESTRUCTION_COMPLEX",
+      "label": "β-catenin destruction complex",
+      "members": ["APC", "GSK3B", "CK1", "AXIN", "BTRCP"],
+      "evidence": {
+        "quote": "the levels of beta-catenin are relatively low in the cytosol due to the degradation complexes consisting of adenomatous polyposis coli (APC), glycogen synthase kinase-3β (GSK-3β), Axin, casein kinase 1(CK1)",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "r_wnt_fzd",
+      "from": "WNT",
+      "to": "FZD",
+      "type": "binds",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "Receptor for Wnt proteins which are coupled to the beta-catenin canonical signaling pathway",
+        "locator": "Table 1, row Frizzled",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_wnt_lrp",
+      "from": "WNT",
+      "to": "LRP56",
+      "type": "binds",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "Inhibiting the interaction between LRP5/6 and Wnt",
+        "locator": "Table 1, row Dkk1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_dkk1_lrp",
+      "from": "DKK1",
+      "to": "LRP56",
+      "type": "inhibits",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "Inhibiting the interaction between LRP5/6 and Wnt",
+        "locator": "Table 1, row Dkk1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_rnf43_fzd",
+      "from": "RNF43",
+      "to": "FZD",
+      "type": "inhibits",
+      "direction": "A_to_B",
+      "label": "Ub",
+      "evidence": {
+        "quote": "A negative regulator of the Wnt signaling pathway by the ubiquitination, endocytosis, and degradation of Wnt receptor complex components Frizzled",
+        "locator": "Table 1, row RNF43",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_gsk3b_phos",
+      "from": "GSK3B",
+      "to": "CTNNB1",
+      "type": "modifies",
+      "direction": "A_to_B",
+      "label": "P",
+      "evidence": {
+        "quote": "Degradation of beta-catenin is initiated by phosphorylation via GSK-3β and CK1",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_ck1_phos",
+      "from": "CK1",
+      "to": "CTNNB1",
+      "type": "modifies",
+      "direction": "A_to_B",
+      "label": "P",
+      "evidence": {
+        "quote": "Degradation of beta-catenin is initiated by phosphorylation via GSK-3β and CK1",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_btrcp_ub",
+      "from": "BTRCP",
+      "to": "CTNNB1",
+      "type": "modifies",
+      "direction": "A_to_B",
+      "label": "Ub",
+      "evidence": {
+        "quote": "followed by β-transducin repeat-containing protein (β-TrCP) E3 ligase mediated ubiquitination",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_dc_inhibits",
+      "from": "DESTRUCTION_COMPLEX",
+      "to": "CTNNB1",
+      "type": "inhibits",
+      "direction": "A_to_B",
+      "label": "degradation",
+      "evidence": {
+        "quote": "Component of the beta-catenin destruction complex, serves as a negative regulator of Wnt signaling and promotes degradation of beta-catenin",
+        "locator": "Table 1, row APC",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_ctnnb1_nucleus",
+      "from": "CTNNB1",
+      "to": "NUCLEUS",
+      "type": "transports",
+      "direction": "A_to_B",
+      "label": "translocation",
+      "evidence": {
+        "quote": "Following the stimulation of the canonical pathway, beta-catenin is translocated from the cytoplasm to the nucleus",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_ctnnb1_tcf",
+      "from": "CTNNB1",
+      "to": "TCFLEF",
+      "type": "activates",
+      "direction": "A_to_B",
+      "label": "coactivator",
+      "evidence": {
+        "quote": "beta-catenin accumulates in the nucleus as a coactivator of TCF/LEF family of transcription factors based on the occurrence of Wnt ligands",
+        "locator": "Table 1, row beta-catenin",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_tcf_targets",
+      "from": "TCFLEF",
+      "to": "TARGETS",
+      "type": "activates",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "leading to the activation of Wnt response genes",
+        "locator": "Table 1, row beta-catenin",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "r_wnt_tcf_indirect",
+      "from": "WNT",
+      "to": "TCFLEF",
+      "type": "indirect",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "The ligands of the frizzled family, cause activation of TCF/LEF family transcription factors in the canonical Wnt signaling pathways",
+        "locator": "Table 1, row Wnt",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "c_dc_apc",
+      "from": "DESTRUCTION_COMPLEX",
+      "to": "APC",
+      "type": "contains",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "the degradation complexes consisting of adenomatous polyposis coli (APC), glycogen synthase kinase-3β (GSK-3β), Axin, casein kinase 1(CK1)",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "c_dc_gsk3b",
+      "from": "DESTRUCTION_COMPLEX",
+      "to": "GSK3B",
+      "type": "contains",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "the degradation complexes consisting of adenomatous polyposis coli (APC), glycogen synthase kinase-3β (GSK-3β), Axin, casein kinase 1(CK1)",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "c_dc_ck1",
+      "from": "DESTRUCTION_COMPLEX",
+      "to": "CK1",
+      "type": "contains",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "the degradation complexes consisting of adenomatous polyposis coli (APC), glycogen synthase kinase-3β (GSK-3β), Axin, casein kinase 1(CK1)",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "c_dc_axin",
+      "from": "DESTRUCTION_COMPLEX",
+      "to": "AXIN",
+      "type": "contains",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "the degradation complexes consisting of adenomatous polyposis coli (APC), glycogen synthase kinase-3β (GSK-3β), Axin, casein kinase 1(CK1)",
+        "locator": "Background, paragraph 1",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    },
+    {
+      "id": "c_dc_btrcp",
+      "from": "DESTRUCTION_COMPLEX",
+      "to": "BTRCP",
+      "type": "contains",
+      "direction": "A_to_B",
+      "label": "",
+      "evidence": {
+        "quote": "Component of the beta-catenin destruction complex and mediates the ubiquitination of beta-catenin",
+        "locator": "Table 1, row β-TrCP",
+        "source": "Wang et al. 2021, Biomark Res 9:68, doi:10.1186/s40364-021-00323-7 (PMC8422786), CC BY 4.0"
+      }
+    }
+  ],
+  "legend_extra": [
+    {"key": "P", "meaning": "phosphorylation"},
+    {"key": "Ub", "meaning": "ubiquitination"}
+  ]
+}

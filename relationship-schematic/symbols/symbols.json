@@ -1,0 +1,112 @@
+{
+  "version": "1.1",
+  "description": "Semantic symbol library for scientific relationship schematics. Every visual token (line style, end marker, containment) carries exactly one meaning, so that a reader, a reviewer, or a verification script can map drawing back to statements. Loaded and enforced by scripts/model_check.py, scripts/make_schematic.py, scripts/verify_svg.py, scripts/edit_svg.py and scripts/export_svg.py.",
+  "edge_stroke": "#1F2933",
+  "node_stroke": "#1F2933",
+  "text_color": "#1F2933",
+  "line_styles": {
+    "solid": {
+      "stroke_dasharray": null,
+      "meaning": "direct interaction: explicitly stated or directly supported by the source material"
+    },
+    "dashed": {
+      "stroke_dasharray": "7 5",
+      "meaning": "indirect, speculative, or inferred interaction (not directly demonstrated in the source)"
+    }
+  },
+  "markers": {
+    "arrow": {
+      "svg_id": "mk-arrow",
+      "shape": "filled_triangle",
+      "svg_path": "M0,0 L10,5 L0,10 z",
+      "viewBox": "0 0 10 10",
+      "ref": [9, 5],
+      "meaning": "activation / promotion / causal effect / process order / transport direction (points FROM source TO target)"
+    },
+    "bar": {
+      "svg_id": "mk-bar",
+      "shape": "perpendicular_bar",
+      "svg_path": "M2,0 L2,10",
+      "viewBox": "0 0 10 10",
+      "ref": [2, 5],
+      "stroke_width": 2.4,
+      "meaning": "inhibition / repression / blocking (the bar sits AT the inhibited target)"
+    }
+  },
+  "relation_types": {
+    "activates": {
+      "legend_text": "activates / promotes",
+      "line": "solid",
+      "end": "arrow",
+      "start": null,
+      "legend_group": "regulation"
+    },
+    "inhibits": {
+      "legend_text": "inhibits / represses",
+      "line": "solid",
+      "end": "bar",
+      "start": null,
+      "legend_group": "regulation"
+    },
+    "binds": {
+      "legend_text": "binds / associates (no direction)",
+      "line": "solid",
+      "end": null,
+      "start": null,
+      "legend_group": "interaction"
+    },
+    "modifies": {
+      "legend_text": "modifies (e.g. phosphorylation P)",
+      "line": "solid",
+      "end": "arrow",
+      "start": null,
+      "label_template": "{mod}",
+      "legend_group": "interaction"
+    },
+    "transports": {
+      "legend_text": "transports / translocates",
+      "line": "solid",
+      "end": "arrow",
+      "start": null,
+      "label_template": "{cargo}",
+      "legend_group": "interaction"
+    },
+    "indirect": {
+      "legend_text": "indirect / unspecified effect",
+      "line": "dashed",
+      "end": "arrow",
+      "start": null,
+      "legend_group": "regulation"
+    },
+    "precedes": {
+      "legend_text": "process step order (temporal)",
+      "line": "solid",
+      "end": "arrow",
+      "start": null,
+      "legend_group": "flow"
+    },
+    "contains": {
+      "legend_text": "contains (structural containment)",
+      "rendering": "nested_box",
+      "legend_group": "structure"
+    },
+    "parallels": {
+      "legend_text": "parallel / co-listed (no causal edge)",
+      "rendering": "adjacent_placement",
+      "legend_group": "structure"
+    }
+  },
+  "direction_values": ["A_to_B", "B_to_A", "bidirectional", "unknown"],
+  "direction_rules": {
+    "unknown": {
+      "render": "dashed line, question-mark label, no semantic end marker",
+      "result_flag": "direction_uncertain"
+    }
+  },
+  "node_palette": [
+    "#D7E8FA", "#FDEBD2", "#DDF0DD", "#FBE3E4", "#EAE3F7",
+    "#E0F2F1", "#FFF3CD", "#E8EAF6", "#FDE9E3", "#E3F2FD"
+  ],
+  "group_fill": "#F5F6F7",
+  "group_label_size": 11.5
+}
