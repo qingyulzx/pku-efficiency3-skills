@@ -35,25 +35,35 @@ requests / 900 s total. Step 1 already writes a contract-complete skeleton
 result.json, so a crash anywhere after that still leaves a verifiable
 deliverable. Improve it incrementally; never leave it as the skeleton.
 
-## Step 1 — parse inputs, write the result.json floor (both routes)
+## Step 1 — read inputs yourself, write the result.json floor BY HAND (both routes)
+
+1. Read `/input/case.json` and task.md yourself (cat the file — do not assume
+   its shape). Note: `case_id`, material/deck paths, constraints
+   (audience/time/slide-count), and `output_contract` — **which may be a
+   dict, a list of `{name, type}` items, or absent**. Read every input file
+   that exists (`material*.md/pdf/tex`, figures); for PDFs use pdf-text-tool
+   / pdf-render-tool / ocr-tool as provided. Never assume content from
+   filenames.
+2. **Write `/app/output/result.json` BY HAND right now** (do not run any
+   script for this): `case_id` + `route` + one field per contract entry
+   (dict → its keys; list → each item's `name`; absent → use
+   `/skills/weekly-skill/reference/schemas.md` §default-contract), every
+   field `null` + `unanswered: [{field, reason}]`, `status: "partial"`.
+   This skeleton is the floor: it must exist before any extraction work,
+   and every later step only strengthens it.
+3. The skill is installed at `/skills/weekly-skill`; always invoke its
+   scripts by absolute path, never a bare `scripts/...`.
+
+Only after the hand-written floor exists may you optionally also run:
 
 ```
 python /skills/weekly-skill/scripts/parse_case.py --input /input/case.json --workdir /app/work --output-dir /app/output
 ```
 
-If that command fails for any reason (wrong CWD, import error, anything),
-write the floor by hand right now: `/app/output/result.json` with `case_id`
-and every `output_contract` field as explicit `null` + reason, status
-"partial". The skeleton must exist before any extraction work. The skill is
-installed at `/skills/weekly-skill`; always invoke its scripts by absolute
-path (or `cd /skills/weekly-skill` first), never a bare `scripts/...`.
-
 Read the printed route hint AND the actual task text before committing to a
 route (the hint is evidence, not a verdict). Verify the constraint scan
 (`case-parsed.json`) against task.md yourself — keyword scans miss and
-over-match; the task wording wins. Read every input file that exists
-(`material*.md/pdf/tex`, figures); for PDFs use pdf-text-tool /
-pdf-render-tool / ocr-tool as provided. Never assume content from filenames.
+over-match; the task wording wins.
 
 ## Step 2 — extraction with verbatim capture (generate)
 

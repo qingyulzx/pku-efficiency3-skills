@@ -38,22 +38,32 @@ Work under `/app/work`; deliverables go to `/app/output`.
 
 ## Pipeline (7 steps)
 
-### Step 0 — Write the contract-first skeleton (before anything else)
+### Step 0 — Read the case yourself, then write the floor BY HAND (before anything else)
 
-Create `/app/output/result.json` immediately with all output_contract fields
-set to null + reason, status "partial". This guarantees a valid deliverable
-even if later steps fail. Use:
+1. Read `/input/case.json` and task.md yourself (cat the file — do not assume
+   its shape). Note: `case_id`, paper/template paths, constraints
+   (audience/duration/max_slides), and `output_contract` — **which may be a
+   dict, a list of `{name, type}` items, or absent**. Read actual files;
+   never assume content from labels.
+2. **Write `/app/output/result.json` BY HAND right now** (do not run any
+   script for this): `case_id` + one field per contract entry (dict → its
+   keys; list → each item's `name`; absent → use
+   `/skills/weekly-skill/references/deck-plan-schema.md` output defaults),
+   every field `null` + `null_reasons: {"<field>": "Step N produces this"}`,
+   `status: "partial"`. This skeleton is the floor: it must exist before
+   anything else, and every later step only strengthens it.
+3. The skill is installed at `/skills/weekly-skill`; invoke its scripts by
+   absolute path only, never a bare `scripts/...`.
+
+Only after the hand-written floor exists may you optionally regenerate or
+extend it with:
 
 ```
 python /skills/weekly-skill/scripts/build_result.py --case /input/case.json --out /app/output/result.json --status partial --note "run started"
 ```
 
-If that command fails for any reason (wrong CWD, missing interpreter module,
-anything), do NOT proceed without the floor: write `/app/output/result.json`
-by hand right now — `case_id` plus every `output_contract` field as `null`
-with a reason, status "partial". The skeleton must exist before Step 1.
-The skill is installed at `/skills/weekly-skill`; run scripts from there with
-absolute paths, or `cd /skills/weekly-skill` first.
+(the hand-written floor already satisfies the contract; the script is a
+convenience, not a dependency).
 
 ### Step 1 — Extract the paper inventory
 
