@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 def load_json(path):
     if not path or not os.path.isfile(path):
         return None
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8-sig") as f:
         return json.load(f)
 
 
@@ -75,7 +75,22 @@ def main():
     render = load_json(args.render_info) or {}
     changes = load_json(args.changes) or []
 
-    contract = case.get("output_contract") or {}
+    raw_contract = case.get("output_contract")
+    if isinstance(raw_contract, dict):
+        contract = raw_contract
+    elif isinstance(raw_contract, list):
+        # list form: [{"name": "slides", "type": "file"}, ...] -> use names
+        contract = {}
+        for item in raw_contract:
+            if isinstance(item, str):
+                contract[item] = None
+            elif isinstance(item, dict):
+                name = (item.get("name") or item.get("field")
+                        or item.get("id") or item.get("key"))
+                if name:
+                    contract[str(name)] = item.get("type", None)
+    else:
+        contract = {}
     deliverables = {
         "editable_pptx": args.pptx if args.pptx and os.path.isfile(args.pptx)
         else None,

@@ -94,7 +94,7 @@ def main():
     os.makedirs(args.workdir, exist_ok=True)
     input_dir = os.path.dirname(os.path.abspath(args.input))
 
-    with open(args.input, "r", encoding="utf-8") as f:
+    with open(args.input, "r", encoding="utf-8-sig") as f:
         case = json.load(f)
 
     strings, file_refs = [], []
@@ -149,7 +149,15 @@ def main():
     if isinstance(oc, dict):
         contract_fields = list(oc.keys())
     elif isinstance(oc, list):
-        contract_fields = [str(x) for x in oc]
+        contract_fields = []
+        for item in oc:
+            if isinstance(item, str):
+                contract_fields.append(item)
+            elif isinstance(item, dict):
+                name = (item.get("name") or item.get("field")
+                        or item.get("id") or item.get("key"))
+                if name:
+                    contract_fields.append(str(name))
 
     parsed = {
         "parsed_at": datetime.datetime.now().isoformat(timespec="seconds"),
