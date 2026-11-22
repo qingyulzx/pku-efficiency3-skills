@@ -1,195 +1,105 @@
 ---
 name: paper-to-academic-ppt
-description: Turn a research paper (PDF) into a structured, evidence-traceable, template-compliant academic slide deck. Two phases: agent-authored narrative spine and page-level claims (each with paper locators and verbatim quotes), then scripted template adaptation that writes content into real master/layout placeholders, embeds original paper figures, checks overflow/aspect/notes, and exports a PDF preview. Handles missing conclusions, figure-trimming, layout mismatch and over-limit slide counts with explicit rules.
+description: Turn a research paper (PDF) into a structured, evidence-traceable, template-compliant academic slide deck. Extracts the narrative spine (problem/method/results/limitations) with verbatim quotes, designs page-level claims each backed by paper locators, assembles an editable deck inside the provided template via real master/layout placeholders, renders a PDF preview, and returns a contract-complete result.json. Use when a task asks to convert a paper or research material into academic slides with evidence mapping and template compliance.
 ---
 
-# Paper to Academic PPT (evidence-traceable)
+# 论文转学术 PPT（evidence-traceable）
 
-## What this skill does
+目标：把一篇论文转换成**证据可追溯、模板合规**的学术演示——每页一个主张，
+主张背后挂着论文里的图表/段落定位与逐字引文。
+判断（主线取舍、页级主张、图表引用）由 Agent 解析后亲自完成；脚本只做解析、装配、校验。
+全程在 `/app/work` 工作，最终产物进 `/app/output`。先读 `/input/case.json` 与 task.md，
+**以真实文件为准，不要按记忆或标签假设材料内容**。
 
-Convert a research paper into an academic presentation where:
-
-- the **narrative spine** (problem / method / results / limitations) is extracted
-  from the paper itself, not the paragraph order;
-- **every slide carries one claim** backed by a paper locator
-  (figure / table / section / quote + page);
-- the deck is **assembled inside the provided template** — text goes into
-  master/layout placeholders, template fonts and chrome survive;
-- **speaker notes** add what to say, not a repetition of slide text;
-- the deck is **checked** (overflow, aspect ratio, placeholder usage, evidence
-  coverage) and **rendered to PDF** for inspection;
-- the result is **machine-verifiable**: result.json maps every slide to its
-  paper evidence.
-
-The scripts do parsing, assembly and checking. **You (the agent) do the
-judgment**: what the narrative is, which claims deserve pages, what to cut when
-the slide budget is tight, which figures prove which claim. Do not delegate
-these decisions to the scripts.
-
-## Inputs
-
-| input | where | notes |
-|-|-|-|
-| `/input/case.json` | fixed path | case_id, paper path, template path, audience, duration, max_slides, output_contract |
-| paper PDF | path from case.json | parsed for real; no pre-extracted answer layer |
-| template .pptx | path from case.json | may be a template (0 slides) or a starting deck (>0 slides) |
-
-Work under `/app/work`; deliverables go to `/app/output`.
-
-## Pipeline (7 steps)
-
-### Step 0 — Read the case yourself, then write the floor BY HAND (before anything else)
-
-1. Read `/input/case.json` and task.md yourself (cat the file — do not assume
-   its shape). Note: `case_id`, paper/template paths, constraints
-   (audience/duration/max_slides), and `output_contract` — **which may be a
-   dict, a list of `{name, type}` items, or absent**. Read actual files;
-   never assume content from labels.
-2. **Write `/app/output/result.json` BY HAND right now** (do not run any
-   script for this): `case_id` + one field per contract entry (dict → its
-   keys; list → each item's `name`; absent → use
-   `/skills/weekly-skill/references/deck-plan-schema.md` output defaults),
-   every field `null` + `null_reasons: {"<field>": "Step N produces this"}`,
-   `status: "partial"`. This skeleton is the floor: it must exist before
-   anything else, and every later step only strengthens it.
-3. The skill is installed at `/skills/weekly-skill`; invoke its scripts by
-   absolute path only, never a bare `scripts/...`.
-
-Only after the hand-written floor exists may you optionally regenerate or
-extend it with:
-
+进度自检清单（走一步勾一步）：
 ```
-python /skills/weekly-skill/scripts/build_result.py --case /input/case.json --out /app/output/result.json --status partial --note "run started"
+- [ ] Step 1 读输入 + 亲笔保底 result.json
+- [ ] Step 2 解析论文（脚本）
+- [ ] Step 3 提炼主线四要素（Agent）
+- [ ] Step 4 页级大纲 + 证据映射（Agent）
+- [ ] Step 5 模板内装配 PPTX（脚本）
+- [ ] Step 6 渲染预览 + 质量自检
+- [ ] Step 7 契约输出 + 复核
 ```
 
-(the hand-written floor already satisfies the contract; the script is a
-convenience, not a dependency).
+## Step 1 — 读输入，先落保底产出
 
-### Step 1 — Extract the paper inventory
+1. 读 `/input/case.json` 与 task.md。确认：`case_id`、论文与模板路径、约束
+   （受众/时长/页数）、`output_contract`（**dict 或 list；可能不存在**）。
+2. **立刻亲笔写** `/app/output/result.json` 保底版：`case_id` + 契约全部字段
+   （有契约逐字段镜像——dict 用其键、list 用每项的 `name`；无契约用
+   /skills/weekly-skill/references/output-schema.md §3 默认契约）+ 每字段 `null` +
+   `null_reasons: {"字段": "Step N 产出"}` + `status: "running"`。
+   之后每个 Step 只增强、不删除已填字段。
+3. 脚本一律绝对路径调用（`/skills/weekly-skill/scripts/...`）。
 
-```
-python /skills/weekly-skill/scripts/extract_paper.py --pdf <paper.pdf> \
-    --out /app/work/paper_pages.json \
-    --figdir /app/work/figs --extract-images
-```
+**异常处置**：case.json 读不了 → result.json 写 `status: "failed_input"` + 原因；
+论文/模板路径不存在 → 记入 `uncertainty`，按存在的材料继续（保底优先于完美）。
 
-Outputs per-page text, figure/table caption index with page numbers, and
-embedded figure images (p{n}_img{i}.png). If it exits with code 3 (no Python
-PDF backend), use the container pdf-text-tool / pdf-render-tool instead and
-write the same JSON shape yourself — the downstream steps only read that JSON.
+## Step 2 — 解析论文（脚本）
 
-### Step 2 — Analyze the template
-
-```
-python /skills/weekly-skill/scripts/analyze_template.py --pptx <template.pptx> --out /app/work/template_map.json
-```
-
-Produces the layout inventory and a role_map (title / section / content /
-two_column / figure). **Read it**: check whether role_map matches your reading
-of the template (names can mislead in localized templates); override the deck
-plan's `layout` fields per slide if needed. If the template is a starting deck
-(slide_count > 0), existing slides are edited via `edit_slide_index` in the
-plan.
-
-### Step 3 — Design the narrative spine (agent judgment)
-
-Read the extracted pages (abstract, intro, results tables, conclusion) and
-write the four elements of `narrative` in the deck plan:
-
-- **problem** — what the paper attacks, with a verbatim quote;
-- **method** — the core idea in one sentence, with figure/section pointers;
-- **results** — the headline numbers WITH units and the table they come from;
-- **limitations** — prefer the paper's own limitations section; if absent,
-  state that explicitly and mark presenter-inferred caveats as such.
-
-Rules for quotes: copy verbatim from `paper_pages.json` (fix only PDF
-line-wrapping); keep the page number; never paraphrase inside a `quote` field.
-
-### Step 4 — Write the page-level deck plan (agent judgment)
-
-Author `/app/work/deck_plan.json` following
-[references/deck-plan-schema.md](references/deck-plan-schema.md). Key rules:
-
-- one **claim** per slide (a full sentence, not a topic label);
-- 3–5 bullets per content slide, each ≤ ~90 chars so first-fit sizing does not
-  shrink below 16pt;
-- every slide has ≥1 **evidence** entry (locator + page + quote);
-- figures: reference the extracted image file and the paper figure label;
-  check the image actually shows that figure before embedding;
-- **notes** must add information (transitions, emphasis, Q&A backup), never
-  repeat bullets;
-- slide budget: (mandatory pages) title, problem, method core, method detail,
-  headline results, limitations/takeaways — then optional pages
-  (training recipe, generalization, ablations) until max_slides is reached.
-  If the paper has too many figures, prefer the ones the claims rest on and
-  reference the rest textually.
-
-### Step 5 — Assemble the deck
-
-```
-python /skills/weekly-skill/scripts/assemble_deck.py --plan /app/work/deck_plan.json \
-    --map /app/work/template_map.json --out /app/output/<case_id>.pptx \
-    --max-slides <from case.json>
+```bash
+python /skills/weekly-skill/scripts/parse_sources.py --input <论文.pdf> \
+  --out /app/work/materials_index.json
 ```
 
-Writes text into slide placeholders (never the layout's), keeps template
-chrome, inserts pictures into picture placeholders with aspect-preserving
-crop, shrinks fonts in 2pt steps (floor 12pt) to fit, and writes notes.
-If it errors with the slide-count message, trim the plan — do not use
---allow-overflow unless the case explicitly permits it.
+读回 `materials_index.json`：各文件 sha256 与状态、章节/页文本、
+`figures_tables`（图表清单与页码）、公式行。若是扫描件（文字极少）→ 记
+`uncertainty`，可用容器 ocr-tool 就走 OCR 后重跑。
 
-### Step 6 — Check and render
+## Step 3 — 提炼主线四要素（Agent 亲自）
 
+从解析结果（abstract/intro/结果表/conclusion）亲自提炼，写入大纲文件的
+`narrative` 节：
+
+- **problem**：论文攻击什么问题，附逐字引文；
+- **method**：核心思想一句话，附图表/章节指针；
+- **results**：头条数字带单位和出处表；
+- **limitations**：优先论文自己的 limitations 节；缺失就明说，
+  presenter 推断的 caveat 显式标注。
+
+引文规则：从解析文本**逐字复制**（只修 PDF 换行）；保留页码；
+`quote` 字段内绝不改写。
+
+## Step 4 — 页级大纲与证据映射（Agent 亲自）
+
+按 /skills/weekly-skill/references/output-schema.md §2 的 schema 写
+`/app/work/outline.json`：
+
+- 每页一条 `claim`（完整句子主张，不是话题标签）+ `role`
+  （problem/method/result/limitation/...）+ 讲稿 `notes`；
+- 每页 ≥1 条 `evidence`（定位 + 页码 + 逐字引文）；
+- 图表页：引用论文原图（解析产物里的图片文件）+ 原文 caption；
+- `decisions` 日志：保留/砍掉/合并的每个决定带理由（页数预算约束下的取舍）。
+
+## Step 5 — 模板内装配 PPTX（脚本）
+
+```bash
+python /skills/weekly-skill/scripts/build_deck.py --outline /app/work/outline.json \
+  --template <模板.pptx> --out /app/output/<case_id>.pptx \
+  --max-slides <页数上限> --report /app/work/assembly_report.json
 ```
-python /skills/weekly-skill/scripts/check_deck.py --deck /app/output/<case_id>.pptx \
-    --plan /app/work/deck_plan.json --max-slides <N> --out /app/work/check_report.json
+
+读回 `assembly_report.json`。报溢出风险/版式回退/超页数时**改大纲不改产物**
+再重跑（产物与 decisions 日志必须一致）。脚本保证：内容落 slide 层占位符
+（写 layout 层占位符不渲染）、图片保纵横比、备注附页。
+
+## Step 6 — 渲染预览与质量自检
+
+```bash
+python /skills/weekly-skill/scripts/render_preview.py \
+  --pptx /app/output/<case_id>.pptx --outdir /app/output/render
 ```
 
-Fix every `fail` and most `warn` items by editing the **plan** (not the pptx)
-and re-running Step 5 — the plan is the single source of truth. Then export
-the PDF preview with the container office-renderer (locally:
-`soffice --headless --convert-to pdf`) and verify: page count, titles
-present, images on the right pages.
+核对：PDF 页数与 pptx 一致、无字体替换告警、图片完整。
+偏差记入 result.json 的渲染记录。
 
-### Step 7 — Finalize result.json
+## Step 7 — 完成契约输出与复核
 
-```
-python /skills/weekly-skill/scripts/build_result.py --case /input/case.json \
-    --plan /app/work/deck_plan.json --check /app/work/check_report.json \
-    --pptx /app/output/<case_id>.pptx --pdf /app/output/<case_id>_preview.pdf \
-    --render-info /app/work/render_info.json --changes /app/work/changes.json \
-    --out /app/output/result.json --status complete
-```
+用 /skills/weekly-skill/references/output-schema.md §4 的字段映射，把
+outline/装配报告/渲染检查/decisions 填进 result.json 对应契约字段；
+未产出的字段保持 `null` + 原因，`status` 按实际情况
+（complete / partial + 残留项说明）。
 
-## Exception handling (real paths)
-
-| situation | detection | action |
-|-|-|-|-|
-| no Python PDF backend | extract exit 3 | use pdf-text-tool / pdf-render-tool; same JSON shape |
-| encrypted/broken PDF | extract warnings/exception | state in result.json uncertainty; proceed with whatever pages parsed |
-| paper has no explicit limitations | narrative step | say so on the slide; mark inferred caveats `[presenter's reading]` |
-| figure cannot be extracted | figdir empty for that page | render the figure region with pdf-render-tool, or reference it textually + note in uncertainty |
-| extracted image is not the cited figure | image↔caption mismatch | do not embed; fall back to textual reference |
-| template lacks a needed layout | role_map nulls | use closest layout + warn in result.json |
-| slide count exceeds limit | assembler error 4 | trim plan per Step 4 priority order |
-| text overflows at 12pt floor | check_deck fail/warn | shorten bullets (agent edits plan) |
-| notes would repeat slide text | check_deck warn | rewrite notes to add transitions/Q&A info |
-| PDF export unavailable | renderer failure | deliver pptx + explicit null for preview + reason |
-
-## Output contract
-
-`/app/output/result.json` carries: case_id, status, source, constraints,
-output_contract (every field from case.json, null + reason if absent),
-deliverables (pptx/pdf paths), narrative, slide_evidence_map (per-slide
-claims + evidence), quality_checks summary, rendering info, changes, and
-uncertainty. See the example in
-[examples/example-deck-plan.md](examples/example-deck-plan.md).
-
-## Scope and limits
-
-In scope: narrative extraction, page structuring, evidence mapping, template
-adaptation, notes generation, render checking. Out of scope: re-plotting
-figures, scientific quality assessment of the paper itself, prose polishing
-beyond slide-sized phrasing. The skill assumes an English ML-style paper;
-caption regexes cover `Figure N:` / `Fig. N:` / `Table N:` and localized
-variants need manual index fixes (record in changes).
+**完成前自查**：每页都有 claim + evidence + notes？数字与论文逐字一致？
+未答字段全部 null+原因？渲染 PDF 可打开？

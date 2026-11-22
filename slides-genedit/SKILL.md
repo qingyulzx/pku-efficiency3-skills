@@ -1,189 +1,102 @@
 ---
 name: slides-genedit
-description: Generate and edit academic presentation decks from research material. Two routes: (1) generate a new deck from a paper/notes under fixed audience, duration and slide-count constraints, with per-slide claims, verbatim-number evidence mapping, speaker notes, and a rendered PDF preview; (2) source-preserving edits of an existing starting deck - inventory it, apply only the requested local changes, and prove untouched slides stayed byte-identical. Use when asked to turn research material into slides, or to modify/compress/re-audience an existing deck without breaking it.
+description: Generate and edit academic presentation decks from research material. Two routes - (1) generate a new deck from a paper/notes under fixed audience, duration and slide-count constraints, with per-slide claims, verbatim-number evidence mapping, speaker notes, and a rendered PDF preview; (2) source-preserving edits of an existing starting deck - inventory it, apply only the requested local changes, and prove untouched slides stayed byte-identical. Use when asked to turn research material into slides, or to modify/compress/re-audience an existing deck without breaking it.
 ---
 
-# slides-genedit — academic PPT generation & source-preserving editing
+# 学术 PPT 生成与编辑（dual-route）
 
-You turn research material (paper, notes, starting deck) into an editable,
-evidence-traced academic presentation — and you edit existing decks without
-breaking what you were not asked to touch. The hard part is **selection and
-ordering**, not copying paragraphs: which result deserves its own page, how
-many bullets a method needs, which figure comes first, what gets cut when the
-page budget is exceeded. You make those judgment calls; the scripts in
-`scripts/` do the deterministic work (parsing, assembly, verification,
-rendering). Never hand-assemble XML when a script exists.
+目标：把研究材料「翻译」成可讲、可追溯、可编辑的演示文件；或对已有 deck
+做**保源编辑**——只改要求的部分，未动的页字节级不变。
+难点在取舍与重排（哪些结果单占一页、方法压几条、图 3 图 4 谁先、超页数砍什么），
+这些判断由 Agent 亲自完成；脚本只做解析、装配、校验、渲染。
+全程 `/app/work` 工作，产物进 `/app/output`。先读 `/input/case.json` 与 task.md，
+**以真实文件为准**。
 
-## Route dispatch (decide first, then never mix)
+## 路线分流（先定夺，绝不混用）
 
-Read `/input/case.json` and task.md. Run step 1 below — `parse_case.py`
-prints a route hint with its evidence. Confirm against the task wording:
+读 `/input/case.json` + task.md 后判断（依据实际文件与任务措辞）：
 
-- **GENERATE** — no starting deck in the inputs (research material +
-  audience/time/slide-count constraints + template). Build a new deck.
-- **EDIT** — a starting deck (.pptx) is provided AND the instruction asks
-  for local changes (修改/压缩/换受众/加页/删页/调整). Inventory it and
-  apply surgical ops. Editing must preserve: untouched slides byte-identical,
-  masters/layouts untouched, template style, notes of untargeted slides.
-- If a deck exists but the instruction rewrites most content or reorders the
-  whole narrative, that is a **generate** run in disguise — build fresh from
-  the same template and keep the starting deck as version N-1. Record the
-  route decision and its evidence.
+- **GENERATE（生成）**：输入没有现成 deck（材料 + 受众/时长/页数约束 + 模板）→ 走 Step 2-7 主线。
+- **EDIT（编辑）**：给了 starting deck 且指令是局部修改（改标题/换内容/加删页/压缩/换受众）→ 走 Step 2'-4'。
+- deck 存在但指令是整体重写/重排叙事 → 实为生成（starting deck 留作 N-1 版）。
+路线决定与其证据记录进 result.json。
 
-Budget discipline throughout: ~7 tool steps is the sweet spot, 64 model
-requests / 900 s total. Step 1 already writes a contract-complete skeleton
-result.json, so a crash anywhere after that still leaves a verifiable
-deliverable. Improve it incrementally; never leave it as the skeleton.
+预算纪律：~7 个工具步是甜点区，64 请求 / 900 秒总量。
 
-## Step 1 — read inputs yourself, write the result.json floor BY HAND (both routes)
+## Step 1 — 读输入，先落保底产出（两条路线共通）
 
-1. Read `/input/case.json` and task.md yourself (cat the file — do not assume
-   its shape). Note: `case_id`, material/deck paths, constraints
-   (audience/time/slide-count), and `output_contract` — **which may be a
-   dict, a list of `{name, type}` items, or absent**. Read every input file
-   that exists (`material*.md/pdf/tex`, figures); for PDFs use pdf-text-tool
-   / pdf-render-tool / ocr-tool as provided. Never assume content from
-   filenames.
-2. **Write `/app/output/result.json` BY HAND right now** (do not run any
-   script for this): `case_id` + `route` + one field per contract entry
-   (dict → its keys; list → each item's `name`; absent → use
-   `/skills/weekly-skill/reference/schemas.md` §default-contract), every
-   field `null` + `unanswered: [{field, reason}]`, `status: "partial"`.
-   This skeleton is the floor: it must exist before any extraction work,
-   and every later step only strengthens it.
-3. The skill is installed at `/skills/weekly-skill`; always invoke its
-   scripts by absolute path, never a bare `scripts/...`.
+1. 读 `/input/case.json` 与 task.md。确认：`case_id`、材料/现成 deck 路径、约束
+   （受众/时长/页数）、`output_contract`（**dict 或 list；可能不存在**）。
+   读实际存在的每个输入文件（`material*.md/pdf/tex`、图）；PDF 用容器
+   pdf-text-tool / pdf-render-tool / ocr-tool。绝不按文件名猜内容。
+2. **立刻亲笔写** `/app/output/result.json` 保底版：`case_id` + `route` +
+   契约全部字段（dict 用其键、list 用每项 `name`；无契约用
+   /skills/weekly-skill/reference/schemas.md 默认契约或 output-schema.md §3）+
+   每字段 `null` + `unanswered: [{field, reason}]` + `status: "partial"`。
+   之后每步只增强、不删除。
+3. 脚本一律绝对路径（`/skills/weekly-skill/scripts/...`）。
 
-Only after the hand-written floor exists may you optionally also run:
+## Step 2 — 解析材料（生成路线）
 
-```
-python /skills/weekly-skill/scripts/parse_case.py --input /input/case.json --workdir /app/work --output-dir /app/output
+```bash
+python /skills/weekly-skill/scripts/parse_sources.py --input <材料文件或目录> \
+  --out /app/work/materials_index.json
 ```
 
-Read the printed route hint AND the actual task text before committing to a
-route (the hint is evidence, not a verdict). Verify the constraint scan
-(`case-parsed.json`) against task.md yourself — keyword scans miss and
-over-match; the task wording wins.
+读回索引：文件 sha256/状态、章节页文本、图表清单、（若有）模板 layouts。
 
-## Step 2 — extraction with verbatim capture (generate)
+## Step 3 — 页级大纲：你的判断，留痕（生成路线）
 
-From the actual material, extract: research question, method, results,
-limitations (the narrative spine). While reading, capture **verbatim quotes
-with locations** (section, table, figure) for every number and claim that
-might appear on a slide — this is the evidence map, collected once, reused in
-steps 3 and 7. If the material lacks conclusions/results, apply
-`reference/exception-playbook.md` #1: mark inferences, never invent.
+按 /skills/weekly-skill/reference/schemas.md（或 references/output-schema.md §2）
+写 `/app/work/outline.json`：
 
-## Step 3 — page-level outline: your judgment, recorded (generate)
+- 一页一主张（标题陈述信息，不是话题标签）；每页 `role` + 讲稿 `notes`；
+- **数字逐字**：28.4 不写成 ~28；每个数字的出处进该页 `evidence`；
+  找不到出处的数字不上页；
+- 按受众/时长取舍：组会重方法、评审重进度、答辩重贡献与证据；
+- `decisions` 日志：保留/砍/并/重排每条带理由（页数预算下的取舍）。
 
-Author `/app/work/outline.json` per `reference/schemas.md`. This is the core
-intellectual step — do it yourself, not by template:
+## Step 4 — 装配（生成路线）
 
-- **One page = one claim.** The title states the page's message ("结果：同压
-  缩率下形状误差低 38.2%"， not "实验结果"). Every slide gets a `role`
-  (problem/method/result/limitation/...) and speaker `notes` (the talk
-  script — a deck without notes is incomplete).
-- **Numbers verbatim.** Copy digits from the material exactly (28.4 BLEU,
-  not ~28; 41.8, not 42). Each number's source goes in that slide's
-  `evidence`. If you cannot find a number's source, it does not go on a
-  slide.
-- **Selection for the audience/time budget.** ~1 slide per 1–2 minutes.
-  Group peers: method detail matters. Review committee: progress and plan
-  matter. Defense: contributions and evidence matter. Order results by
-  narrative force (is it good? → how much? → does it hold?), not by paper
-  section order.
-- **Figures**: cite the original image with its verbatim caption when the
-  source is a bitmap; only redraw when the data table exists. Image-only
-  results deserve their own page; secondary figures merge or go to backup
-  pages after the closing slide.
-- **`decisions` log**: every kept/cut/merged/reordered item with a reason
-  ("cut 表 2 消融 — 页数预算 6 页，主结果优先"). This is both your
-  verifiability artifact and the case-study material; empty decisions are a
-  bug.
-
-## Step 4 — assemble the deck (generate)
-
-```
-python /skills/weekly-skill/scripts/assemble_deck.py --outline /app/work/outline.json \
-  --template <template.pptx if provided> --out /app/output/deck_v1.pptx \
-  --workdir /app/work/scratch
+```bash
+python /skills/weekly-skill/scripts/build_deck.py --outline /app/work/outline.json \
+  --template <模板.pptx（若有）> --out /app/output/deck_v1.pptx \
+  --max-slides <上限> --report /app/work/assembly_report.json
 ```
 
-Read `assembly-report.json`. Fix the outline (not the deck) when it reports
-overflow risk, layout fallbacks, or budget excess, then re-run — the deck and
-the decisions log must stay consistent. The scripts guarantee: content lands
-in slide-level placeholders (cloned from the layout when missing — writing
-into layout placeholders does not render), images are aspect-cropped not
-distorted, notes are attached.
+读回报告；报溢出/回退/超页数时改 outline 再跑。脚本保证：slide 层占位符
+（layout 层不渲染）、图片保纵横比、备注附页。
 
-## Step 2' — inventory the starting deck (edit)
+## Step 2' — 盘点 starting deck（编辑路线）
 
-```
-python /skills/weekly-skill/scripts/inventory_deck.py --deck <starting.pptx> --out /app/work/inventory.json
-```
+读入 deck（python-pptx 或清单工具），定位指令点名的目标
+（页索引 + 占位符 idx / 形状名）。目标不存在 → 大声失败、改目标或新增，
+绝不静默跳过。
 
-Read the inventory. Locate the exact targets the instruction names (slide
-index + placeholder idx / shape name). If an edit target does not exist,
-apply playbook #8: fail loudly, retarget, or add — never silently skip.
+## Step 3' — 外科手术式修改（编辑路线）
 
-## Step 3' — author surgical ops (edit)
+只覆盖指令要求的部分：改写既有条目（保留原格式）、追加条目、写备注、
+插图（保纵横比）、加页/删页/移页/复制页。全 deck 重写走 ops 是误用——换路线。
+`/app/work/ops.json` 按序应用到 1 基页索引。
 
-Write `/app/work/ops.json` per `reference/schemas.md` (ops schema). Ops apply
-in order to 1-based slide indices. Cover ONLY what the instruction asks:
-`replace_text` for rewritten bullets (existing formatting is preserved),
-`append_bullets`, `set_notes`, `insert_image` (aspect-cropped), `add_slide`,
-`delete_slide`, `move_slide`, `duplicate_slide`. A full-deck rewrite through
-ops is misuse — switch routes instead.
+## Step 4' — 保真核验（编辑路线）
 
-## Step 4' — apply edits and verify preservation (edit)
+对未动的页做字节级对比（raw sha256）+ 母版/版式摘要对比；不一致即失败回滚。
+保真矩阵进 result.json 的 `edit_preservation`。
 
-```
-python /skills/weekly-skill/scripts/edit_deck.py --deck <starting.pptx> --ops /app/work/ops.json \
-  --out /app/output/deck_v2.pptx --workdir /app/work/scratch
+## Step 5 — 渲染预览与质量自检
+
+```bash
+python /skills/weekly-skill/scripts/render_preview.py \
+  --pptx /app/output/deck_v1.pptx --outdir /app/output/render
 ```
 
-Check `edit-report.json`: all ops `ok`; `slides_identical_raw >= source
-slides − touched slides`; `masters_untouched` and `layouts_untouched` true.
-If untouched slides are not even structurally identical, the edit leaked —
-playbook #9. Re-render, then deliver.
+PDF 页数一致、无字体替换告警、图片完整。编辑路线对 deck_v2 同样渲染核对。
 
-## Step 5 — render and check (both routes)
+## Step 6 — 契约输出与复核
 
-```
-python /skills/weekly-skill/scripts/render_check.py --pptx /app/output/deck_v1.pptx --outdir /app/output/render/
-```
+把 outline/装配报告/渲染检查/decisions（或 ops/保真矩阵）填进 result.json
+对应契约字段；未产出字段保持 `null` + 原因；`status` 按实际（complete/partial）。
 
-The PDF preview must exist with page count == slide count. Inspect the
-preview for overflow, font substitution, clipped images (use pdf-render-tool
-/ office-renderer as available). Font substitution in the preview is recorded
-as uncertainty — do NOT rewrite the deck's template fonts to please the
-renderer (playbook #4). If rendering is impossible, keep the .pptx and
-record the failure honestly (playbook #6).
-
-## Step 6 — iterate deliberately (both routes)
-
-User feedback arrives as a new edit instruction on the current deck: loop
-back to step 2' (edit route) against the latest version. Keep prior versions
-(`deck_v1.pptx`, `deck_v2.pptx`, ...) — never overwrite; each render-report
-plus ops log/decisions diff is the version record. Regression check each
-round: did untouched slides stay identical?
-
-## Step 7 — finalize result.json (both routes)
-
-Update `/app/output/result.json` (the skeleton from step 1) to final values:
-every `output_contract` field from case.json filled — presentation file,
-slide count, per-slide evidence mapping (loc + verbatim quote), render
-preview path, speaker notes status; edit runs add the ops log and
-preservation matrix. Fields you genuinely could not produce stay `null` with
-the reason in `unanswered`. `status` ∈ complete | partial (name the limits).
-Then stop — deliver the .pptx, notes, PDF preview, and result.json.
-
-## Non-negotiables
-
-- Numbers/quotes on slides trace to verbatim captured sources; no invented
-  figures, no eyeballed redraws, no silent rounding.
-- Edit route never touches masters/layouts or untargeted slides; the
-  preservation matrix proves it.
-- Honest failure over faked success in result.json, always.
-- Templates, dependencies, schemas, and the exception playbook live in
-  `README.md` and `reference/`; read them before deviating.
+**完成前自查**：每页 claim+evidence+notes？数字逐字？未答字段全 null+原因？
+编辑路线未动页字节级不变？渲染 PDF 可打开？

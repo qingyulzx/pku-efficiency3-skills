@@ -16,13 +16,11 @@ evidence-traceable, template-compliant academic slide deck.
 ## Quick start
 
 ```
-python scripts/build_result.py --case /input/case.json --out /app/output/result.json --status partial
-python scripts/extract_paper.py --pdf <paper> --out paper_pages.json --figdir figs --extract-images
-python scripts/analyze_template.py --pptx <template> --out template_map.json
-#   ... agent authors deck_plan.json per references/deck-plan-schema.md ...
-python scripts/assemble_deck.py --plan deck_plan.json --map template_map.json --out /app/output/deck.pptx --max-slides <N>
-python scripts/check_deck.py --deck /app/output/deck.pptx --plan deck_plan.json --max-slides <N> --out check_report.json
-python scripts/build_result.py --case /input/case.json --plan deck_plan.json --check check_report.json --pptx /app/output/deck.pptx --pdf /app/output/deck_preview.pdf --render-info render_info.json --changes changes.json --out /app/output/result.json --status complete
+python /skills/weekly-skill/scripts/parse_sources.py --input paper.pdf --out /app/work/materials_index.json
+#   ... agent authors outline.json per references/output-schema.md §2 ...
+python /skills/weekly-skill/scripts/build_deck.py --outline /app/work/outline.json \
+    --template template.pptx --out /app/output/deck.pptx --report /app/work/assembly_report.json
+python /skills/weekly-skill/scripts/render_preview.py --pptx /app/output/deck.pptx --outdir /app/output/render
 ```
 
 ## Requirements
