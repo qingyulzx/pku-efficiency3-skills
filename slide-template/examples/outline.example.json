@@ -1,0 +1,101 @@
+{
+  "case_id": "example-transformer",
+  "deck": {
+    "title": "Attention Is All You Need — 组会精读（示例）",
+    "audience": "NLP 实验室组会（研究生 + 导师）",
+    "duration_minutes": 8,
+    "slide_budget": "4-5 页",
+    "language": "中文为主，术语保留英文"
+  },
+  "scenario": "group_meeting",
+  "goal": "让组内同学听懂 Transformer 的核心主张与证据，并判断能否用于自己的任务",
+  "audience_prior": "同方向研究者，懂术语，不知道这篇论文的细节",
+  "time_budget_minutes": 8,
+  "pages": [
+    {
+      "page_no": 1,
+      "type": "title",
+      "priority": "P0",
+      "title": "Attention Is All You Need",
+      "subtitle": "Vaswani et al., NeurIPS 2017 · arXiv:1706.03762 · 组会精读",
+      "notes": "开场一句话点出主张：完全基于注意力的序列转录架构。",
+      "evidence": [
+        {
+          "locator": "arXiv:1706.03762v7 Abstract (p.1)",
+          "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+          "strength": "direct"
+        }
+      ]
+    },
+    {
+      "page_no": 2,
+      "type": "content",
+      "priority": "P0",
+      "title": "研究问题：序列转录的瓶颈在顺序计算",
+      "bullets": [
+        {"level": 0, "text": "任务：序列转录（language modeling, machine translation 等）"},
+        {"level": 0, "text": "主流模型：RNN/LSTM/GRN + 注意力，沿符号位置顺序计算"},
+        {"level": 1, "text": "顺序计算 → 无法并行；长距离依赖路径 O(n)"},
+        {"level": 0, "text": "本文问题：能不能只用注意力，完全去掉循环和卷积？"}
+      ],
+      "notes": "算力视角（并行性）与建模视角（依赖路径）都指向同一改动。",
+      "evidence": [
+        {
+          "locator": "arXiv:1706.03762v7 Section 1, Introduction, para. 1 (p.2)",
+          "quote": "Recurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation [35, 2, 5].",
+          "strength": "direct"
+        }
+      ]
+    },
+    {
+      "page_no": 3,
+      "type": "picture",
+      "priority": "P0",
+      "title": "方法要点：堆叠自注意力 + 逐位置前馈",
+      "bullets": [
+        {"level": 0, "text": "编码器-解码器，各 6 层，堆叠自注意力 + 逐位置前馈"},
+        {"level": 0, "text": "多头注意力 + 残差 + 层归一化；无循环/卷积，训练可完全并行"}
+      ],
+      "figures": [
+        {"path": "figures/fig1-architecture.png",
+         "caption": "图 1：Transformer 架构（原文 Figure 1）",
+         "status": "available",
+         "locator": "arXiv:1706.03762v7 Figure 1 (p.3)"}
+      ],
+      "notes": "结构页：指着架构图从下往上讲编码器一侧，再对称讲解码器一侧。",
+      "qa": [
+        {"q": "为什么位置编码用正弦函数？", "a": "论文 §3.5：可外推到未见长度，且相对位置可线性表示。", "page_ref": 3}
+      ],
+      "evidence": [
+        {
+          "locator": "arXiv:1706.03762v7 Section 3, Model Architecture (p.3)",
+          "quote": "The Transformer follows this overall architecture using stacked self-attention and point-wise, fully connected layers for both the encoder and decoder.",
+          "strength": "direct"
+        }
+      ]
+    },
+    {
+      "page_no": 4,
+      "type": "closing",
+      "priority": "P0",
+      "title": "小结：只用注意力即达 SOTA，并行性是根本收益",
+      "bullets": [
+        {"level": 0, "text": "只用注意力即达当时翻译 SOTA，并行性是根本收益"},
+        {"level": 0, "text": "限制：上下文窗口约束序列长度"},
+        {"level": 0, "text": "后续：BERT/GPT 把该架构推广到预训练范式"}
+      ],
+      "notes": "结尾回扣开场主张；限制对应论文 Conclusion 的展望。",
+      "evidence": [
+        {
+          "locator": "arXiv:1706.03762v7 Section 7, Conclusion (p.10)",
+          "quote": "We plan to extend the Transformer to problems involving input and output modalities other than text.",
+          "strength": "direct"
+        }
+      ]
+    }
+  ],
+  "cut_log": [
+    {"content": "多头注意力的详细公式推导", "reason": "组会 8 分钟只够讲主张与证据，推导备在 backup",
+     "where": "backup 页 / 仅留材料 §3.2"}
+  ]
+}

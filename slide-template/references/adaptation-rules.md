@@ -18,6 +18,13 @@ body_count / picture_count），六个内容角色按下表选版式（高分优
 两者都算正文（python-pptx 里分别是 BODY 和 OBJECT 枚举）。映射失败时回退
 到第一个带标题的版式，再回退版式 0，并记 `NO_LAYOUT_FOR_ROLE` 警告。
 
+**显式版式优先**：outline 页的 `layout` 字段（版式名或索引，取自
+manifest.json）总是优先于角色映射；找不到则回退并记 `LAYOUT_NOT_FOUND`
+警告——所以 layout 值必须从 manifest 抄，不凭记忆写。
+
+w07 骨架的角色名 `two_column` 在装配时等价 `two_content`；`backup` 页按
+content 角色选版式并给标题加「备用 |」前缀。
+
 ## 2. 容量阶梯（字号与溢出）
 
 正文超出占位符时的处理顺序，每一步都写进 build_report 的 `trims`/`fit`：
@@ -32,7 +39,9 @@ body_count / picture_count），六个内容角色按下表选版式（高分优
 `TITLE_TOO_LONG` 警告，由 Agent 改写标题。
 
 估算模型是 CJK 感知的（中文字宽 ~0.98em，拉丁 ~0.52em，行高 1.18，
-段间距 0.40）：它快但有误差，**导出 PDF 才是溢出的最终裁判**。
+段间距 0.40）：它快但有误差，**导出 PDF 才是溢出的最终裁判**
+（check_deck 用占位符真实高度复核，比装配期估算更严——两处不一致时
+以 check_deck 与 PDF 为准）。
 
 ## 3. 图片与 caption
 
@@ -54,12 +63,19 @@ body_count / picture_count），六个内容角色按下表选版式（高分优
 - 字体缺失场景：交给导出端的 font-discovery 工具核对渲染结果；
   检查器只报告「谁覆盖了主题字体」（FONT_OVERRIDE），不擅自替换。
 
-## 5. 编辑模式（保源）
+## 5. 保底回退（诚实契约）
 
-- 打开 starting deck（不是模板），只动 spec 指定的占位符，其余原样；
-- `delete_slides` 按 starting deck 原始页序；
-- 追加页走与新建模式相同的版式映射与 add_slide 安全路径；
-- 每次改动进 change_log（before/after），支撑"逐页偏差记录"。
+- 模板缺失/不可读 → build_deck 回退默认 python-pptx 模板，记
+  `TEMPLATE_MISSING`/`TEMPLATE_UNREADABLE` 警告，result.json 如实说明；
+- 版式无标题占位符 → 标题写入文本框（不跟随版式样式），记
+  `NO_TITLE_PLACEHOLDER` 适配；
+- 版式无正文占位符 → 要点写入文本框（内容绝不静默丢弃），记
+  `NO_BODY_PLACEHOLDER` 适配；
+- 页数超预算 → 按 P3→P2 把整页降级为 backup 附录（标题加「备用 |」前缀），
+  绝不静默删除。
+
+（v4 的 starting-deck 逐页保源编辑模式已随旧版封存于 scripts-v4-backup/，
+重建版流程统一走「从模板新建」。）
 
 ## 6. add_slide 的 partname 陷阱（已内置防护）
 
