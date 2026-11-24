@@ -11,6 +11,14 @@ inhibition drawn as activation, upstream/downstream reversed, containment
 drawn as juxtaposition, invented gene names, bitmap-only output. This skill
 makes those failures structurally hard to ship:
 
+- **Material parsing first** — `parse_sources.py` turns PDF/text materials into
+  a locator-indexed inventory (sha256, per-page text, figure/table captions)
+  before extraction, so quotes are verbatim and page-anchored instead of
+  mis-read straight off a raw PDF.
+- **Contract-shaped floor deliverable** — Step 1 writes result.json with every
+  `output_contract` field present (mirrored from case.json's dict/list/absent
+  shapes, or the default contract) and explicit nulls + reasons; `check_result.py`
+  validates the final result.json against the case contract (exit 0 required).
 - **Evidence-first extraction** — nothing is drawn that is not in an
   entity/relation table, and every table row carries a verbatim quote +
   locator. A relation without a quote is refused by the tooling.
@@ -35,6 +43,7 @@ makes those failures structurally hard to ship:
 SKILL.md                      # agent-facing workflow (start here)
 README.md                     # this file
 scripts/
+  parse_sources.py            # materials -> locator-indexed inventory (PDF/text/DOCX)
   init_result.py              # contract-shaped result.json scaffold (floor deliverable)
   model_check.py              # pre-render validation of the figure model
   make_schematic.py           # model.json -> layered SVG (with schematic_lib.py)
@@ -42,10 +51,15 @@ scripts/
   verify_svg.py               # SVG read-back verification (semantics + geometry)
   edit_svg.py                 # source-preserving local edits with preservation proof
   export_svg.py               # PNG/PDF export, backend fallback, compliance checks
+  check_result.py             # result.json vs. case output_contract validation
+  render_preview.py           # generic pptx->PDF preview utility (inherited from the
+                              # shared skeleton; not used by this skill's SVG chain)
 symbols/symbols.json          # machine-readable semantic symbol library
 references/
   model-schema.md             # figure model JSON schema + finding codes
   symbol-conventions.md       # drawing grammar and the failure modes it prevents
+  output-schema.md            # relation_table.json / result.json shapes + default contract
+  scenario-playbooks.md       # expanded playbooks: generate / edit / mixed-material cases
 examples/                     # real-paper-derived examples (CC BY 4.0, quoted)
 GITHUB_URL.txt
 ```
