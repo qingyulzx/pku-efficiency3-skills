@@ -19,21 +19,33 @@ element keeps a verbatim quote and locator back to the source material.
 
 ## Quick start
 
-```bash
-# 0. scaffold result.json (do this first, always)
-python scripts/make_result.py --stage init --case /input/case.json --out /app/output/result.json
+Step 1 of SKILL.md is handwritten: read `/input/case.json` and immediately
+write the all-null `result.json` floor yourself (contract fields mirrored;
+see `references/output-schema.md` for the three contract shapes and the
+default contract). Then:
 
-# 1. build the figure from a model you authored (see SKILL.md Step 2-3)
+```bash
+# 2. parse the source material into a verifiable index
+python scripts/parse_sources.py --input <material file or dir> \
+  --out /app/work/materials_index.json
+
+# 3-4. fill the worksheet and author figure_model.json yourself (SKILL.md Steps 3-4)
+
+# 5. build the figure from the model you authored (single scene, SVG/PNG/PDF)
 python scripts/build_figure.py --model figure_model.json --outdir out --sources sources.json
 
-# 2. verify
+# 5b. independent rasterization + bundle audit
+python scripts/render_preview.py --svg out/graphical_abstract.svg --outdir out
+
+# 6. verify (quote-vs-material, fonts, bounds, contrast, exports)
 python scripts/check_figure.py --outdir out --sources sources.json
 
-# 3. assemble the final result
+# 7. assemble the final result, then gate it
 python scripts/make_result.py --stage final --case /input/case.json \
   --out /app/output/result.json --values values.json \
   --map out/element_map.json --export out/export_report.json \
   --issues out/issues.json --status complete --uncertainty "..."
+python scripts/check_result.py --result /app/output/result.json --case /input/case.json
 ```
 
 Worked example on a real paper: `examples/transformer-1706.03762/`
@@ -54,9 +66,12 @@ the commands in its README.
 ```
 SKILL.md                          # the workflow (start here)
 README.md                         # this file
+scripts/parse_sources.py          # material inventory: sha256, sections/pages, figures/tables
 scripts/build_figure.py           # model -> SVG/PNG/PDF + element map + report
-scripts/check_figure.py           # independent verification pass
-scripts/make_result.py            # result.json scaffold (init) + assembly (final)
+scripts/render_preview.py         # independent SVG rasterization + bundle audit
+scripts/check_figure.py           # independent verification pass (quote checks live here)
+scripts/make_result.py            # result.json assembly (final stage)
+scripts/check_result.py           # result.json vs output_contract gate (exit 0 required)
 scripts/ga_lib/                   # scene graph, writers, layout engine, checks
   scene.py                        #   primitives + Okabe-Ito palette + colour math
   helv.py                         #   shared text metrics (SVG/mpl/Pillow agree)
@@ -66,9 +81,10 @@ scripts/ga_lib/                   # scene graph, writers, layout engine, checks
   pillow_writer.py                #   PNG fallback rasterizer
   validate.py                     #   all post-build checks
   contract.py                     #   output-contract matching (3 levels)
-templates/agent_worksheet.md      # Step 2 extraction worksheet
+templates/agent_worksheet.md      # Step 3 extraction worksheet
 templates/figure_model.template.json
 references/model_schema.md        # figure_model.json field-by-field
+references/output-schema.md       # contract shapes, default contract, result.json schema
 references/exception_playbook.md  # failure signature -> remedy (all tested)
 references/design_notes.md        # encoding/colour/typography conventions
 examples/transformer-1706.03762/  # real-paper worked example + provenance

@@ -1,139 +1,149 @@
 ---
 name: graphical-abstract-builder
-description: Build a single-page graphical abstract (question, method, results, conclusion) from research material as a traceable, editable SVG with PNG/PDF exports. Use when asked to create or edit a graphical abstract, science summary figure, mechanism or flow diagram, or data chart from a paper, study notes or experimental records, especially when editable source files and element-to-source traceability are required.
+description: Turn a research paper or study material into a single-page graphical abstract (question, method, results, conclusion) as a traceable, editable SVG with PNG/PDF exports. Extracts entities, relations, data and conclusions with verbatim quotes and locators, renders every element from one deterministic figure model with an independent quote-verification pass, and returns a contract-complete result.json. Use when a task asks to create a graphical abstract, science summary figure, mechanism or flow diagram, or data chart from papers, study notes or experimental records, especially when editable sources and element-to-source traceability are required.
 ---
 
-# Graphical Abstract Builder
+# 图形摘要构建（evidence-traceable graphical abstract）
 
-Turn research material (PDF, notes, records) into a single-page graphical
-abstract whose every element is traceable to the material, plus a
-contract-complete `result.json`.
+目标：把研究材料压缩成**单页、可编辑、证据可追溯**的图形摘要（问题→方法→结果→结论
+四段式一页讲完），画面上每个元素都挂着材料里的逐字引文与定位。
+判断（面板取舍、视觉编码、什么上画面什么进图注）由 Agent 解析后亲自完成；脚本只做
+解析、渲染、校验。全程在 `/app/work` 工作，最终产物进 `/app/output`。先读
+`/input/case.json` 与 task.md，**以真实文件为准，不要按记忆或标签假设材料内容**。
 
-Division of labour — **you do the science, the scripts do the drawing**:
+进度自检清单（走一步勾一步）：
+```
+- [ ] Step 1 读输入 + 亲笔保底 result.json
+- [ ] Step 2 解析材料（脚本）
+- [ ] Step 3 科学内容提取（Agent 亲自）
+- [ ] Step 4 figure_model.json（Agent 亲自）
+- [ ] Step 5 渲染 SVG/PNG/PDF（脚本）+ 渲染复核
+- [ ] Step 6 独立校验 + 肉眼复核
+- [ ] Step 7 契约输出 + check_result 校验
+```
 
-- You (the agent): read the actual material, extract entities/relations/data,
-  choose the visual encoding, decide what goes on the canvas vs. the caption,
-  verify the figure against the material.
-- The scripts (`scripts/`, pure Python + matplotlib): layout, rendering,
-  checks, result assembly. Deterministic: same model in → same figure out.
+## Step 1 — 读输入，先落保底产出
 
-## Environment & paths
+1. 读 `/input/case.json` 与 task.md。确认：`case_id`、材料文件路径、约束
+   （语言/画布/输出格式）、`output_contract`（**dict 或 list；可能不存在**）。
+2. **立刻亲笔写** `/app/output/result.json` 保底版：`case_id` + 契约全部字段
+   （有契约逐字段镜像——dict 用其键、list 用每项的 `name`；无契约用
+   /skills/weekly-skill/references/output-schema.md §3 默认契约）+ 每字段 `null` +
+   `null_reasons: {"字段": "Step N 产出"}` + `status: "running"`。
+   之后每个 Step 只增强、不删除已填字段。
+3. 建工作目录 `/app/work`。脚本一律绝对路径调用
+   （`python /skills/weekly-skill/scripts/<x>.py`）。
 
-- Skill root: `/skills/weekly-skill` (scripts under `scripts/`, schema doc
-  under `/skills/weekly-skill/references/`). Work under `/app/work`; final deliverables go to
-  `/app/output`.
-- Input: `/input/case.json` (+ task.md; material files referenced by the case).
-- Python with matplotlib is expected; if missing, PNG export falls back to
-  Pillow automatically and PDF export raises with a remedy — see the playbook.
-- Typical cost: 10–20 model requests, well inside the 64-request /
-  900-second budget. Each build/verify script run is one tool call.
+**异常处置**：case.json 读不了 → result.json 写 `status: "failed_input"` + 原因，
+停止并如实报告；材料路径不存在 → 记入 `uncertainty`，按存在的材料继续（保底优先于完美）。
 
-## Workflow
-
-### Step 0 — Read the case and scaffold result.json (do this first)
-
-Read `/input/case.json` fully. Note `case_id` and every field of
-`output_contract` — these are your delivery obligations. Then immediately:
+## Step 2 — 解析材料（脚本）
 
 ```bash
-python /skills/weekly-skill/scripts/make_result.py --stage init \
-  --case /input/case.json --out /app/output/result.json
+python /skills/weekly-skill/scripts/parse_sources.py --input <材料文件或目录> \
+  --out /app/work/materials_index.json
 ```
 
-If that command fails for any reason (wrong CWD, import error, anything), do NOT proceed without the floor: write /app/output/result.json by hand right now — case_id plus every output_contract field as explicit null with a reason, status "partial". The skeleton must exist before any other work. This skill is installed at /skills/weekly-skill; always invoke its scripts by absolute path.
+读回 `materials_index.json`，重点看：各文件的 sha256 与状态、章节/页文本、
+`figures_tables`（图表清单与页码）、公式行。然后基于解析文本生成
+`/app/work/sources.json`（`{"材料路径": "<全文>"}`）——Step 5/6 的引文逐字核对
+靠它。
 
+**异常处置**：PDF 文字极少（扫描件）→ 记 `uncertainty`，可用容器 ocr-tool 的走
+OCR 后重跑，没有工具就只按可读部分设计并声明；某文件 `status: "error"` →
+不编造其内容，缺口进 `uncertainty`。
 
-This writes every contract field as an explicit `null` with a pending reason.
-From now on a crash still leaves a contract-complete deliverable. Re-run
-`--stage final` (Step 6) to fill it.
+## Step 3 — 科学内容提取（Agent 亲自）
 
-### Step 1 — Read the actual material
+这是 agent-in-the-loop 的核心步骤——**不要交给脚本**。按
+/skills/weekly-skill/templates/agent_worksheet.md 的表格逐栏填写
+`/app/work/worksheet.md`，全部内容取自 Step 2 的解析文本：
 
-Open the real files the case points to (never assume content from labels).
-For PDFs use the pdf-text-tool / scientific-python; scan pages only if OCR
-is needed. Save a `sources.json` mapping each material file to its extracted
-text — later steps verify quotes against it automatically:
+1. **question**：材料攻击什么问题？逐字引文 + 定位；材料自己的重要性陈述。
+2. **entities**：必须上画面的实体（分子/细胞/器件/方法/队列…）。每项：
+   短标签、层级（谁包含谁、谁在上游）、逐字引文、locator（文件+页/节/句）。
+   发现的歧义与消解方式要记录。
+3. **relations**：材料**明确陈述**的方向性关系（A 激活 B、剂量引出问题…）。
+   记录方向 + 陈述它的原句。只是关联性（非因果）的关系用虚线或不画。
+4. **data**：每个可能画的数字——值、单位、条件/系列、来源句（引文里必须含
+   该数字）。**材料里没有的数字绝不画**，列进 `uncertainty`；推导数字
+   （差值/均值/换算）写明推导过程。
+5. **conclusions**：材料自己下的结论，逐字引文 + 定位。
 
-```json
-{ "materials/paper.pdf": "<full extracted text>" }
-```
+引文规则：从解析文本**逐字复制**（只修 PDF 换行）；保留页码；
+`quote` 字段内绝不改写；locator 精确到人几秒内能找到。
 
-### Step 2 — Extract the science (your judgement, not a script's)
+产出面板-要点映射草案：每面板 role（question/method/results/conclusion）、
+layout（flow/chart/stats/text）、内容、编码决策；并明确哪些内容只进图注
+（notes/caption）不上画面。
 
-Fill in a worksheet (template: `/skills/weekly-skill/templates/agent_worksheet.md`) directly from
-the material:
+## Step 4 — 写 figure_model.json（Agent 亲自）
 
-1. **Question** — what problem does the material pose? Quote it verbatim.
-2. **Entities** — the things that must appear (molecules, cells, devices,
-   methods, cohorts...). For each: label, one verbatim quote, locator
-   (file + page/section/sentence).
-3. **Relations** — directional connections that the material states
-   (A activates B, dosing motivates the question...). Record direction and
-   the sentence that states it.
-4. **Data** — every number you might draw: value, unit, condition, and the
-   sentence it comes from. If a number you want is *not* in the material,
-   do not draw it; list it in `uncertainty`/`limits` instead.
-5. **Conclusion** — claims the material itself makes.
+按 /skills/weekly-skill/references/model_schema.md 的 schema 写
+`/app/work/figure_model.json`（模板：/skills/weekly-skill/templates/figure_model.template.json；
+完整真实示例：/skills/weekly-skill/examples/transformer-1706.03762/）。关键决策：
 
-Rules of evidence: quotes are verbatim substrings of the material; locators
-are precise enough for a human to find in seconds; anything you cannot
-source goes to the caption/notes, never onto the canvas as data.
+- **面板计划**：4–6 面板，阅读顺序 question → method → results（1–2 个）→
+  conclusion，一面板一个发现。
+- **每面板 layout**：`flow`（实体/关系：盒子+箭头）、`chart`（bar/hbar/
+  grouped_bar/line 画数据）、`stats`（大数字卡，2–4 个头条值）、`text`
+  （结论要点）。
+- **视觉通道**：同单位同基线的量级用长度；时序用位置；分类系列才用色
+  （内置 Okabe–Ito 色板，绝不纯红对纯绿）；焦点实体用形状/强调。
+  一通道一义，一义一通道。
+- **画布**：默认 1800×1000 px（约 A4 横向 150 dpi）；字号 ≥12 px（校验强制）。
+- **证据链**：把 worksheet 的引文/定位复制进每个元素的 `source`
+  （element → quote → locator 三层证据链，model_schema 钉死
+  `graphical-abstract/1` 版本）。
 
-### Step 3 — Author figure_model.json
-
-Write `/app/work/figure_model.json` following the schema in
-`/skills/weekly-skill/references/model_schema.md` (full worked example: `/skills/weekly-skill/examples/transformer-1706.03762/`).
-Key decisions you make:
-
-- **Panel plan**: usually 4–6 panels in reading order
-  question → method → results (1–2) → conclusion; one finding per panel.
-- **Layout per panel**: `flow` (boxes + arrows for entities/relations),
-  `chart` (bar/hbar/grouped_bar/line for data), `stats` (big-number callouts
-  for 2–4 headline values), `text` (bulleted conclusions).
-- **Visual channels**: length for magnitudes with a common unit and zero
-  baseline; position for time series; colour only for categorical series
-  (Okabe–Ito palette is built in; never pure red-vs-green); shape/emphasis
-  for the focal entity. One channel per meaning, one meaning per channel.
-- **Canvas**: default 1800×1000 px (≈ A4 landscape at 150 dpi). Keep every
-  font ≥ 12 px (checker enforces).
-- Copy quotes/locators from your worksheet into each element's `source`.
-
-### Step 4 — Build and iterate
+## Step 5 — 渲染：单 Scene 三端（脚本）
 
 ```bash
 python /skills/weekly-skill/scripts/build_figure.py --model /app/work/figure_model.json \
   --outdir /app/work/out --sources /app/work/sources.json
 ```
 
-Produces `graphical_abstract.svg` (editable source of truth: named ids,
-`layer-*` groups, provenance `<desc>` on every element), `.png` (300 dpi),
-`.pdf`, `element_map.json`, `export_report.json`. Exit 2 = model invalid
-(fix the JSON), 3 = SVG failure (fix per playbook). Rendering failures of
-PNG/PDF never abort the run — they land in `export_report.json.failures`.
+产物（同模型输入 → 确定性同图）：`graphical_abstract.svg`（可编辑真源：命名 id、
+`layer-*` 组、每元素 provenance `<desc>`）、`.png`（默认 300 dpi；无 matplotlib
+自动降级 Pillow，如实记录）、`.pdf`、`element_map.json`、`export_report.json`。
+退出码 2 = 模型无效（改 JSON）、3 = SVG 失败（按 playbook 修）；PNG/PDF 导出失败
+**不中断**，进 `export_report.json.failures`。
 
-Iterate: if the report shows errors, edit the model (not the SVG) and
-rebuild. The figure is wrong until every error code is cleared.
+**迭代规则**：有错误改 figure_model.json（**绝不手改 SVG**）再重建，直到
+export_report 的 error 清零。
 
-### Step 5 — Verify like a reviewer
+渲染复核（紧随其后）：
 
 ```bash
-python /skills/weekly-skill/scripts/check_figure.py --outdir /app/work/out --sources /app/work/sources.json
+python /skills/weekly-skill/scripts/render_preview.py \
+  --svg /app/work/out/graphical_abstract.svg --outdir /app/work/out
 ```
 
-This re-runs all checks: SVG well-formedness, font floor, canvas bounds,
-element-map completeness, quote-vs-material (catches invented numbers and
-misquotes), grey-scale/contrast, export integrity. Then **look at the PNG
-yourself** (read the rendered preview) and check: reading order obvious?
-entities/arrow directions match the material? legend matches the encoding?
-units on every axis? If a warning cannot be eliminated, record it — do not
-hide it.
+独立光栅化 SVG 复核可渲染性并审计产物包（SVG 良构、text/layer/id 计数、PNG/PDF
+完整性），写 `render_report.json`；环境没有可用光栅化器时如实记 `render_gap`
+（复用构建器自身 PNG 时标 `fallback`，不冒充独立渲染）。
 
-### Step 6 — Assemble the final result.json
+## Step 6 — 独立校验（脚本 + 肉眼）
 
-Write `/app/work/values.json` with your contract-field values
-(`scientific_summary`, `uncertainty`, path lists, `export_checks`...).
-`element_source_map` and `export_checks` are auto-filled from the build.
-Then:
+```bash
+python /skills/weekly-skill/scripts/check_figure.py --outdir /app/work/out \
+  --sources /app/work/sources.json
+```
+
+独立校验器重跑全部检查：SVG 良构性、字号下限、画布越界、element_map 完整性、
+**引文-材料逐字核对（抓编造数字与改写引文）**、灰度/对比度、导出完整性 →
+`issues.json`。退出码 0 才通过。然后**亲自打开 PNG 看**：
+
+- 阅读顺序是否一目了然（面板衔接箭头方向）？
+- 实体/箭头方向与材料陈述一致？
+- 图例与实际编码一致？每个坐标轴有单位？
+- 消除不了的 warning 如实记录进 result.json，**不隐藏**。
+
+## Step 7 — 完成契约输出与复核
+
+1. 写 `/app/work/values.json`：契约字段值（`scientific_summary`、各产物路径、
+   `uncertainty` 等）；`element_source_map` / `export_checks` 由脚本自动注入。
+2. 装配终稿：
 
 ```bash
 python /skills/weekly-skill/scripts/make_result.py --stage final \
@@ -142,47 +152,43 @@ python /skills/weekly-skill/scripts/make_result.py --stage final \
   --map /app/work/out/element_map.json \
   --export /app/work/out/export_report.json \
   --issues /app/work/out/issues.json \
-  --status complete --uncertainty "<one honest sentence>"
+  --status complete --uncertainty "<一句诚实说明>"
 ```
 
-The matcher fills contract fields by exact key, then containment, then
-description keywords; unmatched fields stay explicit `null` with reasons.
-If error-level issues remain, status is auto-downgraded to `partial` — never
-claim `complete` over failing checks. Copy deliverables to `/app/output`:
+匹配规则：字段名精确 → 包含 → 描述关键词；未匹配字段保持显式 `null` + 原因，
+绝不编造。有 error 级 issue 时 status 自动降级 `partial`——**绝不在失败检查上
+标 complete**。
 
-`graphical_abstract.svg` + `figure_model.json` (editable sources),
-`graphical_abstract.png` (preview) + `graphical_abstract.pdf` (export),
-`result.json`.
+3. 校验直到退出码为 0：
 
-### Step 7 — Final self-check
+```bash
+python /skills/weekly-skill/scripts/check_result.py \
+  --result /app/output/result.json --case /input/case.json
+```
 
-- [ ] result.json: `case_id` present; every contract field filled or explicit
-      `null` with reason; status honest (auto-downgrade respected).
-- [ ] SVG opens (well-formed XML), text is real `<text>` (editable), every
-      element has an id, layers named.
-- [ ] PNG and PDF exist and are non-empty; PNG ≥ 300 dpi.
-- [ ] Every on-canvas number appears in a quote inside `element_map.json`.
-- [ ] Legend matches the colour/series encoding exactly.
-- [ ] `uncertainty`/`limits` mention every degraded or unsourced item.
+4. 拷贝交付物到 `/app/output`：`graphical_abstract.svg` + `figure_model.json`
+   （可编辑源）、`graphical_abstract.png`（预览）+ `graphical_abstract.pdf`
+   （导出）、`result.json`。
 
-## When things go wrong
+**完成前自查**：画面上每个数字都出现在 element_map 的一条引文里？图例与
+编码一致？未答字段全部 null+原因？SVG 打开是良构 XML、文字是真 `<text>`？
+`uncertainty` 提到每个降级/无源项？
 
-All failure modes, their signatures and remedies (material missing key
-numbers, entity ambiguity, text overflow, font substitution, canvas
-overflow, export failures, no matplotlib...) are in
-`/skills/weekly-skill/references/exception_playbook.md` — consult it on any red output. The
-one rule that overrides everything: **record honestly, never fabricate.**
-A `partial` result with documented limits scores better than a pretty
-figure with invented evidence.
+## 异常与红线
 
-## References
+所有失败模式（材料缺关键数字、实体歧义、文字溢出、字体替换、画布越界、导出失败、
+无 matplotlib…）的签名与处置见
+/skills/weekly-skill/references/exception_playbook.md。
+一条压倒一切的规则：**如实记录，绝不编造**。带 documented limits 的 `partial`
+结果好过带虚构证据的漂亮图。
 
-- `/skills/weekly-skill/references/model_schema.md` — figure_model.json field-by-field with
-  defaults and constraints.
-- `/skills/weekly-skill/references/exception_playbook.md` — failure signatures → remedies.
-- `/skills/weekly-skill/references/design_notes.md` — visual-encoding rules, colour-blind
-  safety, layout conventions used by the builder.
-- `/skills/weekly-skill/templates/agent_worksheet.md` — Step 2 extraction worksheet.
-- `/skills/weekly-skill/templates/figure_model.template.json` — minimal starting model.
-- `/skills/weekly-skill/examples/transformer-1706.03762/` — real-paper worked example
-  (arXiv:1706.03762, verbatim quotes + sha256).
+## 参考文件
+
+- /skills/weekly-skill/references/model_schema.md — figure_model.json 逐字段规范
+- /skills/weekly-skill/references/output-schema.md — 契约形状 / 默认契约 / result.json 模式
+- /skills/weekly-skill/references/exception_playbook.md — 失败签名 → 处置
+- /skills/weekly-skill/references/design_notes.md — 编码/色盲安全/排版约定
+- /skills/weekly-skill/templates/agent_worksheet.md — Step 3 提取工作表
+- /skills/weekly-skill/templates/figure_model.template.json — 最小起步模型
+- /skills/weekly-skill/examples/transformer-1706.03762/ — 真实论文完整示例
+  （arXiv:1706.03762，逐字引文 + sha256）
