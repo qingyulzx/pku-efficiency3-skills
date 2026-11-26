@@ -1,24 +1,23 @@
 # PKU 学术效率第三期 · 科研绘图与学术PPT Skill 集
 
-北大接招·学术效率赛道第三期参赛作品集合。9 个可被 Agent 调用的 Skill，覆盖科研绘图（figures）与学术演示（slides）两大场景。
+九个 Skill，每段承载一段「科研人员做这类事时的真实经验」：PI 画投稿摘要图的工序、审稿人读机制图的眼光、期刊制图人的规范、生物学者读通路的纪律、实验记录者的诚实标注、老手按听众定汇报内容的取舍——把这些隐性规程编码成 Agent 可执行的判据与校验，让评测 Agent 在相同案例上做到基础 Agent 做不到的事（且可现场验证：篡改图中数值会被回读校验抓住、编造引文会被一致性检查点名、未动页字节级不变）。
 
 > 平台：The Playground (play.bohrium.com) · 赛期 2026-11-20 → 2026-11-27
-> 每个 Skill 在组织方固定的 3 个科研案例上由评测 Agent 实际运行评分。
+> 每个 Skill 在组织方固定的 3 个科研案例上由评测 Agent 实际运行评分（对照基础 Agent）。
 
-## 作品目录
+## 作品目录（Skill = 人类经验 → 可验证增益）
 
-| 目录 | 题目 | 一句话说明 |
-|---|---|---|
-| [graphical-abstract](./graphical-abstract/) | Graphical Abstract（图形摘要） | 把研究问题→方法→结果→结论压缩成单页可编辑图形摘要 |
-| [relationship-schematic](./relationship-schematic/) | 科研示意图生成与编辑 | 实体-关系语义层驱动的示意图生成，抑制/激活方向不画错 |
-| [data-chart](./data-chart/) | 科研数据图表生成与编辑 | 源数据→图元显式映射 + 数值回读校验的图表管线 |
-| [bio-pathway](./bio-pathway/) | 生物机制图与通路图 | 实体/相互作用/分区三层建模的生物通路图 |
-| [apparatus-roadmap](./apparatus-roadmap/) | 实验装置与技术路线图 | 部件-管路-条件标注一致的装置图与技术路线图 |
-| [paper-to-slides](./paper-to-slides/) | 论文转学术 PPT | 主线四要素提取→页级主张→模板装配的全流程 |
-| [presentation-content](./presentation-content/) | 学术汇报内容组织 | 受众×场景驱动的汇报内容取舍决策框架 |
-| [slide-template](./slide-template/) | 学术 PPT 模板与格式适配 | 模板结构分析 + 版式映射 + 批量一致性检查 |
-| [slides-genedit](./slides-genedit/) | 学术 PPT 生成与编辑 | 从研究材料生成演示文件并支持源保留编辑 |
-
+| 目录 | 题目 | 承载的人类经验 | 基础 Agent 失败 → Skill 表现 |
+|---|---|---|---|
+| [graphical-abstract](./graphical-abstract/) | Graphical Abstract | PI 的面板工序与图例纪律 | 实体张冠李戴 → 每元素逐字引文可核 |
+| [relationship-schematic](./relationship-schematic/) | 科研示意图 | 审稿人的箭头语义与方向纪律 | 抑制画成激活 → 箭头几何回读核验 |
+| [data-chart](./data-chart/) | 科研数据图表 | 期刊制图规范（Nature/IEEE/PLOS） | 柱高与源数据不符 → 数值篡改被抓 |
+| [bio-pathway](./bio-pathway/) | 生物机制图 | 基因/蛋白命名与绝不猜方向 | 方向乱画 → 无线索即拒绝 |
+| [apparatus-roadmap](./apparatus-roadmap/) | 实验装置图 | 规格未给如实标注的诚实 | 编造条件 → 编造引文硬失败 |
+| [paper-to-slides](./paper-to-slides/) | 论文转学术 PPT | 主线四要素→一页一主张 | 段落复制 → claim+evidence+讲稿 |
+| [presentation-content](./presentation-content/) | 汇报内容组织 | 按听众定内容的取舍规程 | 论文压缩 → 砍页决策留痕 |
+| [slide-template](./slide-template/) | 模板与格式适配 | 设计师守模板的规矩 | 硬编码破坏模板 → 零硬写入+全册扫描 |
+| [slides-genedit](./slides-genedit/) | PPT 生成与编辑 | 外科手术式修改手法 | 整deck重排 → 未动页字节级不变 |
 （每个目录含 SKILL.md、脚本资源、使用说明与真实案例演示。）
 
 
