@@ -20,6 +20,10 @@
 | [slides-genedit](./slides-genedit/) | PPT 生成与编辑 | 外科手术式修改手法 | 整deck重排 → 未动页字节级不变 |
 （每个目录含 SKILL.md、脚本资源、使用说明与真实案例演示。）
 
+**精选案例研究**（评审可直接打开）：
+- [presentation-content/CASE-STUDY.md](./presentation-content/CASE-STUDY.md) — 一场组会汇报的内容是怎么被决定的（人类取舍规程 → cut_log 留痕 → 逐条可抽查）
+- [data-chart/CASE-STUDY.md](./data-chart/CASE-STUDY.md) — 一张能进论文的图差在哪（期刊规范 + 数值回读校验 → 现场篡改检测演示）
+
 
 ## 成绩（2026-11-25，各题最佳提交分）
 
